@@ -1,0 +1,20 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="56" height="40" viewBox="0 0 56 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Shadow" clip-path="url(#clip0_0_3132)">
+<g id="Ellipse 1" filter="url(#filter0_f_0_3132)">
+<ellipse cx="24" cy="14" rx="24" ry="14" transform="matrix(0.963101 -0.269141 -0.269141 -0.963101 18.3828 50.1807)" fill="white"/>
+<ellipse cx="24" cy="14" rx="24" ry="14" transform="matrix(0.963101 -0.269141 -0.269141 -0.963101 18.3828 50.1807)" fill="#5E5E5E"/>
+</g>
+<g id="User preference">
+</g>
+</g>
+<defs>
+<filter id="filter0_f_0_3132" x="-25.6938" y="-24.7164" width="126.846" height="109.909" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+<feGaussianBlur stdDeviation="20" result="effect1_foregroundBlur_0_3132"/>
+</filter>
+<clipPath id="clip0_0_3132">
+<rect width="56" height="40" fill="white"/>
+</clipPath>
+</defs>
+</svg>

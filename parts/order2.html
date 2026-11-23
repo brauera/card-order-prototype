@@ -1,0 +1,600 @@
+<style>
+/* ===== order2: shared fragments (o2-) ===== */
+.o2-iconbtn{position:absolute;display:flex;align-items:center;justify-content:center;cursor:pointer}
+.o2-iconbtn img{width:24px;height:24px}
+.o2-btn{display:flex;align-items:center;justify-content:center;width:100%;height:56px;border-radius:10px;background:#ec3342;color:#fff;
+  font:500 16px/20px var(--font);letter-spacing:-.1px;text-align:center;cursor:pointer;padding:4px 16px}
+.o2-btn--ghost{background:none;color:#ec3342;line-height:24px;letter-spacing:0}
+.o2-logos{display:flex;align-items:center;justify-content:center;gap:12px;height:24px;width:375px}
+.o2-logos .o2-logos__bir{width:39.8px;height:19.866px;margin-bottom:.665px}
+.o2-logos .o2-logos__sep{width:2px;height:18px}
+.o2-logos .o2-logos__sima{width:39.843px;height:12px;object-fit:cover}
+/* BirDS press feedback (Button (Regular) / Button (Icon), "Animation and interaction"): on press the background
+   takes the press token and the content scales to .95 in 100 ms while the background layer keeps the full bounds.
+   ::before is that background layer; it counter-scales (1/.95) so only the content shrinks. */
+.o2-btn,button.o2-iconbtn{isolation:isolate;transition:transform .1s ease-out}
+.o2-btn{position:relative}
+.o2-btn::before,button.o2-iconbtn::before{content:"";position:absolute;inset:0;z-index:-1;border-radius:inherit;pointer-events:none;
+  transition:transform .1s ease-out,background-color .1s ease-out}
+button.o2-iconbtn::before{border-radius:256px}
+.o2-btn:active,button.o2-iconbtn:active{transform:scale(.95)}
+.o2-btn:active::before{background:#d12432;transform:scale(1.0526)}           /* UI_Element_Brand_pressed */
+.o2-btn--ghost:active::before,button.o2-iconbtn:active::before{background:#e9e7e7;transform:scale(1.0526)} /* UI_Element_Base_pressed */
+/* Loader (4 stages, Smart animate 300 ms ease-out each, clockwise ~100° per stage) */
+.o2-spin{position:relative;width:24px;height:24px;animation:o2spin 1.2s ease-out infinite}
+.o2-spin img{position:absolute}
+.o2-spin .o2-spin__ring{inset:0;width:24px;height:24px}
+.o2-spin .o2-spin__head{top:0;left:50%;width:3.372px;height:3.372px;transform:translateX(-50%) scaleX(-1)}
+@keyframes o2spin{0%{transform:rotate(0)}25%{transform:rotate(100deg)}50%{transform:rotate(195deg)}75%{transform:rotate(300deg)}100%{transform:rotate(360deg)}}
+
+/* ===== kyc-intro ===== */
+.scr--kyc-intro{background:#f1f1f4}
+.scr--kyc-intro .ki-back{left:16px;top:48px;width:40px;height:40px}
+.scr--kyc-intro .o2-logos{position:absolute;left:0;top:56px}
+.scr--kyc-intro .ki-zero{position:absolute;left:0;top:calc(50% - 48px);transform:translateY(-50%);width:375px;padding:0 16px;
+  display:flex;flex-direction:column;align-items:center;gap:16px;text-align:center}
+.scr--kyc-intro .ki-icon{position:relative;width:56px;height:56px;border-radius:16px;background:#fff;overflow:hidden}
+.scr--kyc-intro .ki-icon img{position:absolute;left:10px;top:10px;width:36px;height:36px}
+.scr--kyc-intro .ki-texts{display:flex;flex-direction:column;gap:8px;width:100%;letter-spacing:-.1px}
+.scr--kyc-intro .ki-title{margin:0;font:700 28px/32px var(--font);letter-spacing:-.1px;color:rgba(0,0,0,.9)}
+.scr--kyc-intro .ki-text{margin:0;font:400 16px/24px var(--font);letter-spacing:-.1px;color:#25282b}
+.scr--kyc-intro .ki-bottom{position:absolute;left:0;bottom:0;width:375px;padding-top:12px;display:flex;flex-direction:column;align-items:center;gap:8px}
+.scr--kyc-intro .ki-bottom::before{content:"";position:absolute;left:0;right:0;bottom:0;top:-25%;pointer-events:none;
+  background:linear-gradient(to top,#fff 50%,rgba(255,255,255,.99) 53.3%,rgba(255,255,255,.96) 56.6%,rgba(255,255,255,.92) 59.9%,rgba(255,255,255,.85) 63.2%,rgba(255,255,255,.77) 66.5%,rgba(255,255,255,.67) 69.8%,rgba(255,255,255,.56) 73%,rgba(255,255,255,.44) 76.3%,rgba(255,255,255,.33) 79.6%,rgba(255,255,255,.23) 82.9%,rgba(255,255,255,.15) 86.2%,rgba(255,255,255,.08) 89.5%,rgba(255,255,255,.04) 92.8%,rgba(255,255,255,0) 99.4%)}
+.scr--kyc-intro .ki-actions{position:relative;width:100%;padding:0 16px;display:flex;flex-direction:column;align-items:center;gap:12px}
+.scr--kyc-intro .ki-consent{display:flex;align-items:center;gap:12px;width:375px;padding:0 16px;cursor:pointer;text-align:left}
+/* Checkbox (BirDS): Pressed state + 150 ms transitions; selecting grows the brand "Color" circle (0 → 34 px) inside the box */
+.scr--kyc-intro .ki-check{position:relative;flex:none;width:24px;height:24px;border-radius:4px;background:#eeeff1;overflow:hidden;display:flex;align-items:center;justify-content:center;transition:background-color .15s}
+.scr--kyc-intro .ki-check::before{content:"";position:absolute;left:50%;top:50%;width:34px;height:34px;margin:-17px 0 0 -17px;border-radius:50%;background:#ec3342;
+  transform:scale(0);transition:transform .15s ease-out,background-color .15s}
+.scr--kyc-intro .ki-check img{position:relative;width:16px;height:16px;opacity:0;filter:brightness(0) invert(1);transition:opacity .15s}
+.scr--kyc-intro .ki-consent:active .ki-check{background:#bbbfc3}
+.scr--kyc-intro.is-agreed .ki-check{background:#fff}
+.scr--kyc-intro.is-agreed .ki-check::before{transform:scale(1)}
+.scr--kyc-intro.is-agreed .ki-consent:active .ki-check::before{background:#d42534}
+.scr--kyc-intro.is-agreed .ki-check img{opacity:1}
+.scr--kyc-intro .ki-consent__text{flex:1;min-height:48px;padding:12px 0;font:400 16px/20px var(--font);letter-spacing:-.1px;color:#212426}
+.scr--kyc-intro .ki-consent__text b{font-weight:400;color:#269add}
+/* Button: Default #ec3342; Pressed and Loading use the press token (Figma frame shows the Pressed+Loading snapshot) */
+.scr--kyc-intro .ki-btn{position:relative}
+.scr--kyc-intro .ki-btn .o2-spin{display:none;position:absolute;left:calc(50% + .5px);top:50%;margin:-12px 0 0 -12px}
+.scr--kyc-intro.is-loading .ki-btn{pointer-events:none}
+.scr--kyc-intro.is-loading .ki-btn::before{background:#d12432}
+.scr--kyc-intro.is-loading .ki-btn .ki-btn__label{visibility:hidden}
+.scr--kyc-intro.is-loading .ki-btn .o2-spin{display:block}
+.scr--kyc-intro .ki-sys{position:relative;height:32px;width:375px}
+
+/* ===== kyc-tips (sheet) ===== */
+.sheet--kyc-tips{background:#f1f1f4;border-radius:24px 24px 0 0;overflow:hidden;display:flex;flex-direction:column}
+.sheet--kyc-tips .kt-grab{height:24px;display:flex;align-items:flex-end;justify-content:center;padding-bottom:8px}
+.sheet--kyc-tips .kt-grab i{width:32px;height:4px;border-radius:256px;background:#eeeff1;transition:width .15s ease-out,background-color .15s}
+/* Bottom sheet / Internal / Dragbar: Pressed=Yes → 64 px, UI_Element_Base_pressed */
+.sheet--kyc-tips .kt-grab:active i{width:64px;background:#bbbfc3}
+.sheet--kyc-tips .kt-body{display:flex;flex-direction:column;gap:12px}
+.sheet--kyc-tips .kt-list{display:flex;flex-direction:column;gap:8px}
+.sheet--kyc-tips .kt-row{display:flex;align-items:flex-start;gap:12px;padding:0 16px}
+.sheet--kyc-tips .kt-row__ic{flex:none;height:64px;display:flex;align-items:center}
+.sheet--kyc-tips .kt-box{position:relative;width:44px;height:44px;border-radius:12px;background:#fff;overflow:hidden}
+.sheet--kyc-tips .kt-box img{position:absolute}
+.sheet--kyc-tips .kt-box .kt-sun{left:9px;top:9px;width:26px;height:26px}
+.sheet--kyc-tips .kt-box .kt-glasses{left:10px;top:10px;width:24px;height:24px}
+.sheet--kyc-tips .kt-row__text{flex:1;min-height:64px;padding:8px 0;display:flex;flex-direction:column;justify-content:center}
+.sheet--kyc-tips .kt-row__text p{margin:0;padding:2px 0;font:400 16px/20px var(--font);letter-spacing:-.1px;color:#212426}
+.sheet--kyc-tips .kt-row__text p.kt-nowrap{white-space:nowrap}
+.sheet--kyc-tips .kt-bottom{position:relative;padding-top:12px;display:flex;flex-direction:column;align-items:center;gap:8px}
+.sheet--kyc-tips .kt-bottom::before{content:"";position:absolute;left:0;right:0;bottom:0;top:-25%;pointer-events:none;
+  background:linear-gradient(to top,#fff 50%,rgba(255,255,255,.96) 56.6%,rgba(255,255,255,.85) 63.2%,rgba(255,255,255,.67) 69.8%,rgba(255,255,255,.44) 76.3%,rgba(255,255,255,.23) 82.9%,rgba(255,255,255,.08) 89.5%,rgba(255,255,255,0) 99.4%)}
+.sheet--kyc-tips .kt-actions{position:relative;width:100%;padding:0 16px}
+.sheet--kyc-tips .kt-sys{position:relative;height:32px;width:100%}
+
+/* ===== kyc-ready ===== */
+.scr--kyc-ready{background:#f1f1f4}
+.scr--kyc-ready .kr-back{left:16px;top:48px;width:40px;height:40px}
+.scr--kyc-ready .kr-main{position:absolute;left:16px;top:106px;width:343px;display:flex;flex-direction:column;align-items:center;gap:32px}
+.scr--kyc-ready .kr-title{margin:0;width:100%;text-align:center;font:700 24px/28px var(--font);letter-spacing:-.1px;color:rgba(0,0,0,.9)}
+.scr--kyc-ready .kr-face{position:relative;width:210px;height:310px}
+.scr--kyc-ready .kr-face > img{width:210px;height:310px}
+.scr--kyc-ready .kr-ring{position:absolute;left:-6px;top:-6px;width:222px;height:322px;overflow:visible;display:none}
+.scr--kyc-ready .kr-ring path{fill:none;stroke-width:4;stroke-linecap:round}
+.scr--kyc-ready .kr-ring .kr-ring__track{stroke:rgba(236,51,66,.15)}
+.scr--kyc-ready .kr-ring .kr-ring__bar{stroke:#ec3342;stroke-dasharray:100;stroke-dashoffset:100}
+.scr--kyc-ready.is-recording .kr-ring{display:block}
+.scr--kyc-ready.is-recording .kr-ring .kr-ring__bar{animation:krRing 4s linear forwards}
+@keyframes krRing{to{stroke-dashoffset:0}}
+.scr--kyc-ready .kr-help{width:311px;height:104px;display:flex;flex-direction:column;gap:20px}
+.scr--kyc-ready .kr-help p{margin:0;text-align:center;font:400 16px/24px var(--font);letter-spacing:-.1px;color:rgba(0,0,0,.9)}
+/* Button State=Disabled = 50 % opacity, not pressable until the camera is ready */
+.scr--kyc-ready .kr-btn{opacity:.5;pointer-events:none;transition:opacity .2s,transform .1s ease-out}
+.scr--kyc-ready.is-ready .kr-btn,.scr--kyc-ready.is-recording .kr-btn{opacity:1;pointer-events:auto}
+.scr--kyc-ready .o2-logos{position:absolute;left:0;bottom:52px}
+
+/* ===== sima ===== */
+.scr--sima{background:#f7f6f6}
+.scr--sima .sm-glass{top:52px;width:40px;height:40px;border-radius:256px;background:#f7f7f7;border:1px solid rgba(0,0,0,.1);box-shadow:0 2px 10px rgba(0,0,0,.06)}
+.scr--sima .sm-back{left:16px}
+.scr--sima .sm-share{right:16px}
+.scr--sima .sm-head{position:absolute;left:0;top:100px;width:375px;padding:0 16px}
+.scr--sima .sm-title{margin:0;font:700 28px/32px var(--font);letter-spacing:-.1px;color:rgba(0,0,0,.9)}
+.scr--sima .sm-sub{margin:4px 0 0;font:400 16px/20px var(--font);letter-spacing:-.1px;color:rgba(21,20,20,.5);white-space:nowrap}
+.scr--sima .scr__scroll{top:208px;display:flex;flex-direction:column;align-items:center;gap:12px;padding-bottom:140px}
+.scr--sima .sm-page{flex:none;width:343px;height:485.346px;object-fit:cover;box-shadow:0 4px 10px rgba(0,0,0,.1)}
+.scr--sima .sm-bottom{position:absolute;left:0;bottom:0;width:375px;display:flex;flex-direction:column;align-items:center;gap:12px}
+.scr--sima .sm-actions{position:relative;width:100%;padding:0 16px}
+.scr--sima .sm-fade{position:absolute;left:0;right:0;top:-40px;bottom:-44px;pointer-events:none;background:#f7f6f6;transform:scaleY(-1);
+  -webkit-mask:url(assets/order2/sima-gradient-mask.svg) no-repeat 0 0/375px 100%;mask:url(assets/order2/sima-gradient-mask.svg) no-repeat 0 0/375px 100%}
+.scr--sima .sm-btn{position:relative}
+.scr--sima .sm-sys{height:32px;width:100%}
+
+/* ===== card-page (+ __delivery, __branch) ===== */
+.scr--card-page{background:#f1f1f4}
+.scr--card-page .cp-bg{position:absolute;left:0;top:0;width:375px;height:480px;opacity:.3;pointer-events:none;
+  background:radial-gradient(375px 480px at 187.5px 0,rgba(243,196,199,1),rgba(243,196,199,0))}
+.scr--card-page .cp-content{position:relative;padding-bottom:32px}
+.scr--card-page .cp-nav{position:relative;height:96px}
+.scr--card-page .cp-topbar{position:absolute;left:0;top:44px;width:375px;height:52px}
+.scr--card-page .cp-topbar__title{position:absolute;inset:14px 52px;display:flex;align-items:center;justify-content:center;font:500 16px/24px var(--font);color:#25282b;text-align:center}
+.scr--card-page .cp-ib{top:2px;width:40px;height:48px}
+.scr--card-page button.cp-ib::before{inset:4px 0}
+.scr--card-page .cp-back{left:8px}
+.scr--card-page .cp-eye{left:48px;padding-left:12px;cursor:default}
+.scr--card-page .cp-share{right:8px}
+.scr--card-page .cp-main{display:flex;flex-direction:column;gap:32px;padding:8px 0}
+.scr--card-page .cp-hero{position:relative;width:375px;height:128px}
+.scr--card-page .cp-card{position:absolute}
+.scr--card-page .cp-card__shadow{position:absolute;max-width:none}
+.scr--card-page .cp-card__el{position:absolute;inset:0;overflow:hidden}
+.scr--card-page .cp-card__skin{position:absolute;inset:0;width:100%;height:100%;object-fit:fill}
+.scr--card-page .cp-card__ps{position:absolute;width:24px;height:24px}
+.scr--card-page .cp-card__txt{position:absolute;font:400 12px/16px var(--font);color:#fff;white-space:nowrap}
+.scr--card-page .cp-card__dot{position:absolute;width:16px;height:16px}
+.scr--card-page .cp-card__lens{position:absolute;inset:0;mix-blend-mode:soft-light;opacity:.2;pointer-events:none;
+  background:linear-gradient(160deg,#fff 0%,rgba(255,255,255,0) 45%),linear-gradient(20deg,rgba(255,255,255,0) 55%,#fff 100%)}
+/* carousel card (main) */
+.scr--card-page .cp-card--main{left:calc(50% - .5px);top:20px;width:128px;height:80px;transform:translateX(-50%)}
+.scr--card-page .cp-card--main .cp-card__shadow{left:-12.805px;top:44.8px;width:153.6px;height:64.914px}
+.scr--card-page .cp-card--main .cp-card__el{border-radius:8px}
+.scr--card-page .cp-card--main .cp-card__ps{left:9px;top:2px;filter:drop-shadow(0 1px 1.5px rgba(0,0,0,.4))}
+.scr--card-page .cp-card--main .cp-card__details{left:10px;top:56px;text-shadow:0 0 10px rgba(0,0,0,.7)}
+.scr--card-page .cp-card--main .cp-card__num{right:8px;bottom:8px;filter:drop-shadow(0 1px 1.5px rgba(0,0,0,.4))}
+.scr--card-page .cp-card--main .cp-card__dot{right:6px;top:6px}
+/* carousel card (next, peeking) */
+.scr--card-page .cp-card--next{left:315px;top:30px;width:94px;height:60px}
+.scr--card-page .cp-card--next .cp-card__shadow{left:-12.8px;top:24.8px;width:119.6px;height:64.914px}
+.scr--card-page .cp-card--next .cp-card__el{border-radius:7px}
+.scr--card-page .cp-card--next .cp-card__ps{left:5px;top:0}
+.scr--card-page .cp-card--next .cp-card__num{right:6px;bottom:4px;filter:drop-shadow(0 1px 1.5px rgba(0,0,0,.4))}
+.scr--card-page .cp-card--next .cp-card__dot{right:4px;top:4px}
+.scr--card-page .cp-dots{position:absolute;left:calc(50% - .5px);top:110px;transform:translateX(-50%);display:flex}
+.scr--card-page .cp-dots img{width:9px;height:9px;margin-right:-1px}
+.scr--card-page .cp-dots img:last-child{margin-right:0}
+/* single card (delivery / branch) */
+.scr--card-page .cp-card--single{left:calc(50% - .5px);top:20px;width:140px;height:88px;transform:translateX(-50%)}
+.scr--card-page .cp-card--single .cp-card__shadow{left:-14px;top:49px;width:168px;height:71px}
+.scr--card-page .cp-card--single .cp-card__el{border-radius:10px}
+.scr--card-page .cp-card--single .cp-card__ps{left:9px;top:4px;filter:drop-shadow(0 0 4px #52575c)}
+.scr--card-page .cp-card--single .cp-card__txt{font-weight:500}
+.scr--card-page .cp-card--single .cp-card__details{left:10px;top:64px;text-shadow:0 0 8px #52575c,0 0 8px #52575c}
+.scr--card-page .cp-card--single .cp-card__num{right:8px;bottom:8px;text-shadow:0 0 4px #52575c,0 0 4px #52575c}
+.scr--card-page .cp-amount{height:64px;display:flex;align-items:center;justify-content:center;padding:8px 0;color:rgba(0,0,0,.9);white-space:nowrap}
+.scr--card-page .cp-amount__val{font:700 36px/48px var(--font)}
+.scr--card-page .cp-amount__cur{padding:7px 0 0 6px;font:700 28px/36px var(--font);letter-spacing:-.1px}
+.scr--card-page .cp-mid{display:flex;flex-direction:column;gap:24px;padding:0 16px}
+.scr--card-page .cp-actions{display:flex;gap:8px}
+.scr--card-page .cp-act{width:109px;height:80px;padding:4px;border-radius:10px;background:#fff;box-shadow:0 4px 20px rgba(0,0,0,.1);
+  display:flex;flex-direction:column;align-items:center;cursor:pointer}
+.scr--card-page .cp-act__in{flex:1;width:100%;padding-top:8px;display:flex;flex-direction:column;align-items:center;gap:4px}
+.scr--card-page .cp-act img{width:24px;height:24px}
+.scr--card-page .cp-act span{flex:1;display:flex;align-items:center;font:500 12px/16px var(--font);color:rgba(0,0,0,.9);text-align:center}
+/* physical-card offer */
+.scr--card-page .cp-offer{background:#fff;border-radius:10px;padding:8px 0 12px;display:flex;flex-direction:column;align-items:center;gap:8px}
+.scr--card-page.no-offer .cp-offer{display:none}
+.scr--card-page .cp-offer__cell{display:flex;align-items:flex-start;gap:12px;width:100%;padding:0 16px}
+.scr--card-page .cp-offer__img{flex:none;height:64px;display:flex;align-items:center}
+.scr--card-page .cp-offer__img img{width:44px;height:44px;object-fit:cover}
+.scr--card-page .cp-offer__text{flex:1;min-height:64px;padding:8px 0;display:flex;flex-direction:column;justify-content:center}
+.scr--card-page .cp-offer__title{margin:0;padding:2px 0;font:400 16px/20px var(--font);letter-spacing:-.1px;color:rgba(0,0,0,.9)}
+.scr--card-page .cp-offer__desc{margin:0;padding-bottom:2px;font:400 12px/16px var(--font);letter-spacing:-.1px;color:rgba(0,0,0,.5)}
+.scr--card-page .cp-offer__x{flex:none;min-height:64px;padding:8px 0;cursor:pointer}
+.scr--card-page .cp-offer__x img{width:24px;height:24px}
+.scr--card-page .cp-offer__btn{position:relative;isolation:isolate;width:311px;height:48px;border-radius:8px;background:#ec3342;color:#fff;font:500 16px/24px var(--font);
+  display:flex;align-items:center;justify-content:center;text-align:center;cursor:pointer;transition:transform .1s ease-out}
+.scr--card-page .cp-offer__btn::before{content:"";position:absolute;inset:0;z-index:-1;border-radius:inherit;pointer-events:none;transition:transform .1s ease-out,background-color .1s ease-out}
+.scr--card-page .cp-offer__btn:active{transform:scale(.95)}
+.scr--card-page .cp-offer__btn:active::before{background:#d12432;transform:scale(1.0526)}
+/* courier status (delivery / branch) */
+.scr--card-page .cp-status{background:#fff;border-radius:10px;padding:12px;display:flex;gap:8px;align-items:flex-start}
+.scr--card-page .cp-status > img{flex:none;width:24px;height:24px}
+.scr--card-page .cp-status__txt{flex:1;padding-left:4px}
+.scr--card-page .cp-status__title{margin:0;font:600 16px/20px var(--font);letter-spacing:-.1px;color:rgba(0,0,0,.9)}
+.scr--card-page .cp-status__desc{margin:0;padding:2px 0;font:400 14px/20px var(--font);letter-spacing:-.1px;color:rgba(0,0,0,.5)}
+/* transactions */
+.scr--card-page .cp-tx{background:#fff;border-radius:10px;box-shadow:0 4px 20px rgba(0,0,0,.1);padding:16px;display:flex;flex-direction:column;gap:8px}
+.scr--card-page .cp-tx__title{margin:0;font:600 16px/22px var(--font);color:rgba(0,0,0,.9)}
+.scr--card-page .cp-tx__empty{margin:0;padding:8px 0;font:400 16px/24px var(--font);color:rgba(0,0,0,.5)}
+.scr--card-page .cp-tx__div{height:1px;background:rgba(0,0,0,.1)}
+.scr--card-page .cp-tx__more{height:30px;padding-top:8px;display:flex;align-items:center;justify-content:center;font:500 14px/20px var(--font);color:rgba(0,0,0,.5);cursor:pointer}
+/* bottom list */
+.scr--card-page .cp-more{display:flex;flex-direction:column;gap:24px}
+.scr--card-page .cp-sec__h{margin:0;padding:0 16px 8px;font:500 16px/24px var(--font);color:rgba(0,0,0,.5)}
+.scr--card-page .cp-cell{position:relative;isolation:isolate;display:flex;align-items:flex-start;width:375px;padding:0 16px;cursor:pointer;transition:transform .1s ease-out}
+/* Cell press (BirDS Cell "Animation and interaction"): press token behind, content scales to .95, 100 ms.
+   A cell with a switch is static (Feature flag 3) — only the switch reacts. */
+.scr--card-page .cp-cell::before{content:"";position:absolute;top:0;bottom:0;left:16px;right:16px;z-index:-1;border-radius:12px;pointer-events:none;
+  transition:transform .1s ease-out,background-color .1s ease-out}
+.scr--card-page .cp-cell:not(.cp-cell--static):active{transform:scale(.95)}
+.scr--card-page .cp-cell:not(.cp-cell--static):active::before{background:#e9e7e7;transform:scale(1.0526)}
+.scr--card-page .cp-cell--static{cursor:default}
+.scr--card-page .cp-cell--surface{background:#fff}
+.scr--card-page .cp-cell__ic{flex:none;align-self:stretch;padding:10px 12px 10px 0}
+.scr--card-page .cp-cell__box{width:44px;height:44px;border-radius:12px;background:#fff;display:flex;align-items:center;justify-content:center}
+.scr--card-page .cp-cell--surface .cp-cell__box{background:#f1f1f4}
+.scr--card-page .cp-cell__box img{width:24px;height:24px}
+.scr--card-page .cp-cell__lbl{flex:1;min-height:64px;padding:8px 0;display:flex;flex-direction:column;justify-content:center;overflow:hidden}
+.scr--card-page .cp-cell__lbl--2{padding:9px 0 10px;gap:1px}
+.scr--card-page .cp-cell__t{padding:2px 0;font:400 16px/20px var(--font);color:rgba(0,0,0,.9)}
+.scr--card-page .cp-cell__d{min-height:18px;font:400 12px/16px var(--font);color:rgba(0,0,0,.5);white-space:nowrap}
+.scr--card-page .cp-cell__act{flex:none;align-self:stretch;min-height:64px;padding:8px 0 8px 12px;display:flex;align-items:center}
+.scr--card-page .cp-cell__act img{width:24px;height:24px}
+/* Toggle-Switch Item (Figma: State=Inactive). Off #f3f3f5 / on brand, thumb 20 px slides 2 → 16 px in 150 ms;
+   pressed: track takes the press token and the thumb stretches by 4 px (BirDS Switch) */
+.scr--card-page .cp-sw{position:relative;display:block;flex:none;width:38px;height:24px;border-radius:12px;background:#f3f3f5;cursor:pointer;transition:background-color .15s}
+.scr--card-page .cp-sw::after{content:"";position:absolute;left:2px;top:2px;width:20px;height:20px;border-radius:10px;background:#fff;box-shadow:0 3px 8px rgba(0,0,0,.15);
+  transition:left .15s ease-out,width .15s ease-out,box-shadow .15s}
+.scr--card-page .cp-sw:active{background:#e9e7e7}
+.scr--card-page .cp-sw:active::after{width:24px}
+.scr--card-page.is-main-card .cp-sw{background:#ec3342}
+.scr--card-page.is-main-card .cp-sw::after{left:16px;box-shadow:none}
+.scr--card-page.is-main-card .cp-sw:active{background:#d12432}
+.scr--card-page.is-main-card .cp-sw:active::after{left:12px}
+/* toast */
+/* Notifications banner / Toast (BirDS "Animation and interaction"): the banner slides down in 150 ms, the gradient
+   does not slide — it fades in linearly over the same 150 ms. Starts once the page push (380 ms) has landed.
+   Closing reverses it (fill-mode backwards only, so the .no-toast transition can run afterwards). */
+.scr--card-page .cp-toast{position:absolute;left:0;top:0;width:375px;padding:56px 20px 32px;z-index:5;
+  background:linear-gradient(180deg,rgba(42,199,105,.2) 0%,rgba(42,199,105,.193) 13.3%,rgba(42,199,105,.171) 26.7%,rgba(42,199,105,.134) 40%,rgba(42,199,105,.089) 53.3%,rgba(42,199,105,.046) 66.7%,rgba(42,199,105,.016) 80%,rgba(42,199,105,.002) 93.3%,rgba(42,199,105,0) 100%);
+  animation:cpToastFade .15s linear .4s backwards;transition:opacity .15s linear,visibility 0s}
+.scr--card-page.no-toast .cp-toast{opacity:0;visibility:hidden;pointer-events:none;transition:opacity .15s linear,visibility 0s .15s}
+.scr--card-page .cp-toast__card{display:flex;align-items:flex-start;gap:12px;padding:8px;border-radius:12px;background:#fff;box-shadow:0 8px 24px rgba(8,73,42,.05);
+  animation:cpToastIn .15s ease-out .4s backwards;transition:transform .15s ease-in}
+.scr--card-page.no-toast .cp-toast__card{transform:translateY(-120px)}
+@keyframes cpToastFade{from{opacity:0}}
+@keyframes cpToastIn{from{transform:translateY(-120px)}}
+.scr--card-page .cp-toast__ok{position:relative;flex:none;width:32px;height:32px;border-radius:8.667px;background:#20b649;overflow:hidden}
+.scr--card-page .cp-toast__ok img{position:absolute;inset:4px;width:24px;height:24px}
+.scr--card-page .cp-toast__msg{flex:1;margin:0;padding:3px 0 5px;font:500 16px/24px var(--font);color:rgba(0,0,0,.9)}
+.scr--card-page .cp-toast__x{flex:none;padding:4px;cursor:pointer}
+.scr--card-page .cp-toast__x img{width:24px;height:24px}
+
+/* ===== physical-paid ===== */
+.scr--physical-paid{background:#f1f1f4}
+.scr--physical-paid .pp-back{left:8px;top:46px;width:40px;height:48px}
+.scr--physical-paid button.pp-back::before{inset:4px 0}
+.scr--physical-paid .pp-zero{position:absolute;left:0;top:calc(50% - 40.5px);transform:translateY(-50%);width:375px;padding:12px 0;
+  display:flex;flex-direction:column;align-items:center;gap:24px}
+.scr--physical-paid .pp-top{width:100%;padding:0 16px;display:flex;flex-direction:column;align-items:center;gap:16px;text-align:center;color:rgba(0,0,0,.9)}
+.scr--physical-paid .pp-icon{width:64px;height:64px;border-radius:16.364px;background:#fff;display:flex;align-items:center;justify-content:center}
+.scr--physical-paid .pp-icon img{width:32.727px;height:32.727px}
+.scr--physical-paid .pp-texts{display:flex;flex-direction:column;gap:8px}
+.scr--physical-paid .pp-title{margin:0;font:700 28px/35px var(--font)}
+.scr--physical-paid .pp-text{margin:0;font:500 16px/24px var(--font)}
+.scr--physical-paid .pp-link{width:100%;padding:0 16px}
+.scr--physical-paid .pp-bottom{position:absolute;left:0;top:716px;width:375px;padding:0 16px}
+.scr--physical-paid .o2-btn{line-height:24px;letter-spacing:0}
+
+/* ===== order-accepted ===== */
+.scr--order-accepted{background:#f1f1f4}
+.scr--order-accepted .oa-main{position:absolute;left:0;top:120px;width:375px;display:flex;flex-direction:column;align-items:center;gap:24px}
+.scr--order-accepted .oa-hero{position:relative;width:80px;height:80px;background:#e5a04c;
+  -webkit-mask:url(assets/order2/hero-waiting-mask.svg) no-repeat 0 0/80px 80px;mask:url(assets/order2/hero-waiting-mask.svg) no-repeat 0 0/80px 80px}
+.scr--order-accepted .oa-hero img{position:absolute;left:16px;top:16px;width:48px;height:48px}
+.scr--order-accepted .oa-title{margin:0;font:500 20px/24px var(--font);color:rgba(0,0,0,.9);white-space:nowrap}
+.scr--order-accepted .oa-text{margin:0;width:343px;padding:0 16px;text-align:center;font:400 16px/24px var(--font);color:rgba(0,0,0,.9)}
+.scr--order-accepted .oa-bottom{position:absolute;left:0;top:716px;width:375px;padding:0 16px}
+.scr--order-accepted .o2-btn{line-height:24px;letter-spacing:0}
+
+/* ===== digital-info (sheet) ===== */
+.sheet--digital-info{background:#fff;border-radius:16px 16px 0 0}
+.sheet--digital-info .di-grab{display:block;width:375px;height:16px;margin-bottom:8px}
+.sheet--digital-info .di-body{display:flex;flex-direction:column;align-items:center;gap:24px}
+.sheet--digital-info .slide{display:none}
+.sheet--digital-info[data-slide="1"] .slide-1,.sheet--digital-info[data-slide="2"] .slide-2,
+.sheet--digital-info[data-slide="3"] .slide-3,.sheet--digital-info[data-slide="4"] .slide-4{display:flex}
+.sheet--digital-info .di-slide{flex-direction:column;align-items:center;gap:16px}
+.sheet--digital-info .di-img{width:271.5px;height:267.258px;object-fit:cover}
+.sheet--digital-info .di-texts{padding:0 16px;display:flex;flex-direction:column;align-items:center;gap:12px;text-align:center;color:rgba(0,0,0,.9)}
+.sheet--digital-info .di-title{height:75px;margin:0;display:flex;flex-direction:column;justify-content:flex-end;font:700 28px/36px var(--font);letter-spacing:-.1px}
+.sheet--digital-info .di-text{width:343px;height:74px;margin:0;font:400 16px/24px var(--font);letter-spacing:1px}
+.sheet--digital-info .di-dots{display:flex;height:9px}
+.sheet--digital-info .di-dots i{width:9px;height:9px;background:url(assets/order2/sheet-dot-off.svg) no-repeat 0 0/9px 9px}
+.sheet--digital-info[data-slide="1"] .di-dots i:nth-child(1),.sheet--digital-info[data-slide="2"] .di-dots i:nth-child(2),
+.sheet--digital-info[data-slide="3"] .di-dots i:nth-child(3),.sheet--digital-info[data-slide="4"] .di-dots i:nth-child(4){background-image:url(assets/order2/sheet-dot-on.svg)}
+.sheet--digital-info .di-btns{margin-top:16px;padding:0 16px}
+.sheet--digital-info .di-btns .o2-btn{line-height:24px;letter-spacing:0}
+.sheet--digital-info .di-sys{height:40px}
+</style>
+
+<template data-screen="kyc-intro" data-kind="page" data-title="KYC — онбординг">
+  <div class="scr scr--kyc-intro">
+    <button type="button" class="o2-iconbtn ki-back" data-action="back" aria-label="Back"><img src="assets/order2/ic-back.svg" alt=""></button>
+    <div class="o2-logos"><img class="o2-logos__bir" src="assets/order2/logo-bir.svg" alt="bir"><img class="o2-logos__sep" src="assets/order2/logo-divider.svg" alt=""><img class="o2-logos__sima" src="assets/order2/logo-sima.png" alt="SIMA"></div>
+    <div class="ki-zero">
+      <div class="ki-icon"><img src="assets/order2/ic-camera.svg" alt=""></div>
+      <div class="ki-texts">
+        <p class="ki-title">Kimliyinizi təsdiqləyin</p>
+        <p class="ki-text">We need to ensure it's you to keep your account secure.</p>
+      </div>
+    </div>
+    <div class="ki-bottom">
+      <div class="ki-actions">
+        <button type="button" class="ki-consent" data-toggle="is-agreed">
+          <span class="ki-check"><img src="assets/order2/ic-check.svg" alt=""></span>
+          <span class="ki-consent__text">Fərdi məlumatlarımın toplanmasına, işlənilməsinə, eləcə də foto ilə təsdiqləmənin keçirilməsinə dair <b>razılığımı</b> bildirirəm</span>
+        </button>
+        <button type="button" class="o2-btn ki-btn" data-action="kyc-start"><span class="ki-btn__label">Davam et</span><span class="o2-spin" aria-hidden="true"><img class="o2-spin__ring" src="assets/order2/loader-ring.png" alt=""><img class="o2-spin__head" src="assets/order2/loader-head.svg" alt=""></span></button>
+      </div>
+      <div class="ki-sys"></div>
+    </div>
+  </div>
+</template>
+
+<template data-screen="kyc-tips" data-kind="sheet" data-title="KYC — советы перед селфи">
+  <div class="sheet sheet--kyc-tips">
+    <div class="kt-grab"><i></i></div>
+    <div class="kt-body">
+      <div class="kt-list">
+        <div class="kt-row">
+          <div class="kt-row__ic"><div class="kt-box"><img class="kt-sun" src="assets/order2/ic-sun.svg" alt=""></div></div>
+          <div class="kt-row__text"><p class="kt-nowrap">Üzünüzün aydın göründüyünə əmin olun</p></div>
+        </div>
+        <div class="kt-row">
+          <div class="kt-row__ic"><div class="kt-box"><img class="kt-glasses" src="assets/order2/ic-no-glasses.svg" alt=""></div></div>
+          <div class="kt-row__text"><p>Üzünüzü örtən hər şeyi çıxarın — baş geyimini, eynəyi, maskanı və ya digər aksesuarları</p></div>
+        </div>
+      </div>
+      <div class="kt-bottom">
+        <div class="kt-actions"><button type="button" class="o2-btn" data-go="kyc-ready">Başla</button></div>
+        <div class="kt-sys"></div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<template data-screen="kyc-ready" data-kind="page" data-title="KYC — запись видео">
+  <div class="scr scr--kyc-ready">
+    <button type="button" class="o2-iconbtn kr-back" data-action="back" aria-label="Back"><img src="assets/order2/ic-back.svg" alt=""></button>
+    <div class="kr-main">
+      <p class="kr-title">10 saniyəlik video çəkin</p>
+      <div class="kr-face">
+        <img src="assets/order2/camera-face.png" alt="">
+        <svg class="kr-ring" viewBox="0 0 222 322" aria-hidden="true">
+          <path class="kr-ring__track" d="M111 3A108 158 0 1 1 111 319A108 158 0 1 1 111 3" pathLength="100"/>
+          <path class="kr-ring__bar" d="M111 3A108 158 0 1 1 111 319A108 158 0 1 1 111 3" pathLength="100"/>
+        </svg>
+      </div>
+      <div class="kr-help">
+        <p>Üzünüzü çərçivəyə yerləşdirin, düyməni basın və çəkiliş zamanı hərəkət etməməyə çalışın</p>
+        <button type="button" class="o2-btn kr-btn" data-action="kyc-record"><span data-slot="cta">Başla</span></button>
+      </div>
+    </div>
+    <div class="o2-logos"><img class="o2-logos__bir" src="assets/order2/logo-bir.svg" alt="bir"><img class="o2-logos__sep" src="assets/order2/logo-divider.svg" alt=""><img class="o2-logos__sima" src="assets/order2/logo-sima.png" alt="SIMA"></div>
+  </div>
+</template>
+
+<template data-screen="sima" data-kind="page" data-title="SIMA — подпись документа">
+  <div class="scr scr--sima">
+    <div class="scr__scroll">
+      <img class="sm-page" src="assets/order2/sima-document.png" alt="">
+      <img class="sm-page" src="assets/order2/sima-document.png" alt="">
+    </div>
+    <button type="button" class="o2-iconbtn sm-glass sm-back" data-action="back" aria-label="Back"><img src="assets/order2/ic-back-glass.svg" alt=""></button>
+    <button type="button" class="o2-iconbtn sm-glass sm-share" data-action="noop" aria-label="Share"><img src="assets/order2/ic-share.svg" alt=""></button>
+    <div class="sm-head">
+      <p class="sm-title">Sənədlə tanış olun və imzalayın</p>
+      <p class="sm-sub">Sənəd artıq <span data-slot="signers">$num$</span> istifadəçi tərəfindən imzalanıb</p>
+    </div>
+    <div class="sm-bottom">
+      <div class="sm-actions">
+        <div class="sm-fade"></div>
+        <button type="button" class="o2-btn sm-btn" data-action="sima-sign">Sənədi imzala</button>
+      </div>
+      <div class="sm-sys"></div>
+    </div>
+  </div>
+</template>
+
+<template data-screen="card-page" data-kind="page" data-title="Карта готова">
+  <div class="scr scr--card-page">
+    <div class="scr__scroll">
+      <div class="cp-bg"></div>
+      <div class="cp-content">
+        <div class="cp-nav"><div class="cp-topbar"><div class="cp-topbar__title">Birbank card</div><button type="button" class="o2-iconbtn cp-ib cp-back" data-action="finish" aria-label="Back"><img src="assets/order2/ic-angle-left.svg" alt=""></button><span class="o2-iconbtn cp-ib cp-eye"><img src="assets/order2/ic-eye.svg" alt=""></span><button type="button" class="o2-iconbtn cp-ib cp-share" data-action="noop" aria-label="Share"><img src="assets/order2/ic-share-square.svg" alt=""></button></div></div>
+        <div class="cp-main">
+          <div class="cp-top">
+            <div class="cp-hero">
+          <div class="cp-card cp-card--single">
+            <img class="cp-card__shadow" src="assets/order2/card-shadow-lg.svg" alt="">
+            <div class="cp-card__el">
+              <img class="cp-card__skin" data-slot="skin" src="assets/skins/cashback.svg" alt="">
+              <img class="cp-card__ps" src="assets/order2/visa.svg" alt="VISA">
+              <span class="cp-card__txt cp-card__details">Details</span>
+              <span class="cp-card__txt cp-card__num">• <span data-slot="last4">4580</span></span>
+              <span class="cp-card__lens"></span>
+            </div>
+          </div>
+        </div>
+            <div class="cp-amount"><span class="cp-amount__val">0</span><span class="cp-amount__cur">₼</span></div>
+          </div>
+          <div class="cp-mid">
+            <div class="cp-actions"><button type="button" class="cp-act" data-action="noop"><span class="cp-act__in"><img src="assets/order2/ic-money.svg" alt=""><span>Переводы</span></span></button><button type="button" class="cp-act" data-action="noop"><span class="cp-act__in"><img src="assets/order2/ic-wallet.svg" alt=""><span>Платежи</span></span></button><button type="button" class="cp-act" data-action="noop"><span class="cp-act__in"><img src="assets/order2/ic-plus.svg" alt=""><span>Пополнить</span></span></button></div>
+            <div class="cp-offer">
+          <div class="cp-offer__cell">
+            <div class="cp-offer__img"><img src="assets/order2/offer-physical-card.png" alt=""></div>
+            <div class="cp-offer__text">
+              <p class="cp-offer__title">Kartın fiziki formasını sifariş etmək istəyirsiniz?</p>
+              <p class="cp-offer__desc">Kartın qeyd etdiyiniz ünvana çatdırılmasını seçə və ya onu bankımızın istənilən filialından götürə bilərsiniz</p>
+            </div>
+            <button type="button" class="cp-offer__x" data-toggle="no-offer" aria-label="Close"><img src="assets/order2/ic-xmark-large.svg" alt=""></button>
+          </div>
+          <button type="button" class="cp-offer__btn" data-action="order-physical">Bəli, sifariş et</button>
+        </div>
+            <div class="cp-tx">
+          <p class="cp-tx__title">Recent payments by card:</p>
+          <p class="cp-tx__empty">You haven't had a payments yet</p>
+          <div class="cp-tx__div"></div>
+          <div class="cp-tx__more" data-action="noop">History of payments</div>
+        </div>
+          </div>
+          <div class="cp-more"><div class="cp-sec"><p class="cp-sec__h">Другое</p><div class="cp-cell" data-action="noop"><div class="cp-cell__ic"><div class="cp-cell__box"><img src="assets/order2/ic-limit.svg" alt=""></div></div><div class="cp-cell__lbl cp-cell__lbl--2"><div class="cp-cell__t">Лимиты по карте</div><div class="cp-cell__d">Осталось 5 000 ₼</div></div><div class="cp-cell__act"><img src="assets/order2/ic-angle-right.svg" alt=""></div></div><div class="cp-cell" data-action="noop"><div class="cp-cell__ic"><div class="cp-cell__box"><img src="assets/order2/ic-key.svg" alt=""></div></div><div class="cp-cell__lbl"><div class="cp-cell__t">Изменить PIN-код</div></div><div class="cp-cell__act"><img src="assets/order2/ic-angle-right.svg" alt=""></div></div><div class="cp-cell" data-action="noop"><div class="cp-cell__ic"><div class="cp-cell__box"><img src="assets/order2/ic-repeat.svg" alt=""></div></div><div class="cp-cell__lbl"><div class="cp-cell__t">Сбросить PIN</div></div><div class="cp-cell__act"><img src="assets/order2/ic-angle-right.svg" alt=""></div></div><div class="cp-cell" data-action="noop"><div class="cp-cell__ic"><div class="cp-cell__box"><img src="assets/order2/ic-shield.svg" alt=""></div></div><div class="cp-cell__lbl cp-cell__lbl--2"><div class="cp-cell__t">3D Secure</div><div class="cp-cell__d">Активен на номере 55 123 45 67</div></div><div class="cp-cell__act"><img src="assets/order2/ic-angle-right.svg" alt=""></div></div><div class="cp-cell" data-action="noop"><div class="cp-cell__ic"><div class="cp-cell__box"><img src="assets/order2/ic-message.svg" alt=""></div></div><div class="cp-cell__lbl cp-cell__lbl--2"><div class="cp-cell__t">SMS-банкинг</div><div class="cp-cell__d">Активен на номере 55 123 45 67</div></div><div class="cp-cell__act"><img src="assets/order2/ic-angle-right.svg" alt=""></div></div><div class="cp-cell" data-action="noop"><div class="cp-cell__ic"><div class="cp-cell__box"><img src="assets/order2/ic-lock.svg" alt=""></div></div><div class="cp-cell__lbl cp-cell__lbl--2"><div class="cp-cell__t">Заблокировать карту</div><div class="cp-cell__d">Защита от мошенничества в случае утери карты</div></div><div class="cp-cell__act"><img src="assets/order2/ic-angle-right.svg" alt=""></div></div></div><div class="cp-sec"><p class="cp-sec__h">Другое</p><div class="cp-cell cp-cell--static" data-action="noop"><div class="cp-cell__ic"><div class="cp-cell__box"><img src="assets/order2/ic-card.svg" alt=""></div></div><div class="cp-cell__lbl"><div class="cp-cell__t">Сделать основной картой</div></div><div class="cp-cell__act"><button type="button" class="cp-sw" data-toggle="is-main-card"></button></div></div><div class="cp-cell" data-action="noop"><div class="cp-cell__ic"><div class="cp-cell__box"><img src="assets/order2/logo-anipay.svg" alt=""></div></div><div class="cp-cell__lbl"><div class="cp-cell__t">Привязать карту к AniPay</div></div><div class="cp-cell__act"><img src="assets/order2/ic-angle-right.svg" alt=""></div></div><div class="cp-cell" data-action="noop"><div class="cp-cell__ic"><div class="cp-cell__box"><img src="assets/order2/logo-gpay.svg" alt=""></div></div><div class="cp-cell__lbl"><div class="cp-cell__t">Google Pay</div></div><div class="cp-cell__act"><img src="assets/order2/ic-angle-right.svg" alt=""></div></div><div class="cp-cell" data-action="noop"><div class="cp-cell__ic"><div class="cp-cell__box"><img src="assets/order2/ic-plus-24.svg" alt=""></div></div><div class="cp-cell__lbl cp-cell__lbl--2"><div class="cp-cell__t">Увеличить кредитный лимит</div><div class="cp-cell__d">Ваш лимит — 3000 ₼</div></div><div class="cp-cell__act"><img src="assets/order2/ic-angle-right.svg" alt=""></div></div><div class="cp-cell" data-action="noop"><div class="cp-cell__ic"><div class="cp-cell__box"><img src="assets/order2/ic-linked-card.svg" alt=""></div></div><div class="cp-cell__lbl"><div class="cp-cell__t">Subscriptions</div></div><div class="cp-cell__act"><img src="assets/order2/ic-angle-right.svg" alt=""></div></div><div class="cp-cell" data-action="noop"><div class="cp-cell__ic"><div class="cp-cell__box"><img src="assets/order2/ic-file-lines.svg" alt=""></div></div><div class="cp-cell__lbl"><div class="cp-cell__t">Отправить выписку на e-mail</div></div><div class="cp-cell__act"><img src="assets/order2/ic-angle-right.svg" alt=""></div></div><div class="cp-cell" data-action="noop"><div class="cp-cell__ic"><div class="cp-cell__box"><img src="assets/order2/ic-visa-filled.svg" alt=""></div></div><div class="cp-cell__lbl"><div class="cp-cell__t">Visa Concierge</div></div><div class="cp-cell__act"><img src="assets/order2/ic-angle-right.svg" alt=""></div></div><div class="cp-cell" data-action="noop"><div class="cp-cell__ic"><div class="cp-cell__box"><img src="assets/order2/ic-empty.svg" alt=""></div></div><div class="cp-cell__lbl"><div class="cp-cell__t">Document delivery</div></div><div class="cp-cell__act"><img src="assets/order2/ic-angle-right.svg" alt=""></div></div><div class="cp-cell" data-action="noop"><div class="cp-cell__ic"><div class="cp-cell__box"><img src="assets/order2/ic-list.svg" alt=""></div></div><div class="cp-cell__lbl cp-cell__lbl--2"><div class="cp-cell__t">Реквизиты</div><div class="cp-cell__d">SWİFT, İBAN, номер счета</div></div><div class="cp-cell__act"><img src="assets/order2/ic-angle-right.svg" alt=""></div></div><div class="cp-cell" data-action="noop"><div class="cp-cell__ic"><div class="cp-cell__box"><img src="assets/order2/ic-close-card.svg" alt=""></div></div><div class="cp-cell__lbl"><div class="cp-cell__t">Close card</div></div><div class="cp-cell__act"><img src="assets/order2/ic-angle-right.svg" alt=""></div></div></div></div>
+        </div>
+      </div>
+    </div>
+    <div class="cp-toast"><div class="cp-toast__card"><span class="cp-toast__ok"><img src="assets/order2/ic-toast-check.svg" alt=""></span><p class="cp-toast__msg">Kart istifadəyə hazırdır</p><button type="button" class="cp-toast__x" data-toggle="no-toast" aria-label="Close"><img src="assets/order2/ic-xmark-24.svg" alt=""></button></div></div>
+  </div>
+</template>
+
+<template data-screen="card-page__delivery" data-kind="page" data-title="Карта: доставка курьером">
+  <div class="scr scr--card-page scr--card-page__delivery">
+    <div class="scr__scroll">
+      <div class="cp-bg"></div>
+      <div class="cp-content">
+        <div class="cp-nav"><div class="cp-topbar"><div class="cp-topbar__title">Birbank card</div><button type="button" class="o2-iconbtn cp-ib cp-back" data-action="finish" aria-label="Back"><img src="assets/order2/ic-angle-left.svg" alt=""></button><span class="o2-iconbtn cp-ib cp-eye"><img src="assets/order2/ic-eye.svg" alt=""></span><button type="button" class="o2-iconbtn cp-ib cp-share" data-action="noop" aria-label="Share"><img src="assets/order2/ic-share-square.svg" alt=""></button></div></div>
+        <div class="cp-main">
+          <div class="cp-top">
+            <div class="cp-hero">
+          <div class="cp-card cp-card--single">
+            <img class="cp-card__shadow" src="assets/order2/card-shadow-lg.svg" alt="">
+            <div class="cp-card__el">
+              <img class="cp-card__skin" data-slot="skin" src="assets/skins/cashback.svg" alt="">
+              <img class="cp-card__ps" src="assets/order2/visa.svg" alt="VISA">
+              <span class="cp-card__txt cp-card__details">Details</span>
+              <span class="cp-card__txt cp-card__num">• <span data-slot="last4">4580</span></span>
+              <span class="cp-card__lens"></span>
+            </div>
+          </div>
+        </div>
+            <div class="cp-amount"><span class="cp-amount__val">0</span><span class="cp-amount__cur">₼</span></div>
+          </div>
+          <div class="cp-mid">
+            <div class="cp-actions"><button type="button" class="cp-act" data-action="noop"><span class="cp-act__in"><img src="assets/order2/ic-money.svg" alt=""><span>Переводы</span></span></button><button type="button" class="cp-act" data-action="noop"><span class="cp-act__in"><img src="assets/order2/ic-wallet.svg" alt=""><span>Платежи</span></span></button><button type="button" class="cp-act" data-action="noop"><span class="cp-act__in"><img src="assets/order2/ic-plus.svg" alt=""><span>Пополнить</span></span></button></div>
+            <div class="cp-status">
+          <img src="assets/order2/ic-delivery.svg" alt="">
+          <div class="cp-status__txt">
+            <p class="cp-status__title">Courier delivering the card</p>
+            <p class="cp-status__desc" data-slot="delivery-desc">Your card will be delivered at 14:00 to Besti Bagirova st. 26D, 50 apt.</p>
+          </div>
+        </div>
+            <div class="cp-tx">
+          <p class="cp-tx__title">Recent payments by card:</p>
+          <p class="cp-tx__empty">You haven't had a payments yet</p>
+          <div class="cp-tx__div"></div>
+          <div class="cp-tx__more" data-action="noop">History of payments</div>
+        </div>
+          </div>
+          <div class="cp-more"><div class="cp-sec"><p class="cp-sec__h">Другое</p><div class="cp-cell" data-action="noop"><div class="cp-cell__ic"><div class="cp-cell__box"><img src="assets/order2/ic-limit.svg" alt=""></div></div><div class="cp-cell__lbl cp-cell__lbl--2"><div class="cp-cell__t">Лимиты по карте</div><div class="cp-cell__d">Осталось 5 000 ₼</div></div><div class="cp-cell__act"><img src="assets/order2/ic-angle-right.svg" alt=""></div></div><div class="cp-cell" data-action="noop"><div class="cp-cell__ic"><div class="cp-cell__box"><img src="assets/order2/ic-key.svg" alt=""></div></div><div class="cp-cell__lbl"><div class="cp-cell__t">Изменить PIN-код</div></div><div class="cp-cell__act"><img src="assets/order2/ic-angle-right.svg" alt=""></div></div><div class="cp-cell" data-action="noop"><div class="cp-cell__ic"><div class="cp-cell__box"><img src="assets/order2/ic-repeat.svg" alt=""></div></div><div class="cp-cell__lbl"><div class="cp-cell__t">Сбросить PIN</div></div><div class="cp-cell__act"><img src="assets/order2/ic-angle-right.svg" alt=""></div></div><div class="cp-cell" data-action="noop"><div class="cp-cell__ic"><div class="cp-cell__box"><img src="assets/order2/ic-shield.svg" alt=""></div></div><div class="cp-cell__lbl cp-cell__lbl--2"><div class="cp-cell__t">3D Secure</div><div class="cp-cell__d">Активен на номере 55 123 45 67</div></div><div class="cp-cell__act"><img src="assets/order2/ic-angle-right.svg" alt=""></div></div><div class="cp-cell" data-action="noop"><div class="cp-cell__ic"><div class="cp-cell__box"><img src="assets/order2/ic-message.svg" alt=""></div></div><div class="cp-cell__lbl cp-cell__lbl--2"><div class="cp-cell__t">SMS-банкинг</div><div class="cp-cell__d">Активен на номере 55 123 45 67</div></div><div class="cp-cell__act"><img src="assets/order2/ic-angle-right.svg" alt=""></div></div><div class="cp-cell" data-action="noop"><div class="cp-cell__ic"><div class="cp-cell__box"><img src="assets/order2/ic-lock.svg" alt=""></div></div><div class="cp-cell__lbl cp-cell__lbl--2"><div class="cp-cell__t">Заблокировать карту</div><div class="cp-cell__d">Защита от мошенничества в случае утери карты</div></div><div class="cp-cell__act"><img src="assets/order2/ic-angle-right.svg" alt=""></div></div></div><div class="cp-sec"><p class="cp-sec__h">Другое</p><div class="cp-cell cp-cell--static" data-action="noop"><div class="cp-cell__ic"><div class="cp-cell__box"><img src="assets/order2/ic-card.svg" alt=""></div></div><div class="cp-cell__lbl"><div class="cp-cell__t">Сделать основной картой</div></div><div class="cp-cell__act"><button type="button" class="cp-sw" data-toggle="is-main-card"></button></div></div><div class="cp-cell" data-action="noop"><div class="cp-cell__ic"><div class="cp-cell__box"><img src="assets/order2/logo-anipay.svg" alt=""></div></div><div class="cp-cell__lbl"><div class="cp-cell__t">Привязать карту к AniPay</div></div><div class="cp-cell__act"><img src="assets/order2/ic-angle-right.svg" alt=""></div></div><div class="cp-cell" data-action="noop"><div class="cp-cell__ic"><div class="cp-cell__box"><img src="assets/order2/logo-gpay.svg" alt=""></div></div><div class="cp-cell__lbl"><div class="cp-cell__t">Google Pay</div></div><div class="cp-cell__act"><img src="assets/order2/ic-angle-right.svg" alt=""></div></div><div class="cp-cell" data-action="noop"><div class="cp-cell__ic"><div class="cp-cell__box"><img src="assets/order2/ic-plus-24.svg" alt=""></div></div><div class="cp-cell__lbl cp-cell__lbl--2"><div class="cp-cell__t">Увеличить кредитный лимит</div><div class="cp-cell__d">Ваш лимит — 3000 ₼</div></div><div class="cp-cell__act"><img src="assets/order2/ic-angle-right.svg" alt=""></div></div><div class="cp-cell" data-action="noop"><div class="cp-cell__ic"><div class="cp-cell__box"><img src="assets/order2/ic-linked-card.svg" alt=""></div></div><div class="cp-cell__lbl"><div class="cp-cell__t">Subscriptions</div></div><div class="cp-cell__act"><img src="assets/order2/ic-angle-right.svg" alt=""></div></div><div class="cp-cell" data-action="noop"><div class="cp-cell__ic"><div class="cp-cell__box"><img src="assets/order2/ic-file-lines.svg" alt=""></div></div><div class="cp-cell__lbl"><div class="cp-cell__t">Отправить выписку на e-mail</div></div><div class="cp-cell__act"><img src="assets/order2/ic-angle-right.svg" alt=""></div></div><div class="cp-cell" data-action="noop"><div class="cp-cell__ic"><div class="cp-cell__box"><img src="assets/order2/ic-visa-filled.svg" alt=""></div></div><div class="cp-cell__lbl"><div class="cp-cell__t">Visa Concierge</div></div><div class="cp-cell__act"><img src="assets/order2/ic-angle-right.svg" alt=""></div></div><div class="cp-cell" data-action="noop"><div class="cp-cell__ic"><div class="cp-cell__box"><img src="assets/order2/ic-empty.svg" alt=""></div></div><div class="cp-cell__lbl"><div class="cp-cell__t">Document delivery</div></div><div class="cp-cell__act"><img src="assets/order2/ic-angle-right.svg" alt=""></div></div><div class="cp-cell" data-action="noop"><div class="cp-cell__ic"><div class="cp-cell__box"><img src="assets/order2/ic-list.svg" alt=""></div></div><div class="cp-cell__lbl cp-cell__lbl--2"><div class="cp-cell__t">Реквизиты</div><div class="cp-cell__d">SWİFT, İBAN, номер счета</div></div><div class="cp-cell__act"><img src="assets/order2/ic-angle-right.svg" alt=""></div></div><div class="cp-cell" data-action="noop"><div class="cp-cell__ic"><div class="cp-cell__box"><img src="assets/order2/ic-close-card.svg" alt=""></div></div><div class="cp-cell__lbl"><div class="cp-cell__t">Close card</div></div><div class="cp-cell__act"><img src="assets/order2/ic-angle-right.svg" alt=""></div></div></div></div>
+        </div>
+      </div>
+    </div>
+    <div class="cp-toast"><div class="cp-toast__card"><span class="cp-toast__ok"><img src="assets/order2/ic-toast-check.svg" alt=""></span><p class="cp-toast__msg">Kartınızın çatdırılması ilə bağlı kuryer <span data-slot="delivery-date">$num$ $mon$ $year$</span> tarixində sizinlə əlaqə saxlayacaq</p><button type="button" class="cp-toast__x" data-toggle="no-toast" aria-label="Close"><img src="assets/order2/ic-xmark-24.svg" alt=""></button></div></div>
+  </div>
+</template>
+
+<template data-screen="card-page__branch" data-kind="page" data-title="Карта: получение в филиале">
+  <div class="scr scr--card-page scr--card-page__branch">
+    <div class="scr__scroll">
+      <div class="cp-bg"></div>
+      <div class="cp-content">
+        <div class="cp-nav"><div class="cp-topbar"><div class="cp-topbar__title">Birbank card</div><button type="button" class="o2-iconbtn cp-ib cp-back" data-action="finish" aria-label="Back"><img src="assets/order2/ic-angle-left.svg" alt=""></button><span class="o2-iconbtn cp-ib cp-eye"><img src="assets/order2/ic-eye.svg" alt=""></span><button type="button" class="o2-iconbtn cp-ib cp-share" data-action="noop" aria-label="Share"><img src="assets/order2/ic-share-square.svg" alt=""></button></div></div>
+        <div class="cp-main">
+          <div class="cp-top">
+            <div class="cp-hero">
+          <div class="cp-card cp-card--single">
+            <img class="cp-card__shadow" src="assets/order2/card-shadow-lg.svg" alt="">
+            <div class="cp-card__el">
+              <img class="cp-card__skin" data-slot="skin" src="assets/skins/cashback.svg" alt="">
+              <img class="cp-card__ps" src="assets/order2/visa.svg" alt="VISA">
+              <span class="cp-card__txt cp-card__details">Details</span>
+              <span class="cp-card__txt cp-card__num">• <span data-slot="last4">4580</span></span>
+              <span class="cp-card__lens"></span>
+            </div>
+          </div>
+        </div>
+            <div class="cp-amount"><span class="cp-amount__val">0</span><span class="cp-amount__cur">₼</span></div>
+          </div>
+          <div class="cp-mid">
+            <div class="cp-actions"><button type="button" class="cp-act" data-action="noop"><span class="cp-act__in"><img src="assets/order2/ic-money.svg" alt=""><span>Переводы</span></span></button><button type="button" class="cp-act" data-action="noop"><span class="cp-act__in"><img src="assets/order2/ic-wallet.svg" alt=""><span>Платежи</span></span></button><button type="button" class="cp-act" data-action="noop"><span class="cp-act__in"><img src="assets/order2/ic-plus.svg" alt=""><span>Пополнить</span></span></button></div>
+            <div class="cp-status">
+          <img src="assets/delivery/branch.svg" alt="">
+          <div class="cp-status__txt">
+            <p class="cp-status__title">Card is being prepared at the branch</p>
+            <p class="cp-status__desc">You can pick up your card at <span data-slot="branch-name">Sabail Branch</span> within 5–7 working days.</p>
+          </div>
+        </div>
+            <div class="cp-tx">
+          <p class="cp-tx__title">Recent payments by card:</p>
+          <p class="cp-tx__empty">You haven't had a payments yet</p>
+          <div class="cp-tx__div"></div>
+          <div class="cp-tx__more" data-action="noop">History of payments</div>
+        </div>
+          </div>
+          <div class="cp-more"><div class="cp-sec"><p class="cp-sec__h">Другое</p><div class="cp-cell" data-action="noop"><div class="cp-cell__ic"><div class="cp-cell__box"><img src="assets/order2/ic-limit.svg" alt=""></div></div><div class="cp-cell__lbl cp-cell__lbl--2"><div class="cp-cell__t">Лимиты по карте</div><div class="cp-cell__d">Осталось 5 000 ₼</div></div><div class="cp-cell__act"><img src="assets/order2/ic-angle-right.svg" alt=""></div></div><div class="cp-cell" data-action="noop"><div class="cp-cell__ic"><div class="cp-cell__box"><img src="assets/order2/ic-key.svg" alt=""></div></div><div class="cp-cell__lbl"><div class="cp-cell__t">Изменить PIN-код</div></div><div class="cp-cell__act"><img src="assets/order2/ic-angle-right.svg" alt=""></div></div><div class="cp-cell" data-action="noop"><div class="cp-cell__ic"><div class="cp-cell__box"><img src="assets/order2/ic-repeat.svg" alt=""></div></div><div class="cp-cell__lbl"><div class="cp-cell__t">Сбросить PIN</div></div><div class="cp-cell__act"><img src="assets/order2/ic-angle-right.svg" alt=""></div></div><div class="cp-cell" data-action="noop"><div class="cp-cell__ic"><div class="cp-cell__box"><img src="assets/order2/ic-shield.svg" alt=""></div></div><div class="cp-cell__lbl cp-cell__lbl--2"><div class="cp-cell__t">3D Secure</div><div class="cp-cell__d">Активен на номере 55 123 45 67</div></div><div class="cp-cell__act"><img src="assets/order2/ic-angle-right.svg" alt=""></div></div><div class="cp-cell" data-action="noop"><div class="cp-cell__ic"><div class="cp-cell__box"><img src="assets/order2/ic-message.svg" alt=""></div></div><div class="cp-cell__lbl cp-cell__lbl--2"><div class="cp-cell__t">SMS-банкинг</div><div class="cp-cell__d">Активен на номере 55 123 45 67</div></div><div class="cp-cell__act"><img src="assets/order2/ic-angle-right.svg" alt=""></div></div><div class="cp-cell" data-action="noop"><div class="cp-cell__ic"><div class="cp-cell__box"><img src="assets/order2/ic-lock.svg" alt=""></div></div><div class="cp-cell__lbl cp-cell__lbl--2"><div class="cp-cell__t">Заблокировать карту</div><div class="cp-cell__d">Защита от мошенничества в случае утери карты</div></div><div class="cp-cell__act"><img src="assets/order2/ic-angle-right.svg" alt=""></div></div></div><div class="cp-sec"><p class="cp-sec__h">Другое</p><div class="cp-cell cp-cell--static" data-action="noop"><div class="cp-cell__ic"><div class="cp-cell__box"><img src="assets/order2/ic-card.svg" alt=""></div></div><div class="cp-cell__lbl"><div class="cp-cell__t">Сделать основной картой</div></div><div class="cp-cell__act"><button type="button" class="cp-sw" data-toggle="is-main-card"></button></div></div><div class="cp-cell" data-action="noop"><div class="cp-cell__ic"><div class="cp-cell__box"><img src="assets/order2/logo-anipay.svg" alt=""></div></div><div class="cp-cell__lbl"><div class="cp-cell__t">Привязать карту к AniPay</div></div><div class="cp-cell__act"><img src="assets/order2/ic-angle-right.svg" alt=""></div></div><div class="cp-cell" data-action="noop"><div class="cp-cell__ic"><div class="cp-cell__box"><img src="assets/order2/logo-gpay.svg" alt=""></div></div><div class="cp-cell__lbl"><div class="cp-cell__t">Google Pay</div></div><div class="cp-cell__act"><img src="assets/order2/ic-angle-right.svg" alt=""></div></div><div class="cp-cell" data-action="noop"><div class="cp-cell__ic"><div class="cp-cell__box"><img src="assets/order2/ic-plus-24.svg" alt=""></div></div><div class="cp-cell__lbl cp-cell__lbl--2"><div class="cp-cell__t">Увеличить кредитный лимит</div><div class="cp-cell__d">Ваш лимит — 3000 ₼</div></div><div class="cp-cell__act"><img src="assets/order2/ic-angle-right.svg" alt=""></div></div><div class="cp-cell" data-action="noop"><div class="cp-cell__ic"><div class="cp-cell__box"><img src="assets/order2/ic-linked-card.svg" alt=""></div></div><div class="cp-cell__lbl"><div class="cp-cell__t">Subscriptions</div></div><div class="cp-cell__act"><img src="assets/order2/ic-angle-right.svg" alt=""></div></div><div class="cp-cell" data-action="noop"><div class="cp-cell__ic"><div class="cp-cell__box"><img src="assets/order2/ic-file-lines.svg" alt=""></div></div><div class="cp-cell__lbl"><div class="cp-cell__t">Отправить выписку на e-mail</div></div><div class="cp-cell__act"><img src="assets/order2/ic-angle-right.svg" alt=""></div></div><div class="cp-cell" data-action="noop"><div class="cp-cell__ic"><div class="cp-cell__box"><img src="assets/order2/ic-visa-filled.svg" alt=""></div></div><div class="cp-cell__lbl"><div class="cp-cell__t">Visa Concierge</div></div><div class="cp-cell__act"><img src="assets/order2/ic-angle-right.svg" alt=""></div></div><div class="cp-cell" data-action="noop"><div class="cp-cell__ic"><div class="cp-cell__box"><img src="assets/order2/ic-empty.svg" alt=""></div></div><div class="cp-cell__lbl"><div class="cp-cell__t">Document delivery</div></div><div class="cp-cell__act"><img src="assets/order2/ic-angle-right.svg" alt=""></div></div><div class="cp-cell" data-action="noop"><div class="cp-cell__ic"><div class="cp-cell__box"><img src="assets/order2/ic-list.svg" alt=""></div></div><div class="cp-cell__lbl cp-cell__lbl--2"><div class="cp-cell__t">Реквизиты</div><div class="cp-cell__d">SWİFT, İBAN, номер счета</div></div><div class="cp-cell__act"><img src="assets/order2/ic-angle-right.svg" alt=""></div></div><div class="cp-cell" data-action="noop"><div class="cp-cell__ic"><div class="cp-cell__box"><img src="assets/order2/ic-close-card.svg" alt=""></div></div><div class="cp-cell__lbl"><div class="cp-cell__t">Close card</div></div><div class="cp-cell__act"><img src="assets/order2/ic-angle-right.svg" alt=""></div></div></div></div>
+        </div>
+      </div>
+    </div>
+    <div class="cp-toast"><div class="cp-toast__card"><span class="cp-toast__ok"><img src="assets/order2/ic-toast-check.svg" alt=""></span><p class="cp-toast__msg">Kartınızı 5-7 iş günü ərzində <span data-slot="branch">$branch$</span> filialından götürə bilərsiniz</p><button type="button" class="cp-toast__x" data-toggle="no-toast" aria-label="Close"><img src="assets/order2/ic-xmark-24.svg" alt=""></button></div></div>
+  </div>
+</template>
+
+<template data-screen="physical-paid" data-kind="page" data-title="Платная физическая карта">
+  <div class="scr scr--physical-paid">
+    <button type="button" class="o2-iconbtn pp-back" data-action="back" aria-label="Back"><img src="assets/order2/ic-angle-left.svg" alt=""></button>
+    <div class="pp-zero">
+      <div class="pp-top">
+        <div class="pp-icon"><img src="assets/order2/ic-finances.svg" alt=""></div>
+        <div class="pp-texts">
+          <p class="pp-title">Fiziki kartı əlavə ödənişlə sifariş edə bilərsiniz</p>
+          <p class="pp-text">Sizin artıq bu valyutada bir fiziki kartınız olduğu üçün hər digər eyni valyutalı fiziki kartı <span data-slot="fee">$amount$</span> ödəniş edərək əldə edəcəksiniz. Rəqəmsal kartınızdan istifadə etməyə davam edə bilərsiniz.</p>
+        </div>
+      </div>
+      <div class="pp-link"><button type="button" class="o2-btn o2-btn--ghost" data-go="digital-info">Rəqəmsal kartın üstünlükləri</button></div>
+    </div>
+    <div class="pp-bottom"><button type="button" class="o2-btn" data-action="physical-paid-continue">Sifariş et</button></div>
+  </div>
+</template>
+
+<template data-screen="order-accepted" data-kind="page" data-title="Заказ принят">
+  <div class="scr scr--order-accepted">
+    <div class="oa-main">
+      <div class="oa-hero"><img src="assets/order2/ic-hourglass.svg" alt=""></div>
+      <p class="oa-title">Sifarişinizi qəbul etdik</p>
+      <p class="oa-text">Sifarişiniz təsdiqləndikdən sonra kartınız Birbank tətbiqinin əsas səhifəsində əks olunacaq. Bundan sonra rəqəmsal kartınızla ödənişlər edə və ya istədiyiniz zaman onun fiziki formasını sifariş edə bilərsiniz.</p>
+    </div>
+    <div class="oa-bottom"><button type="button" class="o2-btn" data-action="finish">Əsas səhifəyə keç</button></div>
+  </div>
+</template>
+
+<template data-screen="digital-info" data-kind="sheet" data-title="Что такое цифровая карта (4 слайда)">
+  <div class="sheet sheet--digital-info" data-slide="1">
+    <img class="di-grab" src="assets/order2/sheet-grabber.svg" alt="">
+    <div class="di-body">
+      <div class="slide slide-1 di-slide">
+        <img class="di-img" src="assets/order2/digital-1.png" alt="">
+        <div class="di-texts"><p class="di-title">Rəqəmsal kart nədir?</p><p class="di-text">Rəqəmsal kart telefonunuzda olan və plastik kart kimi işləyən, lakin ondan bəzi üstünlüklərə malik bank kartıdır.</p></div>
+      </div>
+      <div class="slide slide-2 di-slide">
+        <img class="di-img" src="assets/order2/digital-2.png" alt="">
+        <div class="di-texts"><p class="di-title">Kartınızı itirməyəcəksiniz</p><p class="di-text">Kartınız hər zaman sizinlədir. Rəqəmsal formatda olduğu üçün itirilməyəcək.</p></div>
+      </div>
+      <div class="slide slide-3 di-slide">
+        <img class="di-img" src="assets/order2/digital-3.png" alt="">
+        <div class="di-texts"><p class="di-title">Kartınız həmişə telefonunuzdadır</p><p class="di-text">Pul kisəsini unutmusunuzsa, narahat olmayın! Ödənişlərinizi Google Pay və ya Apple Pay ilə həyata keçirin.</p></div>
+      </div>
+      <div class="slide slide-4 di-slide">
+        <img class="di-img" src="assets/order2/digital-4.png" alt="">
+        <div class="di-texts"><p class="di-title">Siz meşələrin qırılmasını azaltmağa kömək edirsiniz</p><p class="di-text">Plastik kart və kağız sənədləri çap etməyə ehtiyac olmadığına görə, rəqəmsal kart seçməklə siz meşələrin qorunmasına kömək edirsiniz.</p></div>
+      </div>
+      <div class="di-dots"><i></i><i></i><i></i><i></i></div>
+    </div>
+    <div class="di-btns"><button type="button" class="o2-btn o2-btn--ghost slide slide-1" data-action="slide-next">Növbəti</button><button type="button" class="o2-btn o2-btn--ghost slide slide-2" data-action="slide-next">Next</button><button type="button" class="o2-btn o2-btn--ghost slide slide-3" data-action="slide-next">Next</button><button type="button" class="o2-btn o2-btn--ghost slide slide-4" data-action="close">Aydındır</button></div>
+    <div class="di-sys"></div>
+  </div>
+</template>

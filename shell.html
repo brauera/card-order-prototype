@@ -1,0 +1,377 @@
+<!doctype html>
+<html lang="az">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta name="referrer" content="no-referrer">
+<title>Card Order Prototype</title>
+<style>
+:root{
+  --font:"SF Pro Display",-apple-system,BlinkMacSystemFont,"SF Pro Text","Inter","Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  --stage:#1c1d20;
+  --ink:rgba(21,20,20,.9);
+  --ink2:rgba(21,20,20,.5);
+  --red:#ea3340;
+}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%;background:var(--stage);font-family:var(--font);-webkit-font-smoothing:antialiased;-webkit-tap-highlight-color:transparent}
+button{font:inherit;color:inherit;background:none;border:0;padding:0;margin:0;cursor:pointer;text-align:inherit;-webkit-appearance:none;appearance:none}
+input{font:inherit}
+img{display:block}
+
+.stage{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;overflow:hidden}
+#device{position:relative;width:375px;height:812px;flex:none;overflow:hidden;border-radius:46px;background:#f5f5f5;
+  box-shadow:0 0 0 11px #0b0b0c,0 0 0 12px #3b3c40,0 40px 90px rgba(0,0,0,.55);transform-origin:center center;isolation:isolate}
+body.is-bare #device{border-radius:0;box-shadow:none}
+
+#pages{position:absolute;inset:0;overflow:hidden}
+.layer{position:absolute;inset:0;background:#f5f5f5;will-change:transform}
+.layer.anim-in{animation:pushIn .38s cubic-bezier(.2,.8,.2,1) both}
+.layer.anim-out{animation:pushOut .38s cubic-bezier(.2,.8,.2,1) both}
+.layer.anim-back-in{animation:backIn .38s cubic-bezier(.2,.8,.2,1) both}
+.layer.anim-back-out{animation:backOut .38s cubic-bezier(.2,.8,.2,1) both}
+.layer.anim-fade{animation:fadeIn .3s ease both}
+@keyframes pushIn{from{transform:translateX(100%)}to{transform:none}}
+@keyframes pushOut{from{transform:none}to{transform:translateX(-28%);filter:brightness(.92)}}
+@keyframes backIn{from{transform:translateX(-28%);filter:brightness(.92)}to{transform:none}}
+@keyframes backOut{from{transform:none}to{transform:translateX(100%)}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+
+.scr{position:absolute;inset:0;width:375px;height:812px;overflow:hidden;font-family:var(--font);color:var(--ink)}
+.scr__scroll{position:absolute;inset:0;overflow-y:auto;overflow-x:hidden;scrollbar-width:none;overscroll-behavior:contain}
+.scr__scroll::-webkit-scrollbar,.sheet__scroll::-webkit-scrollbar{display:none}
+.sheet__scroll{scrollbar-width:none}
+
+#sheets{position:absolute;inset:0;pointer-events:none;z-index:20}
+.sheet-wrap{position:absolute;inset:0;pointer-events:auto}
+.sheet-backdrop{position:absolute;inset:0;background:rgba(0,0,0,.4);animation:fadeIn .25s ease both}
+.sheet-holder{position:absolute;left:0;right:0;bottom:0;animation:sheetUp .4s cubic-bezier(.2,.8,.2,1) both}
+.sheet-wrap.is-closing .sheet-backdrop{animation:fadeOut .4s ease both}
+.sheet-wrap.is-closing .sheet-holder{animation:sheetDown .4s cubic-bezier(.4,0,.6,1) both}
+@keyframes sheetUp{from{transform:translateY(100%)}to{transform:none}}
+@keyframes sheetDown{from{transform:none}to{transform:translateY(100%)}}
+@keyframes fadeOut{from{opacity:1}to{opacity:0}}
+.sheet{position:relative;width:375px;font-family:var(--font);color:var(--ink)}
+
+#statusbar{position:absolute;top:0;left:0;right:0;height:44px;z-index:60;pointer-events:none;color:#000;transition:color .2s}
+#statusbar.is-light, #statusbar.is-light #clock{color:#fff}
+#clock{position:absolute;left:0;top:0;width:100px;height:44px;display:flex;align-items:center;justify-content:center;padding:0 6px 0 16px;
+  font:590 17px/22px var(--font);color:rgba(21,20,20,.9);pointer-events:auto;cursor:pointer;user-select:none;-webkit-user-select:none;padding-top:2px}
+#clock .press-ring{position:absolute;inset:6px 18px;border-radius:14px;background:rgba(120,120,128,.18);opacity:0;transform:scale(.8);transition:opacity .15s,transform .6s}
+#clock.is-pressing .press-ring{opacity:1;transform:scale(1)}
+#sb-right{position:absolute;right:0;top:15.5px;width:100px;height:13px}
+#statusbar.is-light #sb-right{filter:invert(1) brightness(2)}
+#homeind{position:absolute;bottom:8px;left:50%;width:134px;height:5px;border-radius:3px;background:#000;z-index:60;transform:translateX(-50%);pointer-events:none;transition:background .2s}
+#homeind.is-light{background:#fff}
+
+#toast{position:absolute;left:16px;right:16px;bottom:110px;z-index:70;background:rgba(30,30,32,.92);color:#fff;border-radius:12px;padding:12px 14px;
+  font:400 14px/18px var(--font);opacity:0;transform:translateY(10px);transition:opacity .2s,transform .2s;pointer-events:none}
+#toast.is-on{opacity:1;transform:none}
+
+[hidden]{display:none!important}
+#gate{position:absolute;inset:0;z-index:55;background:#f5f5f7;display:flex;flex-direction:column;align-items:center;justify-content:space-between;
+  padding:132px 0 70px;font-family:var(--font);color:rgba(21,20,20,.9);user-select:none;-webkit-user-select:none;transition:opacity .3s}
+#gate.is-ok{opacity:0}
+.gate-head{display:flex;flex-direction:column;align-items:center}
+.gate-lock{width:28px;height:28px;margin-bottom:16px;opacity:.9}
+.gate-title{font:600 22px/28px var(--font);letter-spacing:-.2px}
+.gate-sub{margin-top:4px;font:400 14px/20px var(--font);color:rgba(21,20,20,.5)}
+.gate-dots{display:flex;gap:18px;margin-top:28px}
+.gate-dot{width:14px;height:14px;border-radius:50%;border:1.5px solid rgba(21,20,20,.9);transition:background .1s,border-color .1s}
+.gate-dot.is-on{background:rgba(21,20,20,.9)}
+#gate.is-err .gate-dots{animation:gateShake .38s ease}
+#gate.is-err .gate-dot{border-color:#d50819}
+#gate.is-err .gate-dot.is-on{background:#d50819}
+#gate.is-ok .gate-dot{border-color:#28b469;background:#28b469}
+.gate-msg{height:20px;margin-top:14px;font:400 14px/20px var(--font);color:#d50819}
+@keyframes gateShake{20%{transform:translateX(-10px)}40%{transform:translateX(9px)}60%{transform:translateX(-6px)}80%{transform:translateX(4px)}}
+.gate-pad{display:grid;grid-template-columns:repeat(3,76px);gap:16px 26px}
+.gate-pad button{width:76px;height:76px;border-radius:50%;background:#fff;font:400 30px/1 var(--font);color:rgba(21,20,20,.9);text-align:center;
+  box-shadow:0 1px 2px rgba(0,0,0,.04);transition:background .1s,transform .1s}
+.gate-pad button:active{background:#e9e7e7;transform:scale(.95)}
+.gate-pad .gate-del{background:transparent;box-shadow:none;font-size:24px;color:rgba(21,20,20,.6)}
+.hint{position:fixed;left:50%;bottom:14px;transform:translateX(-50%);color:rgba(255,255,255,.45);font:400 12px/16px var(--font);white-space:nowrap}
+body.is-bare .hint{display:none}
+</style>
+<style id="settings-css"></style>
+</head>
+<body>
+<div class="stage">
+  <div id="device">
+    <div id="pages"></div>
+    <div id="sheets"></div>
+    <div id="statusbar">
+      <div id="clock"><span class="press-ring"></span><span style="position:relative">12:12</span></div>
+      <img id="sb-right" src="assets/shell/statusbar-levels.svg" width="100" height="13" alt="">
+    </div>
+    <div id="homeind"></div>
+    <div id="toast"></div>
+    <div id="gate" hidden>
+      <div class="gate-head">
+        <img class="gate-lock" src="assets/order2/ic-lock.svg" alt="" width="28" height="28">
+        <div class="gate-title">Enter password</div>
+        <div class="gate-sub">Card order prototype</div>
+        <div class="gate-dots"><i class="gate-dot"></i><i class="gate-dot"></i><i class="gate-dot"></i><i class="gate-dot"></i></div>
+        <div class="gate-msg" aria-live="polite"></div>
+      </div>
+      <div class="gate-pad">
+        <button type="button" data-gate-key="1">1</button><button type="button" data-gate-key="2">2</button><button type="button" data-gate-key="3">3</button>
+        <button type="button" data-gate-key="4">4</button><button type="button" data-gate-key="5">5</button><button type="button" data-gate-key="6">6</button>
+        <button type="button" data-gate-key="7">7</button><button type="button" data-gate-key="8">8</button><button type="button" data-gate-key="9">9</button>
+        <span></span><button type="button" data-gate-key="0">0</button><button type="button" class="gate-del" data-gate-key="del" aria-label="Delete">⌫</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="hint">Удерживайте часы, чтобы открыть настройки прототипа</div>
+
+<!-- screens -->
+<!--PARTS-->
+
+<script>
+/* ---------- core: render, navigation, sheets ---------- */
+const $ = (s, r = document) => r.querySelector(s);
+const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
+const device = $('#device'), pagesEl = $('#pages'), sheetsEl = $('#sheets');
+
+const App = {
+  stack: [],        // [{id, layer}]
+  sheets: [],       // [{id, wrap}]
+  hooks: {},        // id -> fn(root, opts)  (also matched by base id)
+  actions: {},      // name -> fn(el, root, ev)
+  lightBars: new Set(),
+
+  tpl(id) { return document.querySelector(`template[data-screen="${id}"]`); },
+  base(id) { return id.split('__')[0]; },
+  has(id) { return !!this.tpl(id); },
+
+  build(id, opts) {
+    const t = this.tpl(id);
+    if (!t) { toast('Экран «' + id + '» не найден'); return null; }
+    const root = t.content.firstElementChild.cloneNode(true);
+    root.dataset.screenId = id;
+    if (this.translate) { try { this.translate(root); } catch (e) { console.error(e); } }
+    const fn = this.hooks[id] || this.hooks[this.base(id)];
+    if (fn) { try { fn(root, opts || {}); } catch (e) { console.error(e); } }
+    return root;
+  },
+  kind(id) { const t = this.tpl(id); return t ? (t.dataset.kind || 'page') : null; },
+
+  go(id, opts = {}) {
+    if (this.kind(id) === 'sheet') return this.openSheet(id, opts);
+    if (!opts.keepSheets) this.closeAllSheets(true);
+    const root = this.build(id, opts); if (!root) return;
+    const layer = document.createElement('div');
+    layer.className = 'layer';
+    layer.appendChild(root);
+    const prev = this.stack[this.stack.length - 1];
+    if (opts.replace && prev) { this.stack.pop(); }
+    pagesEl.appendChild(layer);
+    const anim = opts.anim === undefined ? (prev ? 'push' : 'none') : opts.anim;
+    if (anim === 'push' && prev) {
+      layer.classList.add('anim-in'); prev.layer.classList.add('anim-out');
+    } else if (anim === 'fade') layer.classList.add('anim-fade');
+    const cleanup = () => { $$('.layer', pagesEl).forEach(l => { if (!this.stack.find(s => s.layer === l)) l.remove(); }); };
+    if (opts.replace && prev) setTimeout(() => prev.layer.remove(), anim === 'none' ? 0 : 400);
+    else if (prev) setTimeout(() => { prev.layer.classList.remove('anim-out'); prev.layer.style.visibility = 'hidden'; }, anim === 'none' ? 0 : 400);
+    if (opts.reset) { this.stack.forEach(s => setTimeout(() => s.layer.remove(), 420)); this.stack = []; }
+    this.stack.push({ id, layer });
+    setTimeout(() => layer.classList.remove('anim-in', 'anim-fade'), 420);
+    this.onScreen();
+    return root;
+  },
+  back() {
+    if (this.sheets.length) return this.closeSheet();
+    if (this.stack.length < 2) return;
+    const cur = this.stack.pop(), prev = this.stack[this.stack.length - 1];
+    prev.layer.style.visibility = '';
+    prev.layer.classList.add('anim-back-in'); cur.layer.classList.add('anim-back-out');
+    setTimeout(() => { cur.layer.remove(); prev.layer.classList.remove('anim-back-in'); }, 400);
+    const fn = this.hooks['back:' + prev.id]; if (fn) fn(prev.layer.firstElementChild);
+    this.onScreen();
+  },
+  replaceCurrent(id, opts = {}) {  // swap current page without animation (state switch)
+    const cur = this.stack[this.stack.length - 1];
+    if (!cur) return this.go(id, opts);
+    const root = this.build(id, opts); if (!root) return;
+    const oldScroll = cur.layer.querySelector('.scr__scroll');
+    const top = oldScroll ? oldScroll.scrollTop : 0;
+    cur.layer.replaceChildren(root); cur.id = id;
+    const ns = root.querySelector('.scr__scroll'); if (ns && opts.keepScroll) ns.scrollTop = top;
+    this.onScreen();
+    return root;
+  },
+  openSheet(id, opts = {}) {
+    const root = this.build(id, opts); if (!root) return;
+    if (opts.replaceSheet && this.sheets.length) this.closeSheet(true);
+    const wrap = document.createElement('div');
+    wrap.className = 'sheet-wrap';
+    wrap.innerHTML = '<div class="sheet-backdrop"></div><div class="sheet-holder"></div>';
+    wrap.lastChild.appendChild(root);
+    wrap.firstChild.addEventListener('click', () => { if (!opts.modal) this.closeSheet(); });
+    if (!opts.modal) enableSheetDrag(wrap);
+    sheetsEl.appendChild(wrap);
+    this.sheets.push({ id, wrap });
+    this.onScreen();
+    return root;
+  },
+  closeSheet(instant) {
+    const s = this.sheets.pop(); if (!s) return;
+    if (instant) s.wrap.remove();
+    else { s.wrap.classList.add('is-closing'); setTimeout(() => s.wrap.remove(), 400); }
+    this.onScreen();
+  },
+  closeAllSheets(instant) { while (this.sheets.length) this.closeSheet(instant); },
+  replaceSheet(id, opts = {}) { // state switch for the top sheet
+    const s = this.sheets[this.sheets.length - 1];
+    if (!s) return this.openSheet(id, opts);
+    const root = this.build(id, opts); if (!root) return;
+    const holder = s.wrap.querySelector('.sheet-holder');
+    holder.style.animation = 'none';
+    holder.replaceChildren(root); s.id = id;
+    this.onScreen();
+    return root;
+  },
+  current() { return this.sheets.length ? this.sheets[this.sheets.length - 1] : this.stack[this.stack.length - 1]; },
+  currentRoot() {
+    const c = this.current(); if (!c) return null;
+    return c.wrap ? c.wrap.querySelector('.sheet-holder').firstElementChild : c.layer.firstElementChild;
+  },
+  onScreen() {
+    const page = this.stack[this.stack.length - 1];
+    const light = page && this.lightBars.has(this.base(page.id)) && !this.sheets.length;
+    $('#statusbar').classList.toggle('is-light', !!light);
+    $('#homeind').classList.toggle('is-light', !!light);
+    if (this.onChange) this.onChange();
+  },
+};
+
+/* swipe down on the top of a sheet (grabber / header zone) to dismiss it */
+function enableSheetDrag(wrap) {
+  const holder = wrap.querySelector('.sheet-holder'), back = wrap.querySelector('.sheet-backdrop');
+  let y0 = null, dy = 0, t0 = 0, scale = 1;
+  holder.addEventListener('pointerdown', (e) => {
+    const r = holder.getBoundingClientRect();
+    scale = r.height / holder.offsetHeight || 1;
+    if ((e.clientY - r.top) / scale > 64 || e.target.closest('button,input,a,[data-action],[data-go]')) return;
+    y0 = e.clientY; dy = 0; t0 = Date.now();
+    try { holder.setPointerCapture(e.pointerId); } catch (_) { /* synthetic events */ }
+    holder.style.animation = 'none'; holder.style.transition = 'none';
+  });
+  holder.addEventListener('pointermove', (e) => {
+    if (y0 === null) return;
+    dy = Math.max(0, (e.clientY - y0) / scale);
+    holder.style.transform = `translateY(${dy}px)`;
+    back.style.opacity = String(Math.max(0, 1 - dy / holder.offsetHeight));
+  });
+  const end = () => {
+    if (y0 === null) return;
+    const fast = dy > 40 && dy / Math.max(1, Date.now() - t0) > 0.5;
+    y0 = null;
+    holder.style.transition = 'transform .25s ease'; back.style.transition = 'opacity .25s ease';
+    if (dy > holder.offsetHeight * 0.3 || fast) {
+      holder.style.transform = 'translateY(100%)'; back.style.opacity = '0';
+      setTimeout(() => { const i = App.sheets.findIndex(s => s.wrap === wrap); if (i > -1) { App.sheets.splice(i, 1); wrap.remove(); App.onScreen(); } }, 250);
+    } else { holder.style.transform = ''; back.style.opacity = ''; }
+  };
+  holder.addEventListener('pointerup', end); holder.addEventListener('pointercancel', end);
+}
+
+let toastTimer;
+function toast(msg, ms = 2200) {
+  const t = $('#toast'); t.textContent = msg; t.classList.add('is-on');
+  clearTimeout(toastTimer); toastTimer = setTimeout(() => t.classList.remove('is-on'), ms);
+}
+
+/* ---------- event delegation ---------- */
+device.addEventListener('click', (ev) => {
+  const el = ev.target.closest('[data-go],[data-action],[data-toggle],[data-key]');
+  if (!el || !device.contains(el)) return;
+  const root = el.closest('.scr,.sheet');
+  if (el.dataset.toggle) { root && root.classList.toggle(el.dataset.toggle); }
+  if (el.dataset.key !== undefined && App.actions['key']) { App.actions['key'](el, root, ev); return; }
+  if (el.dataset.go) { App.go(el.dataset.go); return; }
+  const a = el.dataset.action;
+  if (!a) return;
+  if (App.actions[a]) { App.actions[a](el, root, ev); return; }
+  if (a === 'back') return App.back();
+  if (a === 'close') return App.closeSheet();
+  if (a !== 'noop') toast('Действие «' + a + '» не входит в прототип');
+});
+
+/* ---------- fit the device to the window ---------- */
+function fit() {
+  const w = innerWidth, h = innerHeight;
+  const bare = w < 520;
+  document.body.classList.toggle('is-bare', bare);
+  const s = bare ? Math.min(w / 375, h / 812) : Math.min(1, (h - 70) / 812, (w - 40) / 375);
+  device.style.transform = `scale(${s})`;
+}
+addEventListener('resize', fit); fit();
+</script>
+<!--APP-->
+<script>
+/* ---------- password gate (published copy only; local runs skip it, ?lock forces it) ---------- */
+(function gate() {
+  const q = new URLSearchParams(location.search);
+  const local = location.protocol === 'file:' || /^(localhost|127\.0\.0\.1|\[::1\])$/.test(location.hostname);
+  const KEY = 'cardproto.unlocked', HASH = 6224418402236123; // cyrb53("<password>") — the password itself is not stored
+  const cyrb53 = (str, seed = 7) => {
+    let h1 = 0xdeadbeef ^ seed, h2 = 0x41c6ce57 ^ seed;
+    for (let i = 0; i < str.length; i++) { const c = str.charCodeAt(i); h1 = Math.imul(h1 ^ c, 2654435761); h2 = Math.imul(h2 ^ c, 1597334677); }
+    h1 = Math.imul(h1 ^ (h1 >>> 16), 2246822507) ^ Math.imul(h2 ^ (h2 >>> 13), 3266489909);
+    h2 = Math.imul(h2 ^ (h2 >>> 16), 2246822507) ^ Math.imul(h1 ^ (h1 >>> 13), 3266489909);
+    return 4294967296 * (2097151 & h2) + (h1 >>> 0);
+  };
+  window.__cyrb53 = cyrb53;
+  let saved = null; try { saved = localStorage.getItem(KEY); } catch (e) {}
+  const need = q.has('lock') || (!local && saved !== String(HASH));
+  window.__gateOpen = need;
+  if (!need) return;
+  const g = document.getElementById('gate');
+  g.hidden = false;
+  let code = '';
+  const dots = [...g.querySelectorAll('.gate-dot')], msg = g.querySelector('.gate-msg');
+  const render = () => dots.forEach((d, i) => d.classList.toggle('is-on', i < code.length));
+  const press = (k) => {
+    if (g.classList.contains('is-ok')) return;
+    g.classList.remove('is-err'); msg.textContent = '';
+    if (k === 'del') code = code.slice(0, -1); else if (code.length < 4) code += k;
+    render();
+    if (code.length === 4) setTimeout(check, 120);
+  };
+  const check = () => {
+    if (cyrb53(code) === HASH) {
+      try { localStorage.setItem(KEY, String(HASH)); } catch (e) {}
+      g.classList.add('is-ok');
+      setTimeout(() => { g.hidden = true; window.__gateOpen = false; window.__afterGate && window.__afterGate(); }, 350);
+    } else {
+      g.classList.add('is-err'); msg.textContent = 'Wrong password'; code = '';
+      setTimeout(render, 380);
+    }
+  };
+  g.addEventListener('click', (e) => { const b = e.target.closest('[data-gate-key]'); if (b) press(b.dataset.gateKey); });
+  addEventListener('keydown', (e) => {
+    if (g.hidden) return;
+    if (/^[0-9]$/.test(e.key)) press(e.key); else if (e.key === 'Backspace') press('del');
+  });
+})();
+
+/* ---------- boot (preview mode: #<screen-id>) ---------- */
+(function bootWhenOpen() { if (window.__gateOpen) { window.__afterGate = boot; return; } boot(); })();
+function boot() {
+  const id = decodeURIComponent(location.hash.slice(1));
+  if (window.AppBoot && !id) return window.AppBoot();
+  const target = id || (document.querySelector('template[data-screen]:not([data-kind="fragment"])') || {}).dataset?.screen;
+  if (!target) return;
+  if (App.kind(target) === 'sheet') {
+    if (window.AppBoot) window.AppBoot(true);
+    else { const blank = document.createElement('div'); blank.className = 'layer'; blank.style.background = '#d9d9de'; pagesEl.appendChild(blank); }
+    App.openSheet(target);
+  } else App.go(target, { anim: 'none' });
+}
+addEventListener('hashchange', () => location.reload());
+</script>
+</body>
+</html>

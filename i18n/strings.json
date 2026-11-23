@@ -1,0 +1,2749 @@
+{
+  "langs": [
+    "en",
+    "az",
+    "ru"
+  ],
+  "entries": [
+    {
+      "src": [
+        "Bakının heyvanları"
+      ],
+      "en": "Animals of Baku",
+      "az": "Bakının heyvanları",
+      "ru": "Животные Баку",
+      "from": "manual"
+    },
+    {
+      "src": [
+        "Avatar səni səsləyir"
+      ],
+      "en": "Avatar is calling you",
+      "az": "Avatar səni səsləyir",
+      "ru": "Аватар зовёт тебя",
+      "from": "manual"
+    },
+    {
+      "src": [
+        "Səssizliyə son"
+      ],
+      "en": "No more silence",
+      "az": "Səssizliyə son",
+      "ru": "Конец тишине",
+      "from": "manual"
+    },
+    {
+      "src": [
+        "Cards and accounts"
+      ],
+      "en": "Cards and accounts",
+      "az": "Kartlar və hesablar",
+      "ru": "Карты и счета",
+      "from": "ds",
+      "var": "Cards and accounts",
+      "collection": "Main screen"
+    },
+    {
+      "src": [
+        "Debet Birbank cashback"
+      ],
+      "en": "Debit Birbank Cashback",
+      "az": "Debet Birbank cashback",
+      "ru": "Дебетовая Birbank Cashback",
+      "from": "manual"
+    },
+    {
+      "src": [
+        "Daha çox göstər"
+      ],
+      "en": "Show more",
+      "az": "Daha çox göstər",
+      "ru": "Показать больше",
+      "from": "ds",
+      "var": "Show more",
+      "collection": "Recently Benefits"
+    },
+    {
+      "src": [
+        "Əlavə edilmiş kartlar"
+      ],
+      "en": "Attached cards",
+      "az": "Əlavə edilmiş kartlar",
+      "ru": "Привязанные карты",
+      "from": "ds",
+      "var": "Attached cards",
+      "collection": "Mix"
+    },
+    {
+      "src": [
+        "Investments"
+      ],
+      "en": "Investments",
+      "az": "İnvestisiyalar",
+      "ru": "Инвестиции",
+      "from": "ds",
+      "var": "Invest",
+      "collection": "Recently Benefits"
+    },
+    {
+      "src": [
+        "Kreditlər və kredit xətləri"
+      ],
+      "en": "Loans and credit lines",
+      "az": "Kreditlər və kredit xətləri",
+      "ru": "Кредиты и кредитные линии",
+      "from": "ds",
+      "var": "loans_credit_lines",
+      "collection": "Birbank App texts"
+    },
+    {
+      "src": [
+        "Kapital Bank Nağd kredit・3 000 ₼"
+      ],
+      "en": "Kapital Bank Cash loan・3 000 ₼",
+      "az": "Kapital Bank Nağd kredit・3 000 ₼",
+      "ru": "Kapital Bank Кредит наличными・3 000 ₼",
+      "from": "ds",
+      "var": "PFM and statement/loan_cash",
+      "collection": "Birbank App texts"
+    },
+    {
+      "src": [
+        "Deposits"
+      ],
+      "en": "Deposits",
+      "az": "Depozitlər",
+      "ru": "Депозиты",
+      "from": "ds",
+      "var": "Deposits",
+      "collection": "Main screen"
+    },
+    {
+      "src": [
+        "Deposit・10 mart 2026-cı ilədək"
+      ],
+      "en": "Deposit・until March 10, 2026",
+      "az": "Depozit・10 mart 2026-cı ilədək",
+      "ru": "Депозит・до 10 марта 2026 года",
+      "from": "ds",
+      "var": "BB products/Savings (deposit included)/until_date",
+      "collection": "Birbank App texts"
+    },
+    {
+      "src": [
+        "Mobile numbers"
+      ],
+      "en": "Mobile numbers",
+      "az": "Mobil nömrələr",
+      "ru": "Мобильные номера",
+      "from": "ds",
+      "var": "Mobile numbers",
+      "collection": "Main screen"
+    },
+    {
+      "src": [
+        "Gizlədilmiş məhsulları göstər"
+      ],
+      "en": "Show hidden products",
+      "az": "Gizlədilmiş məhsulları göstər",
+      "ru": "Показать скрытые продукты",
+      "from": "ds",
+      "var": "Show hidden products",
+      "collection": "Advance&Hide"
+    },
+    {
+      "src": [
+        "Məhsullar və xidmətlər"
+      ],
+      "en": "Products and services",
+      "az": "Məhsullar və xidmətlər",
+      "ru": "Продукты и сервисы",
+      "from": "ds",
+      "var": "Main/Products on main/main_products_services",
+      "collection": "Birbank App texts"
+    },
+    {
+      "src": [
+        "Hamısına bax"
+      ],
+      "en": "See all",
+      "az": "Hamısına bax",
+      "ru": "Смотреть все",
+      "from": "ds",
+      "var": "see_all",
+      "collection": "COMMONS"
+    },
+    {
+      "src": [
+        "Kreditlər"
+      ],
+      "en": "Loans",
+      "az": "Kreditlər",
+      "ru": "Кредиты",
+      "from": "ds",
+      "var": "Loans",
+      "collection": "Birbank App texts"
+    },
+    {
+      "src": [
+        "Əmanətlər"
+      ],
+      "en": "Savings",
+      "az": "Əmanətlər",
+      "ru": "Вклады",
+      "from": "ds",
+      "var": "Main/Products on main/main_savings",
+      "collection": "Birbank App texts"
+    },
+    {
+      "src": [
+        "Səyahət"
+      ],
+      "en": "Travel",
+      "az": "Səyahət",
+      "ru": "Путешествия",
+      "from": "ds",
+      "var": "Main/Products on main/main_travel",
+      "collection": "Birbank App texts"
+    },
+    {
+      "src": [
+        "Kartlar"
+      ],
+      "en": "Cards",
+      "az": "Kartlar",
+      "ru": "Карты",
+      "from": "ds",
+      "var": "Cards",
+      "collection": "Birbank App texts"
+    },
+    {
+      "src": [
+        "Sığortalar"
+      ],
+      "en": "Insurances",
+      "az": "Sığortalar",
+      "ru": "Страховки",
+      "from": "ds",
+      "var": "BB products/Insurances/Insurances",
+      "collection": "Birbank App texts"
+    },
+    {
+      "src": [
+        "Valyuta mübadiləsi"
+      ],
+      "en": "Currency exchange",
+      "az": "Valyuta mübadiləsi",
+      "ru": "Обмен валюты",
+      "from": "ds",
+      "var": "Zero paper/zero_currency_exchange",
+      "collection": "Birbank App texts"
+    },
+    {
+      "src": [
+        "Sənədlərim"
+      ],
+      "en": "My documents",
+      "az": "Sənədlərim",
+      "ru": "Мои документы",
+      "from": "ds",
+      "var": "Main/Products on main/main_my_documents",
+      "collection": "Birbank App texts"
+    },
+    {
+      "src": [
+        "Filiallar və bankomatlar"
+      ],
+      "en": "Branches and ATMs",
+      "az": "Filiallar və bankomatlar",
+      "ru": "Банкоматы и филиалы",
+      "from": "ds",
+      "var": "Main/Products on main/main_branches_atms",
+      "collection": "Birbank App texts"
+    },
+    {
+      "src": [
+        "Sizin üçün Bir"
+      ],
+      "en": "Bir features for you",
+      "az": "Sizin üçün Bir",
+      "ru": "Возможности Bir для вас",
+      "from": "ds",
+      "var": "Main/bir_features_for_you",
+      "collection": "Birbank App texts"
+    },
+    {
+      "src": [
+        "Credit 0-0-12"
+      ],
+      "en": "Credit 0-0-12",
+      "az": "Kredit 0-0-12",
+      "ru": "Кредит 0-0-12",
+      "from": "ds",
+      "var": "Credit",
+      "collection": "Birbank App texts"
+    },
+    {
+      "src": [
+        "From19,99₼сredit for 24 mo."
+      ],
+      "en": "From19,99₼сredit for 24 mo.",
+      "az": "19,99 ₼-dan, 24 aylıq kredit",
+      "ru": "От 19,99 ₼ в кредит на 24 мес.",
+      "from": "manual"
+    },
+    {
+      "src": [
+        "Вентилятор Crown BSD 1836C 5P"
+      ],
+      "en": "Fan Crown BSD 1836C 5P",
+      "az": "Ventilyator Crown BSD 1836C 5P",
+      "ru": "Вентилятор Crown BSD 1836C 5P",
+      "from": "manual"
+    },
+    {
+      "src": [
+        "İşarət dili ilə Birbank zəngi"
+      ],
+      "en": "Birbank call in sign language",
+      "az": "İşarət dili ilə Birbank zəngi",
+      "ru": "Звонок в Birbank на языке жестов",
+      "from": "manual"
+    },
+    {
+      "src": [
+        "Fitnes qolbaq Google Fitbit Air Lavender (GA11014EU)"
+      ],
+      "en": "Fitness band Google Fitbit Air Lavender (GA11014EU)",
+      "az": "Fitnes qolbaq Google Fitbit Air Lavender (GA11014EU)",
+      "ru": "Фитнес-браслет Google Fitbit Air Lavender (GA11014EU)",
+      "from": "manual"
+    },
+    {
+      "src": [
+        "BestsellerCredit 0-0-12"
+      ],
+      "en": "BestsellerCredit 0-0-12",
+      "az": "Ən çox satılan\nKredit 0-0-12",
+      "ru": "Хит продаж\nКредит 0-0-12",
+      "from": "manual"
+    },
+    {
+      "src": [
+        "Напольные весы Xiaomi S400 BHR7793GL"
+      ],
+      "en": "Floor scales Xiaomi S400 BHR7793GL",
+      "az": "Döşəmə tərəzisi Xiaomi S400 BHR7793GL",
+      "ru": "Напольные весы Xiaomi S400 BHR7793GL",
+      "from": "manual"
+    },
+    {
+      "src": [
+        "Ağıllı saat Apple Watch SE 3 GPS 40mm Starlight with Starlight Sport Band - S/M (Rəsmi zəmanət)"
+      ],
+      "en": "Smart watch Apple Watch SE 3 GPS 40mm Starlight with Starlight Sport Band - S/M (Official warranty)",
+      "az": "Ağıllı saat Apple Watch SE 3 GPS 40mm Starlight with Starlight Sport Band - S/M (Rəsmi zəmanət)",
+      "ru": "Умные часы Apple Watch SE 3 GPS 40mm Starlight with Starlight Sport Band - S/M (Официальная гарантия)",
+      "from": "manual"
+    },
+    {
+      "src": [
+        "Hövsanda yeni rəqəmsal mərkəz"
+      ],
+      "en": "New digital center in Hovsan",
+      "az": "Hövsanda yeni rəqəmsal mərkəz",
+      "ru": "Новый цифровой центр в Говсане",
+      "from": "manual"
+    },
+    {
+      "src": [
+        "Kontakt-da 60%-dek endirimi"
+      ],
+      "en": "Up to 60% off at Kontakt",
+      "az": "Kontakt-da 60%-dek endirimi",
+      "ru": "Скидки до 60% в Kontakt",
+      "from": "manual"
+    },
+    {
+      "src": [
+        "Televizor LG Smart TV OLED 65'' OLED65B4RLA"
+      ],
+      "en": "TV LG Smart TV OLED 65'' OLED65B4RLA",
+      "az": "Televizor LG Smart TV OLED 65'' OLED65B4RLA",
+      "ru": "Телевизор LG Smart TV OLED 65'' OLED65B4RLA",
+      "from": "manual"
+    },
+    {
+      "src": [
+        "Financial Literacy"
+      ],
+      "en": "Financial Literacy",
+      "az": "Maliyyə savadlılığı",
+      "ru": "Финансовая грамотность",
+      "from": "manual"
+    },
+    {
+      "src": [
+        "How Much Do You Really Know About Loans? Which Type Is Right for You?"
+      ],
+      "en": "How Much Do You Really Know About Loans? Which Type Is Right for You?",
+      "az": "Kreditlər haqqında həqiqətən nə qədər bilirsiniz? Hansı növ sizə uyğundur?",
+      "ru": "Что вы на самом деле знаете о кредитах? Какой вид подходит именно вам?",
+      "from": "manual"
+    },
+    {
+      "src": [
+        "Smartfon Honor Magic8 Pro 12GB/512GB Black"
+      ],
+      "en": "Smartphone Honor Magic8 Pro 12GB/512GB Black",
+      "az": "Smartfon Honor Magic8 Pro 12GB/512GB Black",
+      "ru": "Смартфон Honor Magic8 Pro 12GB/512GB Black",
+      "from": "manual"
+    },
+    {
+      "src": [
+        "Çat"
+      ],
+      "en": "Chat",
+      "az": "Çat",
+      "ru": "Чат",
+      "from": "ds",
+      "var": "chat",
+      "collection": "COMMONS"
+    },
+    {
+      "src": [
+        "Home"
+      ],
+      "en": "Main",
+      "az": "Əsas",
+      "ru": "Главная",
+      "from": "ds",
+      "var": "Main",
+      "collection": "Translation"
+    },
+    {
+      "src": [
+        "Benefits"
+      ],
+      "en": "Benefits",
+      "az": "Bizdən sizə",
+      "ru": "Выгода",
+      "from": "ds",
+      "var": "Benefits",
+      "collection": "Translation"
+    },
+    {
+      "src": [
+        "Payments",
+        "Платежи"
+      ],
+      "en": "Payments",
+      "az": "Ödənişlər",
+      "ru": "Платежи",
+      "from": "ds",
+      "var": "Payments",
+      "collection": "Translation"
+    },
+    {
+      "src": [
+        "More"
+      ],
+      "en": "More",
+      "az": "Daha çox",
+      "ru": "Еще",
+      "from": "ds",
+      "var": "More",
+      "collection": "Translation"
+    },
+    {
+      "src": [
+        "sizi salamlayır!"
+      ],
+      "en": "welcomes you!",
+      "az": "sizi salamlayır!",
+      "ru": "приветствует вас!",
+      "from": "ds",
+      "var": "Main/main_welcomes_you",
+      "collection": "Birbank App texts"
+    },
+    {
+      "src": [
+        "Başlamaq üçün seçim edin:"
+      ],
+      "en": "What would you like to start with?",
+      "az": "Başlamaq üçün seçim edin:",
+      "ru": "С чего хотите начать?",
+      "from": "ds",
+      "var": "Main/main_what_start_with",
+      "collection": "Birbank App texts"
+    },
+    {
+      "src": [
+        "Birbank kartını sifariş və ya əlavə et"
+      ],
+      "en": "Order or add a Birbank card",
+      "az": "Birbank kartını sifariş və ya əlavə et",
+      "ru": "Заказать или привязать карту Birbank",
+      "from": "ds",
+      "var": "Main/Products on main/main_order_add_birbank_card",
+      "collection": "Birbank App texts"
+    },
+    {
+      "src": [
+        "Bonuslar qazan"
+      ],
+      "en": "Earn bonuses",
+      "az": "Bonuslar qazan",
+      "ru": "Получать бонусы",
+      "from": "ds",
+      "var": "Main/Products on main/main_earn_bonuses",
+      "collection": "Birbank App texts"
+    },
+    {
+      "src": [
+        "“ƏDV geri al” hesabını əlavə et"
+      ],
+      "en": "Add an “ƏDV geri al” account",
+      "az": "“ƏDV geri al” hesabını əlavə et",
+      "ru": "Добавить аккаунт “ƏDV geri al”",
+      "from": "ds",
+      "var": "Main/Products on main/main_edv_geri_al",
+      "collection": "Birbank App texts"
+    },
+    {
+      "src": [
+        "Kredit əldə et"
+      ],
+      "en": "Borrow money",
+      "az": "Kredit əldə et",
+      "ru": "Взять кредит",
+      "from": "ds",
+      "var": "Main/Products on main/main_get_money",
+      "collection": "Birbank App texts"
+    },
+    {
+      "src": [
+        "Pul yığ"
+      ],
+      "en": "Save money",
+      "az": "Pul yığ",
+      "ru": "Копить деньги",
+      "from": "ds",
+      "var": "Main/Products on main/main_save_money",
+      "collection": "Birbank App texts"
+    },
+    {
+      "src": [
+        "Digər bankların kartlarını əlavə et"
+      ],
+      "en": "Add cards from other banks",
+      "az": "Digər bankların kartlarını əlavə et",
+      "ru": "Добавить карты других банков",
+      "from": "ds",
+      "var": "Main/Products on main/main_other_bank_cards",
+      "collection": "Birbank App texts"
+    },
+    {
+      "src": [
+        "Məhsullarınızı görmürsünüz?"
+      ],
+      "en": "Can’t see your products?",
+      "az": "Məhsullarınızı görmürsünüz?",
+      "ru": "Не видите свои продукты?",
+      "from": "ds",
+      "var": "Main/main_cant_see_products",
+      "collection": "Birbank App texts"
+    },
+    {
+      "src": [
+        "Məhsul sifariş et"
+      ],
+      "en": "Order product",
+      "az": "Məhsul sifariş et",
+      "ru": "Заказать продукт",
+      "from": "ds",
+      "var": "Main/Products on main/main_order_product",
+      "collection": "Birbank App texts"
+    },
+    {
+      "src": [
+        "Milyonlar üçün bir"
+      ],
+      "en": "One for millions",
+      "az": "Milyonlar üçün bir",
+      "ru": "Один для миллионов",
+      "from": "manual"
+    },
+    {
+      "src": [
+        "Sizin üçün"
+      ],
+      "en": "For you",
+      "az": "Sizin üçün",
+      "ru": "Для вас",
+      "from": "manual"
+    },
+    {
+      "src": [
+        "From 32,99 ₼ × 24 mo"
+      ],
+      "en": "From 32,99 ₼ × 24 mo",
+      "az": "32,99 ₼-dan × 24 ay",
+      "ru": "От 32,99 ₼ × 24 мес",
+      "from": "manual"
+    },
+    {
+      "src": [
+        "78 bought"
+      ],
+      "en": "78 bought",
+      "az": "78 dəfə alınıb",
+      "ru": "Купили 78 раз",
+      "from": "manual"
+    },
+    {
+      "src": [
+        "Tomorrow",
+        "Sabah"
+      ],
+      "en": "Tomorrow",
+      "az": "Sabah",
+      "ru": "Завтра",
+      "from": "ds",
+      "var": "tomorrow",
+      "collection": "COMMONS"
+    },
+    {
+      "src": [
+        "Birbankla parking ödənişi"
+      ],
+      "en": "Parking payment with Birbank",
+      "az": "Birbankla parking ödənişi",
+      "ru": "Оплата парковки с Birbank",
+      "from": "manual"
+    },
+    {
+      "src": [
+        "2 items left"
+      ],
+      "en": "2 items left",
+      "az": "2 ədəd qalıb",
+      "ru": "Осталось 2 шт.",
+      "from": "manual"
+    },
+    {
+      "src": [
+        "From 2,45 ₼ × 24 mo"
+      ],
+      "en": "From 2,45 ₼ × 24 mo",
+      "az": "2,45 ₼-dan × 24 ay",
+      "ru": "От 2,45 ₼ × 24 мес",
+      "from": "manual"
+    },
+    {
+      "src": [
+        "From 29,45 ₼ × 24 mo"
+      ],
+      "en": "From 29,45 ₼ × 24 mo",
+      "az": "29,45 ₼-dan × 24 ay",
+      "ru": "От 29,45 ₼ × 24 мес",
+      "from": "manual"
+    },
+    {
+      "src": [
+        "2 bought"
+      ],
+      "en": "2 bought",
+      "az": "2 dəfə alınıb",
+      "ru": "Купили 2 раза",
+      "from": "manual"
+    },
+    {
+      "src": [
+        "in 30 minutes"
+      ],
+      "en": "in 30 minutes",
+      "az": "30 dəqiqəyə",
+      "ru": "за 30 минут",
+      "from": "manual"
+    },
+    {
+      "src": [
+        "12 items left"
+      ],
+      "en": "12 items left",
+      "az": "12 ədəd qalıb",
+      "ru": "Осталось 12 шт.",
+      "from": "manual"
+    },
+    {
+      "src": [
+        "271 bought"
+      ],
+      "en": "271 bought",
+      "az": "271 dəfə alınıb",
+      "ru": "Купили 271 раз",
+      "from": "manual"
+    },
+    {
+      "src": [
+        "13 September"
+      ],
+      "en": "13 September",
+      "az": "13 sentyabr",
+      "ru": "13 сентября",
+      "from": "manual"
+    },
+    {
+      "src": [
+        "Sign up"
+      ],
+      "en": "Sign up",
+      "az": "Qeydiyyatdan keç",
+      "ru": "Зарегистрироваться",
+      "from": "manual"
+    },
+    {
+      "src": [
+        "History"
+      ],
+      "en": "History",
+      "az": "Tarixçə",
+      "ru": "История",
+      "from": "ds",
+      "var": "History",
+      "collection": "Translation"
+    },
+    {
+      "src": [
+        "Add new card"
+      ],
+      "en": "Add new card",
+      "az": "Yeni kart əlavə edin",
+      "ru": "Добавьте новую карту",
+      "from": "ds",
+      "var": "add_new_card",
+      "collection": "Birbank App texts"
+    },
+    {
+      "src": [
+        "Partnyorlardan bonuslar və 2 qat ƏDV"
+      ],
+      "en": "2x VAT and bonuses from partners",
+      "az": "Partnyorlardan bonuslar və 2 qat ƏDV",
+      "ru": "2-кратный возврат НДС и бонусы от партнеров",
+      "from": "ds",
+      "var": "double_vat_and_chasback_from_partners_another",
+      "collection": "Birbank App texts"
+    },
+    {
+      "src": [
+        "Order for free"
+      ],
+      "en": "Order for free",
+      "az": "Pulsuz sifariş et",
+      "ru": "Заказать бесплатно",
+      "from": "ds",
+      "var": "Order for free",
+      "collection": "Birbank App texts"
+    },
+    {
+      "src": [
+        "For daily"
+      ],
+      "en": "For daily",
+      "az": "Gündəlik istifadə",
+      "ru": "На каждый день",
+      "from": "ds",
+      "var": "For daily",
+      "collection": "Birbank App texts"
+    },
+    {
+      "src": [
+        "For travel"
+      ],
+      "en": "For travel",
+      "az": "Səyahət üçün",
+      "ru": "Для путешествий",
+      "from": "ds",
+      "var": "For travel",
+      "collection": "Birbank App texts"
+    },
+    {
+      "src": [
+        "For Premium"
+      ],
+      "en": "Premium",
+      "az": "Premium",
+      "ru": "Premium",
+      "from": "ds",
+      "var": "Premium",
+      "collection": "Birbank App texts"
+    },
+    {
+      "src": [
+        "Birbank Star Free Up to 30 000 ₼, no interest"
+      ],
+      "en": "Birbank Star Free\nUp to 30 000 ₼, no interest",
+      "az": "Birbank Star Pulsuz\n30 000 ₼-dək, faizsiz",
+      "ru": "Birbank Star Бесплатно\nДо 30 000 ₼ без процентов",
+      "from": "manual"
+    },
+    {
+      "src": [
+        "Birbank Miles Free 1.3%-dək başlayan Umico bonuslar"
+      ],
+      "en": "Birbank Miles Free\nUp to 1.3% Umico bonuses",
+      "az": "Birbank Miles Pulsuz\n1.3%-dək başlayan Umico bonuslar",
+      "ru": "Birbank Miles Бесплатно\nДо 1,3% бонусов Umico",
+      "from": "manual"
+    },
+    {
+      "src": [
+        "Birbank Platinum 50 ₼ 1.9%-dək başlayan əlavə Umico bonuslar"
+      ],
+      "en": "Birbank Platinum 50 ₼\nUp to 1.9% extra Umico bonuses",
+      "az": "Birbank Platinum 50 ₼\n1.9%-dək başlayan əlavə Umico bonuslar",
+      "ru": "Birbank Platinum 50 ₼\nДо 1,9% дополнительных бонусов Umico",
+      "from": "manual"
+    },
+    {
+      "src": [
+        "Birbank Platinum Miles 80 ₼ 1.9%-dək başlayan əlavə Umico bonuslar"
+      ],
+      "en": "Birbank Platinum Miles 80 ₼\nUp to 1.9% extra Umico bonuses",
+      "az": "Birbank Platinum Miles 80 ₼\n1.9%-dək başlayan əlavə Umico bonuslar",
+      "ru": "Birbank Platinum Miles 80 ₼\nДо 1,9% дополнительных бонусов Umico",
+      "from": "manual"
+    },
+    {
+      "src": [
+        "Activate Birbank Card For cards you purchased in the market"
+      ],
+      "en": "Activate Birbank card\nFor cards you purchased in the market",
+      "az": "Birbank kartını aktivləşdir\nMağazalardan aldığınız kartlar üçün",
+      "ru": "Активировать карту Birbank\nДля карт, купленных в магазинах",
+      "from": "ds",
+      "var": "activate_birbank_card",
+      "collection": "Birbank App texts"
+    },
+    {
+      "src": [
+        "Attach card Add cards from any local banks, top up their balance more conveniently, and make payments and transfers."
+      ],
+      "en": "Link a card\nAdd cards from any local banks, top up their balance, and make payments and transfers",
+      "az": "Kartı əlavə et\nİstənilən yerli bankın kartlarını əlavə edin, balanslarını daha rahat artırın, ödəniş və köçürmələr edin",
+      "ru": "Привязать карту\nДобавляйте карты любых местных банков, пополняйте их баланс, совершайте платежи и переводы",
+      "from": "ds",
+      "var": "Attach card + Add cards from any local banks, top up their balance more conveniently, and make payments and transfers",
+      "collection": "Birbank App texts"
+    },
+    {
+      "src": [
+        "Debet kartı Taksit kartı"
+      ],
+      "en": "Debit card\nInstallment card",
+      "az": "Debet kartı\nTaksit kartı",
+      "ru": "Дебетовая карта\nКарта рассрочки",
+      "from": "ds",
+      "var": "debit_card + installment_card",
+      "collection": "Birbank App texts"
+    },
+    {
+      "src": [
+        "Birbank Cashback kartı sizə partnyorlardan bonus, pulsuz köçürmə və nağdlaşdırma qazandıracaq"
+      ],
+      "en": "Earn bonus from partners, transfer and withdraw money for free with Birbank Cashback card",
+      "az": "Birbank Cashback kartı sizə partnyorlardan bonus, pulsuz köçürmə və nağdlaşdırma qazandıracaq",
+      "ru": "Зарабатывайте бонусы от партнеров, бесплатно переводите и снимайте деньги с картой Birbank Cashback",
+      "from": "ds",
+      "var": "earn_bonus_card_desc",
+      "collection": "Birbank App texts"
+    },
+    {
+      "src": [
+        "Dərhal açılan rəqəmsal kartSifarişdən dərhal sonra siz kartın rəqəmsal versiyasını əldə edirisiniz. İstədiyiniz vaxt Bakı, Abşeron və ya Sumqayıtdakı ünvanınıza bu kartın plastik versiyasını pulsuz çatdıra bilərik.",
+        "Dərhal açılan rəqəmsal kartSifarişdən dərhal sonra siz kartın rəqəmsal versiyasını əldə edirsiniz. İstədiyiniz vaxt Bakı, Abşeron və ya Sumqayıtdakı ünvanınıza bu kartın plastik versiyasını pulsuz çatdıra bilərik."
+      ],
+      "en": "Instant digital card\nRight after ordering, you get access to your digital card. Whenever you want, you can also order a physical card with free delivery in Baku, Absheron, and Sumgait.",
+      "az": "Dərhal açılan rəqəmsal kartSifarişdən dərhal sonra siz kartın rəqəmsal versiyasını əldə edirsiniz. İstədiyiniz vaxt Bakı, Abşeron və ya Sumqayıtdakı ünvanınıza bu kartın plastik versiyasını pulsuz çatdıra bilərik.",
+      "ru": "Цифровая карта сразу\nПри заказе вы сразу получаете цифровую версию карты. В любой момент вы можете заказать пластиковую версию этой карты с бесплатной доставкой по Баку, Абшерону и Сумгаиту.",
+      "from": "ds",
+      "var": "BB products/Cards/instant_digital_card + BB products/Cards/right_after_you_get_digital",
+      "collection": "Birbank App texts"
+    },
+    {
+      "src": [
+        "Rəqəmsal kart nədir?"
+      ],
+      "en": "What is a digital card?",
+      "az": "Rəqəmsal kart nədir?",
+      "ru": "Что такое цифровая карта?",
+      "from": "ds",
+      "var": "BB products/Cards/what_is_a_digital_card",
+      "collection": "Birbank App texts"
+    },
+    {
+      "src": [
+        "Birbank kartlarına 0% komissiya ilə köçürməDigər bank kartlarına fərdi limit daxilində komissiyasız köçürmə edə bilərsiniz. Limiti keçdikdə isə komissiya 0,5% təşkil edəcək (minimum 1 AZN/USD/EUR)."
+      ],
+      "en": "Transfers to Birbank cards with 0% commission\nYou can transfer money to cards of other banks without commission within your individual limit. If the limit is exceeded, a commission of 1% will apply (minimum 1 AZN/USD/EUR). For more details, see the “Tariffs” section on our website.",
+      "az": "Birbank kartlarına 0% komissiya ilə köçürməDigər bank kartlarına fərdi limit daxilində komissiyasız köçürmə edə bilərsiniz. Limiti keçdikdə isə komissiya 0,5% təşkil edəcək (minimum 1 AZN/USD/EUR).",
+      "ru": "Переводы на карты Birbank с комиссией 0%\nВы можете переводить деньги на карты других банков без комиссии в пределах индивидуального лимита. При превышении лимита комиссия составит 1% (минимум 1 AZN/USD/EUR). Подробнее в разделе «Тарифы» на нашем сайте.",
+      "from": "ds",
+      "var": "Cards order and delivery/transfer_without_commission + Cards order and delivery/transfer_within_limit",
+      "collection": "Birbank App texts"
+    },
+    {
+      "src": [
+        "Limit daxilində komissiyasız nağdlaşdırmaFərdi limiti keçdikdə komissiya 1% təşkil edəcək (minimum 1 AZN/USD/EUR). Daha ətraflı saytımızın “Tariflər” bölməsində."
+      ],
+      "en": "Cash withdrawals without commission within limit\nIf the individual limit is exceeded, a commission of 1% will apply (minimum 1 AZN/USD/EUR). For more details, see the “Tariffs” section on our website.",
+      "az": "Limit daxilində komissiyasız nağdlaşdırmaFərdi limiti keçdikdə komissiya 1% təşkil edəcək (minimum 1 AZN/USD/EUR). Daha ətraflı saytımızın “Tariflər” bölməsində.",
+      "ru": "Снятие наличных без комиссии в пределах лимита\nПри превышении индивидуального лимита комиссия составит 1% (минимум 1 AZN/USD/EUR). Подробнее в разделе «Тарифы» на нашем сайте.",
+      "from": "ds",
+      "var": "Cards order and delivery/withdrawal_within_limit + BB products/Cards/if_individual_limit_exceeded",
+      "collection": "Birbank App texts"
+    },
+    {
+      "src": [
+        "Partnyorlardan bonuslarPartnyorlarımızın mağazalarında alış-veriş edin və bonuslar qazanın."
+      ],
+      "en": "Bonuses from partners\nShop at our partner stores and earn bonuses.",
+      "az": "Partnyorlardan bonuslarPartnyorlarımızın mağazalarında alış-veriş edin və bonuslar qazanın.",
+      "ru": "Бонусы от партнеров\nВозможность получать бонусы за покупки в магазинах наших партнеров",
+      "from": "ds",
+      "var": "bonuses_from_partners + shop_at_stores_earn_bonuses",
+      "collection": "Birbank App texts"
+    },
+    {
+      "src": [
+        "Balansın 3 000 ₼-dək komissiyasız artırılmasıFiliallar, şöbələr və ya terminallar vasitəsilə ay ərzində kartınızın balansını 3 000 ₼-dan çox artırdıqda məbləğin limiti keçən hissəsinə 0,5% komissiya tətbiq olunur"
+      ],
+      "en": "Top-up without commission up to 3 000 ₼\nWhen topping up your card balance via branches, offices, or terminals by more than 3 000 ₼, a 0,5% fee applies to the amount exceeding the limit",
+      "az": "Balansın 3 000 ₼-dək komissiyasız artırılmasıFiliallar, şöbələr və ya terminallar vasitəsilə ay ərzində kartınızın balansını 3 000 ₼-dan çox artırdıqda məbləğin limiti keçən hissəsinə 0,5% komissiya tətbiq olunur",
+      "ru": "Пополнение баланса без комиссии до 3 000 ₼\nПри пополнении баланса карты через филиалы, отделения или терминалы на сумму более 3 000 ₼, на превышающую лимит часть применяется комиссия 0,5%",
+      "from": "ds",
+      "var": "BB products/Cards/header_top_up_without_commission_3000 + BB products/Cards/body_top_up_without_commission_3000",
+      "collection": "Birbank App texts"
+    },
+    {
+      "src": [
+        "AZN, USD, EUR valyutasında"
+      ],
+      "en": "In AZN, USD, EUR",
+      "az": "AZN, USD, EUR valyutasında",
+      "ru": "В валюте AZN, USD, EUR",
+      "from": "manual"
+    },
+    {
+      "src": [
+        "Referal kodum var"
+      ],
+      "en": "I have a referral code",
+      "az": "Referal kodum var",
+      "ru": "У меня есть реферальный код",
+      "from": "ds",
+      "var": "Cards order and delivery/i_have_referral_code",
+      "collection": "Birbank App texts"
+    },
+    {
+      "src": [
+        "Referal kodu sizinlə yalnız Birbank Cashback kartı sahibi paylaşa bilər. Əgər bu sizin ilk Birbank Cashback debet kartınızdırsa, onunla etdiyiniz ilk ödənişdən 3 ₼ qazanacaqsınız."
+      ],
+      "en": "Only a Birbank Cashback cardholder can share a referral code with you. If this is your first Birbank Cashback debit card, you will earn 3 ₼ from your first payment with it.",
+      "az": "Referal kodu sizinlə yalnız Birbank Cashback kartı sahibi paylaşa bilər. Əgər bu sizin ilk Birbank Cashback debet kartınızdırsa, onunla etdiyiniz ilk ödənişdən 3 ₼ qazanacaqsınız.",
+      "ru": "Поделиться с вами реферальным кодом может только владелец карты Birbank Cashback. Если это ваша первая дебетовая карта Birbank Cashback, вы получите 3 ₼ за первый платёж по ней.",
+      "from": "manual"
+    },
+    {
+      "src": [
+        "Referal kodu",
+        "Referral code"
+      ],
+      "en": "Referral code",
+      "az": "Referal kodu",
+      "ru": "Реферальный код",
+      "from": "ds",
+      "var": "Cards order and delivery/referral_code",
+      "collection": "Birbank App texts"
+    },
+    {
+      "src": [
+        "Siz bu koddan artıq istifadə etmisiniz"
+      ],
+      "en": "You have already used this code",
+      "az": "Siz bu koddan artıq istifadə etmisiniz",
+      "ru": "Вы уже использовали этот код",
+      "from": "ds",
+      "var": "Cards order and delivery/you_already_used_this_code",
+      "collection": "Birbank App texts"
+    },
+    {
+      "src": [
+        "18 ayadək taksitPartnyorlarımızın mağazalarında etdiyiniz alış-verişlərinizi faizsiz hissə-hissə ödəyin."
+      ],
+      "en": "Installment up to 18 months\nPay for your purchases at our partners' stores in installments without interest.",
+      "az": "18 ayadək taksitPartnyorlarımızın mağazalarında etdiyiniz alış-verişlərinizi faizsiz hissə-hissə ödəyin.",
+      "ru": "Рассрочка до 18 месяцев\nОплачивайте покупки в магазинах наших партнеров в рассрочку без процентов.",
+      "from": "ds",
+      "var": "Installment up to 18 months + Pay for your purchases at our partners' stores in installments without interest",
+      "collection": "Birbank App texts"
+    },
+    {
+      "src": [
+        "Grace period up to 63 daysThe maximum grace period for repayment of the amount spent without interest is 63 days. After this period, interest on the remaining debt will be charged at a rate of 1.84% to 2.92% per month."
+      ],
+      "en": "Grace period up to 63 daysThe maximum grace period for repayment of the amount spent without interest is 63 days. After this period, interest on the remaining debt will be charged at a rate of 1.84% to 2.92% per month.",
+      "az": "63 günədək güzəşt müddəti\nXərclədiyiniz məbləği faizsiz qaytarmaq üçün maksimal güzəşt müddəti 63 gündür. Güzəşt müddəti başa çatdıqda aylıq 1,84%-dən 2,92%-dək kredit faizi hesablanacaq.",
+      "ru": "Льготный период до 63 дней\nМаксимальный льготный период для возврата потраченной суммы без процентов составляет 63 дня. После этого срока на оставшуюся сумму долга будет начисляться процент по кредиту от 1,84% до 2,92% в месяц.",
+      "from": "ds",
+      "var": "Grace period up to 63 days + The maximum grace period for repayment of the amount spent without interest is 63",
+      "collection": "Translation"
+    },
+    {
+      "src": [
+        "Ayda 30 000-dək səyahət miliÖlkədaxili ödənişlər üçün hər 2 ₼ minimum 1 mil, ölkəxarici ödənişlər üçün isə 1 ₼ 1 mil olaraq hesablanacaq. Partnyorlarımızda alış-veriş edərək daha çox mil əldə edə biləcəksiniz."
+      ],
+      "en": "Up to 30 000 miles per month\nFor domestic payments, you will earn at least 1 mile for every 2 ₼, and for international payments — 1 mile per 1 ₼. Shop with our partners to earn more miles.",
+      "az": "Ayda 30 000-dək səyahət miliÖlkədaxili ödənişlər üçün hər 2 ₼ minimum 1 mil, ölkəxarici ödənişlər üçün isə 1 ₼ 1 mil olaraq hesablanacaq. Partnyorlarımızda alış-veriş edərək daha çox mil əldə edə biləcəksiniz.",
+      "ru": "До 30 000 миль в месяц\nЗа внутренние платежи вам будет начисляться минимум 1 миля за каждые 2 ₼, а за зарубежные — 1 миля за каждый 1 ₼. Покупайте у наших партнеров, чтобы зарабатывать больше миль.",
+      "from": "ds",
+      "var": "BB products/Cards/up_to_30000_miles_per_month + BB products/Cards/during_domestic_payments_one_manat_one_mile",
+      "collection": "Birbank App texts"
+    },
+    {
+      "src": [
+        "30 000 ₼-dək kredit limitiLimit fərdi olaraq müəyyən edilir və kart sifarişindən dərhal sonra istifadəyə hazırdır."
+      ],
+      "en": "Credit limit up to 30 000 ₼\nThe limit is set individually and is available right after you order the card.",
+      "az": "30 000 ₼-dək kredit limitiLimit fərdi olaraq müəyyən edilir və kart sifarişindən dərhal sonra istifadəyə hazırdır.",
+      "ru": "Кредитный лимит до 30 000 ₼\nЛимит устанавливается индивидуально и доступен сразу после заказа карты.",
+      "from": "manual"
+    },
+    {
+      "src": [
+        "Faizsiz taksitlə alış-verişPartnyorlarımızın mağazalarında etdiyiniz alış-verişləri faizsiz hissə-hissə ödəyin."
+      ],
+      "en": "Enjoy interest-free installment payments\nPay for your purchases at our partners' stores in installments without interest.",
+      "az": "Faizsiz taksitlə alış-veriş edin\nPartnyorlarımızın mağazalarında etdiyiniz alış-verişlərinizi faizsiz hissə-hissə ödəyin.",
+      "ru": "Совершайте покупки в рассрочку без процентов\nОплачивайте покупки в магазинах наших партнеров в рассрочку без процентов.",
+      "from": "ds",
+      "var": "Cards order and delivery/interest_free_installment_payments + Pay for your purchases at our partners' stores in installments without interest",
+      "collection": "Birbank App texts"
+    },
+    {
+      "src": [
+        "63 günədək güzəşt müddətiXərclənmiş məbləği 63 gün ərzində faizsiz qaytara bilərsiniz."
+      ],
+      "en": "Grace period up to 63 days\nYou can repay the amount spent within 63 days without interest.",
+      "az": "63 günədək güzəşt müddətiXərclənmiş məbləği 63 gün ərzində faizsiz qaytara bilərsiniz.",
+      "ru": "Льготный период до 63 дней\nПотраченную сумму можно вернуть без процентов в течение 63 дней.",
+      "from": "ds",
+      "var": "Cards order and delivery/grace_period_sixty_three_days",
+      "collection": "Birbank App texts"
+    },
+    {
+      "src": [
+        "“Visa Concierge” xidmətləriBirbank Platinum kartı ilə ödənişlər edin və “Visa Concierge” xidmətlərindən 24/7 yararlanın."
+      ],
+      "en": "Visa Concierge\nMake payments with your Birbank Platinum card and enjoy the benefits of Visa Concierge services.",
+      "az": "“Visa Concierge” xidməti\nBirbank Platinum kartı ilə ödənişlər edin və “Visa Concierge” xidmətlərindən yararlanın.",
+      "ru": "Сервис «Visa Concierge»\nОплачивайте покупки картой Birbank Platinum и пользуйтесь услугами «Visa Concierge».",
+      "from": "ds",
+      "var": "BB products/Cards/header_visa_concierge_service + BB products/Cards/desc_birbank_platinum_features",
+      "collection": "Birbank App texts"
+    },
+    {
+      "src": [
+        "Əlavə Umico bonuslarıHər ödənişdən 1.9%-dək əlavə Umico bonusları qazanın."
+      ],
+      "en": "Extra Umico bonuses\nEarn up to 1.9% extra Umico bonuses on every payment.",
+      "az": "Əlavə Umico bonuslarıHər ödənişdən 1.9%-dək əlavə Umico bonusları qazanın.",
+      "ru": "Дополнительные бонусы Umico\nПолучайте до 1,9% дополнительных бонусов Umico за каждый платёж.",
+      "from": "manual"
+    },
+    {
+      "src": [
+        "Birbank kartlarına 0% komissiya ilə köçürməDigər bank kartlarına fərdi limit daxilində komissiyasız köçürmə edə bilərsiniz."
+      ],
+      "en": "Transfers to Birbank cards with 0% commission\nYou can transfer money to cards of other banks without commission within your individual limit.",
+      "az": "Birbank kartlarına 0% komissiya ilə köçürməDigər bank kartlarına fərdi limit daxilində komissiyasız köçürmə edə bilərsiniz.",
+      "ru": "Переводы на карты Birbank с комиссией 0%\nВы можете переводить деньги на карты других банков без комиссии в пределах индивидуального лимита.",
+      "from": "ds",
+      "var": "Cards order and delivery/transfer_without_commission + Cards order and delivery/transfer_within_limit",
+      "collection": "Birbank App texts"
+    },
+    {
+      "src": [
+        "Valyuta seçimi edin"
+      ],
+      "en": "Choose a currency",
+      "az": "Valyuta seçimi edin",
+      "ru": "Выберите валюту",
+      "from": "ds",
+      "var": "Common wordings/HEADER_Choose_a_currency",
+      "collection": "Birbank App texts"
+    },
+    {
+      "src": [
+        "Continue",
+        "Davam et"
+      ],
+      "en": "Continue",
+      "az": "Davam et",
+      "ru": "Продолжить",
+      "from": "ds",
+      "var": "continue_common",
+      "collection": "COMMONS"
+    },
+    {
+      "src": [
+        "Zəhmət olmasa, gözləyin"
+      ],
+      "en": "Please wait",
+      "az": "Zəhmət olmasa, gözləyin",
+      "ru": "Пожалуйста, подождите",
+      "from": "ds",
+      "var": "please_wait",
+      "collection": "Birbank App texts"
+    },
+    {
+      "src": [
+        "Məlumatlarınızı yoxlayırıq"
+      ],
+      "en": "We are checking your data",
+      "az": "Məlumatlarınızı yoxlayırıq",
+      "ru": "Мы проверяем ваши данные",
+      "from": "ds",
+      "var": "Cards order and delivery/checking_your_data",
+      "collection": "Birbank App texts"
+    },
+    {
+      "src": [
+        "Mobil nömrənizin aktiv olduğuna əmin olun"
+      ],
+      "en": "Make sure your mobile number is active",
+      "az": "Mobil nömrənizin aktiv olduğuna əmin olun",
+      "ru": "Убедитесь, что ваш мобильный номер активен",
+      "from": "ds",
+      "var": "BB products/Insurances/Make sure your mobile number is active",
+      "collection": "Birbank App texts"
+    },
+    {
+      "src": [
+        "Onlayn ödənişlər zamanı 3D Secure kodu bu nömrəyə göndəriləcək"
+      ],
+      "en": "You’ll receive the 3D Secure code on this number during online transactions",
+      "az": "Onlayn ödənişlər zamanı 3D Secure kodu bu nömrəyə göndəriləcək",
+      "ru": "При оплате онлайн 3D Secure код будет отправлен на этот номер",
+      "from": "ds",
+      "var": "BB products/Cards/secure_code_will_be_sent_to_this_number",
+      "collection": "Birbank App texts"
+    },
+    {
+      "src": [
+        "Confirm"
+      ],
+      "en": "Confirm",
+      "az": "Təsdiq et",
+      "ru": "Подтвердить",
+      "from": "ds",
+      "var": "confirm",
+      "collection": "COMMONS"
+    },
+    {
+      "src": [
+        "Telefon nömrəsi yanlışdır"
+      ],
+      "en": "Incorrect phone number",
+      "az": "Telefon nömrəsi yanlışdır",
+      "ru": "Неверный номер телефона",
+      "from": "ds",
+      "var": "Login/incorrect_phone_number",
+      "collection": "Birbank App texts"
+    },
+    {
+      "src": [
+        "Karta PIN kod təyin edin"
+      ],
+      "en": "Set a PIN for your card",
+      "az": "Karta PIN-kod təyin edin",
+      "ru": "Установите PIN-код для карты",
+      "from": "ds",
+      "var": "BB products/Cards/PIN/header_set_pin",
+      "collection": "Birbank App texts"
+    },
+    {
+      "src": [
+        "Bu kodla siz ATM-dən vəsaitin nağdlaşdırılması, pos-terminal ödənişləri və digər kart əməliyyatlarını apara biləcəksiniz. Kodun mürəkkəb olmasından əmin olun."
+      ],
+      "en": "With this code you can withdraw cash at ATMs, pay at POS terminals and make other card transactions. Make sure the code is hard to guess.",
+      "az": "Bu kodla siz ATM-dən vəsaitin nağdlaşdırılması, pos-terminal ödənişləri və digər kart əməliyyatlarını apara biləcəksiniz. Kodun mürəkkəb olmasından əmin olun.",
+      "ru": "С этим кодом вы сможете снимать наличные в банкоматах, оплачивать покупки через POS-терминалы и совершать другие операции по карте. Убедитесь, что код надёжный.",
+      "from": "manual"
+    },
+    {
+      "src": [
+        "Enter once"
+      ],
+      "en": "Enter PIN",
+      "az": "PIN-kodu daxil edin",
+      "ru": "Введите PIN-код",
+      "from": "manual"
+    },
+    {
+      "src": [
+        "PIN again"
+      ],
+      "en": "Repeat PIN",
+      "az": "PIN-kodu təkrarlayın",
+      "ru": "Повторите PIN-код",
+      "from": "manual"
+    },
+    {
+      "src": [
+        "PIN kodlar üst-üstə düşmür"
+      ],
+      "en": "Codes do not match",
+      "az": "Kodlar üst-üstə düşmür",
+      "ru": "Коды не совпадают",
+      "from": "ds",
+      "var": "codes_not_match",
+      "collection": "COMMONS"
+    },
+    {
+      "src": [
+        "Məlumatlar toplusu"
+      ],
+      "en": "Data summary",
+      "az": "Məlumatlar toplusu",
+      "ru": "Свод данных",
+      "from": "ds",
+      "var": "BB products/Cards/data_summary",
+      "collection": "Birbank App texts"
+    },
+    {
+      "src": [
+        "Özünüqiymətləndirmə anketi"
+      ],
+      "en": "Self-assessment questionnaire",
+      "az": "Özünüqiymətləndirmə anketi",
+      "ru": "Анкета самооценки",
+      "from": "ds",
+      "var": "self_assessment_questionnarie",
+      "collection": "COMMONS"
+    },
+    {
+      "src": [
+        "Kimliyinizi təsdiqləyin"
+      ],
+      "en": "Verify yourself",
+      "az": "Kimliyinizi təsdiqləyin",
+      "ru": "Подтвердите личность",
+      "from": "ds",
+      "var": "Login/verify_yourself",
+      "collection": "Birbank App texts"
+    },
+    {
+      "src": [
+        "We need to ensure it's you to keep your account secure."
+      ],
+      "en": "We need to ensure it's you to keep your account secure.",
+      "az": "Hesabınızın təhlükəsizliyini təmin etmək üçün kimliyinizi təsdiq etməliyik.",
+      "ru": "Нам нужно убедиться, что это вы, чтобы сохранить безопасность вашего аккаунта.",
+      "from": "ds",
+      "var": "We need to ensure",
+      "collection": "Login"
+    },
+    {
+      "src": [
+        "Fərdi məlumatlarımın toplanmasına, işlənilməsinə, eləcə də foto ilə təsdiqləmənin keçirilməsinə dair razılığımı bildirirəm"
+      ],
+      "en": "I agree to the collecting and processing of my personal information, as well as to the photo identification process",
+      "az": "Fərdi məlumatlarımın toplanmasına, işlənilməsinə, eləcə də foto ilə təsdiqləmənin keçirilməsinə dair razılığımı bildirirəm",
+      "ru": "Я даю согласие на сбор и обработку моих персональных данных, а также на процесс фотоидентификации",
+      "from": "ds",
+      "var": "I agree to the collecting and processing of my personal information, as well as to the photo identification process",
+      "collection": "Birbank App texts"
+    },
+    {
+      "src": [
+        "Üzünüzün aydın göründüyünə əmin olun"
+      ],
+      "en": "Make sure your face is clearly visible",
+      "az": "Üzünüzün aydın göründüyünə əmin olun",
+      "ru": "Убедитесь, что ваше лицо хорошо видно",
+      "from": "ds",
+      "var": "DVS WEB/make_sure_face_visible",
+      "collection": "Birbank App texts"
+    },
+    {
+      "src": [
+        "Üzünüzü örtən hər şeyi çıxarın — baş geyimini, eynəyi, maskanı və ya digər aksesuarları"
+      ],
+      "en": "Remove anything that covers your face such as headdress, glasses, masks or any other accessories",
+      "az": "Üzünüzü örtən hər şeyi çıxarın — baş geyimini, eynəyi, maskanı və ya digər aksesuarları",
+      "ru": "Снимите все, что закрывает ваше лицо: головной убор, очки, маску или любые другие аксессуары",
+      "from": "ds",
+      "var": "DVS/remove_anything_that_covers_your_face",
+      "collection": "Birbank App texts"
+    },
+    {
+      "src": [
+        "Başla"
+      ],
+      "en": "Start",
+      "az": "Başla",
+      "ru": "Начать",
+      "from": "ds",
+      "var": "start_common",
+      "collection": "COMMONS"
+    },
+    {
+      "src": [
+        "10 saniyəlik video çəkin"
+      ],
+      "en": "Record a 10 second video",
+      "az": "10 saniyəlik video çəkin",
+      "ru": "Запишите видео на 10 секунд",
+      "from": "ds",
+      "var": "DVS MOBILE/record_10_video",
+      "collection": "Birbank App texts"
+    },
+    {
+      "src": [
+        "Üzünüzü çərçivəyə yerləşdirin, düyməni basın və çəkiliş zamanı hərəkət etməməyə çalışın"
+      ],
+      "en": "Place your face inside the frame, tap the button, and hold still during the recording",
+      "az": "Üzünüzü çərçivəyə yerləşdirin, düyməni basın və çəkiliş zamanı hərəkət etməməyə çalışın",
+      "ru": "Поместите лицо в рамку, нажмите кнопку и не двигайтесь во время записи",
+      "from": "ds",
+      "var": "DVS MOBILE/recording_place_face",
+      "collection": "Birbank App texts"
+    },
+    {
+      "src": [
+        "Sənədlə tanış olun və imzalayın"
+      ],
+      "en": "Review the document and sign it",
+      "az": "Sənədlə tanış olun və imzalayın",
+      "ru": "Ознакомьтесь и подпишите документ",
+      "from": "ds",
+      "var": "SIMA Imza/review_and_sign_document",
+      "collection": "Birbank App texts"
+    },
+    {
+      "src": [
+        "Sənəd artıq {signers} istifadəçi tərəfindən imzalanıb"
+      ],
+      "en": "{signers} users have already signed the document",
+      "az": "Sənəd artıq {signers} istifadəçi tərəfindən imzalanıb",
+      "ru": "Количество подписавших документ: {signers}",
+      "from": "ds",
+      "var": "SIMA Imza/num_users_already_signed",
+      "collection": "Birbank App texts"
+    },
+    {
+      "src": [
+        "Sənədi imzala"
+      ],
+      "en": "Sign the document",
+      "az": "Sənədi imzala",
+      "ru": "Подписать документ",
+      "from": "manual"
+    },
+    {
+      "src": [
+        "Birbank card"
+      ],
+      "en": "Birbank card",
+      "az": "Birbank kartı",
+      "ru": "Карта Birbank",
+      "from": "manual"
+    },
+    {
+      "src": [
+        "Details"
+      ],
+      "en": "Details",
+      "az": "Detallar",
+      "ru": "Детали",
+      "from": "ds",
+      "var": "details_common",
+      "collection": "COMMONS"
+    },
+    {
+      "src": [
+        "Переводы"
+      ],
+      "en": "Transfers",
+      "az": "Köçürmələr",
+      "ru": "Переводы",
+      "from": "ds",
+      "var": "Transfer",
+      "collection": "Translation"
+    },
+    {
+      "src": [
+        "Пополнить"
+      ],
+      "en": "Top up",
+      "az": "Balansı artır",
+      "ru": "Пополнить",
+      "from": "ds",
+      "var": "Top up",
+      "collection": "Translation"
+    },
+    {
+      "src": [
+        "Kartın fiziki formasını sifariş etmək istəyirsiniz?"
+      ],
+      "en": "Do you want to order a physical card?",
+      "az": "Kartın fiziki formasını sifariş etmək istəyirsiniz?",
+      "ru": "Хотите заказать физическую карту?",
+      "from": "ds",
+      "var": "Cards order and delivery/popup_header_do_you_want_to_order_physical_card",
+      "collection": "Birbank App texts"
+    },
+    {
+      "src": [
+        "Kartın qeyd etdiyiniz ünvana çatdırılmasını seçə və ya onu bankımızın istənilən filialından götürə bilərsiniz"
+      ],
+      "en": "You can get the card delivered to your address or pick it up at any branch",
+      "az": "Kartın qeyd etdiyiniz ünvana çatdırılmasını seçə və ya onu bankımızın istənilən filialından götürə bilərsiniz",
+      "ru": "Вы можете оформить доставку карты по адресу или забрать ее в любом филиале нашего банка",
+      "from": "ds",
+      "var": "Cards order and delivery/get_the_card_to_address_pick_any_branch",
+      "collection": "Birbank App texts"
+    },
+    {
+      "src": [
+        "Bəli, sifariş et"
+      ],
+      "en": "Yes, order",
+      "az": "Bəli, sifariş et",
+      "ru": "Да, заказать",
+      "from": "ds",
+      "var": "Cards order and delivery/yes_order",
+      "collection": "Birbank App texts"
+    },
+    {
+      "src": [
+        "Recent payments by card:"
+      ],
+      "en": "Recent payments",
+      "az": "Son ödənişlər",
+      "ru": "Недавние платежи",
+      "from": "ds",
+      "var": "Recent payments",
+      "collection": "Birbank App texts"
+    },
+    {
+      "src": [
+        "You haven't had a payments yet"
+      ],
+      "en": "You don't have any payments yet",
+      "az": "Hələ heç bir ödənişiniz yoxdur",
+      "ru": "У вас пока нет платежей",
+      "from": "ds",
+      "var": "You don't have any payments yet",
+      "collection": "Birbank App texts"
+    },
+    {
+      "src": [
+        "History of payments"
+      ],
+      "en": "Payments history",
+      "az": "Ödənişlərin tarixçəsi",
+      "ru": "История платежей",
+      "from": "ds",
+      "var": "payments_history",
+      "collection": "COMMONS"
+    },
+    {
+      "src": [
+        "Другое"
+      ],
+      "en": "Other",
+      "az": "Digər",
+      "ru": "Другое",
+      "from": "ds",
+      "var": "Other",
+      "collection": "Translation"
+    },
+    {
+      "src": [
+        "Лимиты по карте"
+      ],
+      "en": "Card limits",
+      "az": "Kart limitləri",
+      "ru": "Лимиты карты",
+      "from": "ds",
+      "var": "Card limits",
+      "collection": "Birbank App texts"
+    },
+    {
+      "src": [
+        "Осталось 5 000 ₼"
+      ],
+      "en": "Left: 5 000 ₼",
+      "az": "Qalıb: 5 000 ₼",
+      "ru": "Осталось: 5 000 ₼",
+      "from": "ds",
+      "var": "BB products/Credits/Ninja/left_amount",
+      "collection": "Birbank App texts"
+    },
+    {
+      "src": [
+        "Изменить PIN-код"
+      ],
+      "en": "PIN Change",
+      "az": "PIN kodu dəyiş",
+      "ru": "Изменить PIN-код",
+      "from": "ds",
+      "var": "PIN Change",
+      "collection": "Translation"
+    },
+    {
+      "src": [
+        "Сбросить PIN"
+      ],
+      "en": "Reset PIN",
+      "az": "PIN kodu sıfırla",
+      "ru": "Сбросить PIN",
+      "from": "ds",
+      "var": "Reset PIN Tries",
+      "collection": "Translation"
+    },
+    {
+      "src": [
+        "3D Secure"
+      ],
+      "en": "3D Secure",
+      "az": "3D Secure",
+      "ru": "3D Secure",
+      "from": "ds",
+      "var": "3D Secure",
+      "collection": "Translation"
+    },
+    {
+      "src": [
+        "Активен на номере 55 123 45 67"
+      ],
+      "en": "Active on 55 123 45 67",
+      "az": "55 123 45 67 nömrəsində aktivdir",
+      "ru": "Активен на номере 55 123 45 67",
+      "from": "ds",
+      "var": "Active on",
+      "collection": "Translation"
+    },
+    {
+      "src": [
+        "SMS-банкинг"
+      ],
+      "en": "SMS Banking",
+      "az": "SMS bankçılıq",
+      "ru": "SMS-банкинг",
+      "from": "ds",
+      "var": "SMS Banking",
+      "collection": "Translation"
+    },
+    {
+      "src": [
+        "Заблокировать карту"
+      ],
+      "en": "Block card",
+      "az": "Kartı blokla",
+      "ru": "Заблокировать карту",
+      "from": "ds",
+      "var": "Block card",
+      "collection": "Translation"
+    },
+    {
+      "src": [
+        "Защита от мошенничества в случае утери карты"
+      ],
+      "en": "Protection against fraud in case of card loss",
+      "az": "Kartın itirilməsi halında dələduzluqdan qorunma",
+      "ru": "Защита от мошенничества в случае утери карты",
+      "from": "ds",
+      "var": "Protection against fraud in case of card loss",
+      "collection": "Translation"
+    },
+    {
+      "src": [
+        "Сделать основной картой"
+      ],
+      "en": "Make card as default",
+      "az": "Əsas kart kimi seç",
+      "ru": "Сделать основной картой",
+      "from": "ds",
+      "var": "Make card as default",
+      "collection": "Birbank App texts"
+    },
+    {
+      "src": [
+        "Привязать карту к AniPay"
+      ],
+      "en": "Link card to AniPay",
+      "az": "Kartı AniPay-ə əlavə et",
+      "ru": "Привязать карту к AniPay",
+      "from": "ds",
+      "var": "Link card to AniPay",
+      "collection": "Default card"
+    },
+    {
+      "src": [
+        "Увеличить кредитный лимит"
+      ],
+      "en": "Increase credit limit",
+      "az": "Kredit limitini artır",
+      "ru": "Увеличить кредитный лимит",
+      "from": "ds",
+      "var": "Increase",
+      "collection": "Translation"
+    },
+    {
+      "src": [
+        "Ваш лимит — 3000 ₼"
+      ],
+      "en": "Your limit is 3000 ₼",
+      "az": "Limitiniz 3000₼-dır",
+      "ru": "Ваш лимит — 3000 ₼",
+      "from": "ds",
+      "var": "Your limit is 3000 ₼",
+      "collection": "Translation"
+    },
+    {
+      "src": [
+        "Subscriptions"
+      ],
+      "en": "Subscriptions",
+      "az": "Abunəliklər",
+      "ru": "Подписки",
+      "from": "manual"
+    },
+    {
+      "src": [
+        "Отправить выписку на e-mail"
+      ],
+      "en": "Statement to e-mail",
+      "az": "Çıxarışı elektron ünvana göndər",
+      "ru": "Отправить выписку на e-mail",
+      "from": "ds",
+      "var": "Statement to e-mail",
+      "collection": "Translation"
+    },
+    {
+      "src": [
+        "Document delivery"
+      ],
+      "en": "Documents delivery",
+      "az": "Sənədlərin çatdırılması",
+      "ru": "Доставка документов",
+      "from": "ds",
+      "var": "Documents Delivery/documents_delivery",
+      "collection": "Birbank App texts"
+    },
+    {
+      "src": [
+        "Реквизиты"
+      ],
+      "en": "Requisites",
+      "az": "Rekvizitlər",
+      "ru": "Реквизиты",
+      "from": "ds",
+      "var": "Requisites",
+      "collection": "Translation"
+    },
+    {
+      "src": [
+        "SWİFT, İBAN, номер счета"
+      ],
+      "en": "SWİFT, İBAN, account number",
+      "az": "SWİFT, İBAN, hesab nömrəsi",
+      "ru": "SWİFT, İBAN, номер счета",
+      "from": "ds",
+      "var": "SWİFT, İBAN, Acconut number",
+      "collection": "Translation"
+    },
+    {
+      "src": [
+        "Close card"
+      ],
+      "en": "Close card",
+      "az": "Kartı bağla",
+      "ru": "Закрыть карту",
+      "from": "ds",
+      "var": "BB products/Cards/Close card/action_close_card",
+      "collection": "Birbank App texts"
+    },
+    {
+      "src": [
+        "Kart istifadəyə hazırdır"
+      ],
+      "en": "Your card is ready to use",
+      "az": "Kart istifadəyə hazırdır",
+      "ru": "Карта готова к использованию",
+      "from": "ds",
+      "var": "Cards order and delivery/header_your_card_is_ready_to_use",
+      "collection": "Birbank App texts"
+    },
+    {
+      "src": [
+        "Courier delivering the card"
+      ],
+      "en": "Courier delivering the card",
+      "az": "Kuryer kartı çatdırır",
+      "ru": "Курьер доставляет карту",
+      "from": "ds",
+      "var": "BB products/Cards/Renew card/courier_delivering_card",
+      "collection": "Birbank App texts"
+    },
+    {
+      "src": [
+        "Your card will be delivered at 14:00 to Besti Bagirova st. 26D, 50 apt."
+      ],
+      "en": "Your card will be delivered at 14:00 to Besti Bagirova st. 26D, 50 apt.",
+      "az": "Kartınız saat 14:00-da Bəsti Bağırova küç. 26D, mənzil 50 ünvanına çatdırılacaq.",
+      "ru": "Ваша карта будет доставлена в 14:00 по адресу: ул. Бести Багировой 26D, кв. 50.",
+      "from": "manual"
+    },
+    {
+      "src": [
+        "Kartınızın çatdırılması ilə bağlı kuryer {delivery-date} tarixində sizinlə əlaqə saxlayacaq"
+      ],
+      "en": "A courier will contact you on {delivery-date} regarding the delivery of your card",
+      "az": "Kartınızın çatdırılması ilə bağlı kuryer {delivery-date} tarixində sizinlə əlaqə saxlayacaq",
+      "ru": "Курьер свяжется с вами {delivery-date} по поводу доставки вашей карты",
+      "from": "ds",
+      "var": "Cards order and delivery/delivery_of_card",
+      "collection": "Birbank App texts"
+    },
+    {
+      "src": [
+        "Card is being prepared at the branch"
+      ],
+      "en": "Card is being prepared at the branch",
+      "az": "Kart filialda hazırlanır",
+      "ru": "Карта готовится в филиале",
+      "from": "manual"
+    },
+    {
+      "src": [
+        "You can pick up your card at {branch-name} within 5–7 working days."
+      ],
+      "en": "You can pick up your card at the {branch-name} branch within 5‑7 business days",
+      "az": "Kartınızı 5-7 iş günü ərzində {branch-name} filialından götürə bilərsiniz",
+      "ru": "Вы можете забрать карту в филиале {branch-name} в течение 5‑7 рабочих дней",
+      "from": "ds",
+      "var": "Cards order and delivery/pick_up_card_at_branch",
+      "collection": "Birbank App texts"
+    },
+    {
+      "src": [
+        "Kartınızı 5-7 iş günü ərzində {branch} filialından götürə bilərsiniz"
+      ],
+      "en": "You can pick up your card at the {branch} branch within 5‑7 business days",
+      "az": "Kartınızı 5-7 iş günü ərzində {branch} filialından götürə bilərsiniz",
+      "ru": "Вы можете забрать карту в филиале {branch} в течение 5‑7 рабочих дней",
+      "from": "ds",
+      "var": "Cards order and delivery/pick_up_card_at_branch",
+      "collection": "Birbank App texts"
+    },
+    {
+      "src": [
+        "Fiziki kartı əlavə ödənişlə sifariş edə bilərsiniz"
+      ],
+      "en": "You can order a physical card for an additional fee",
+      "az": "Fiziki kartı əlavə ödənişlə sifariş edə bilərsiniz",
+      "ru": "Физическую карту можете заказать за отдельную плату",
+      "from": "ds",
+      "var": "Cards order and delivery/Order card ERRORS/header_physical_card_order_amount",
+      "collection": "Birbank App texts"
+    },
+    {
+      "src": [
+        "Sizin artıq bu valyutada bir fiziki kartınız olduğu üçün hər digər eyni valyutalı fiziki kartı {fee} ödəniş edərək əldə edəcəksiniz. Rəqəmsal kartınızdan istifadə etməyə davam edə bilərsiniz."
+      ],
+      "en": "You already have a physical card in this currency, so each additional one in the same currency will cost {fee}. You can continue using your digital card.",
+      "az": "Sizin artıq bu valyutada bir fiziki kartınız olduğu üçün hər digər eyni valyutalı fiziki kartı {fee} ödəniş edərək əldə edəcəksiniz. Rəqəmsal kartınızdan istifadə etməyə davam edə bilərsiniz.",
+      "ru": "У вас уже есть физическая карта в этой валюте, поэтому каждая дополнительная карта в той же валюте будет стоить {fee}. Вы можете продолжать пользоваться цифровой картой.",
+      "from": "ds",
+      "var": "Cards order and delivery/Order card ERRORS/body_physical_card_order_amount",
+      "collection": "Birbank App texts"
+    },
+    {
+      "src": [
+        "Rəqəmsal kartın üstünlükləri"
+      ],
+      "en": "Benefits of the digital card",
+      "az": "Rəqəmsal kartın üstünlükləri",
+      "ru": "Преимущества цифровой карты",
+      "from": "ds",
+      "var": "benefits_of_the_digital_card",
+      "collection": "Birbank App texts"
+    },
+    {
+      "src": [
+        "Sifariş et"
+      ],
+      "en": "Order",
+      "az": "Sifariş et",
+      "ru": "Заказать",
+      "from": "ds",
+      "var": "order_common",
+      "collection": "COMMONS"
+    },
+    {
+      "src": [
+        "Sifarişinizi qəbul etdik"
+      ],
+      "en": "We have received your order",
+      "az": "Sifarişinizi qəbul etdik",
+      "ru": "Мы приняли ваш заказ",
+      "from": "ds",
+      "var": "Cards order and delivery/header_we_have_received_order",
+      "collection": "Birbank App texts"
+    },
+    {
+      "src": [
+        "Sifarişiniz təsdiqləndikdən sonra kartınız Birbank tətbiqinin əsas səhifəsində əks olunacaq. Bundan sonra rəqəmsal kartınızla ödənişlər edə və ya istədiyiniz zaman onun fiziki formasını sifariş edə bilərsiniz."
+      ],
+      "en": "Once we confirm your order, you will see the card on the main page of the Birbank app. After that, you can make purchases with the digital card or order its physical version at any time.",
+      "az": "Sifarişiniz təsdiqləndikdən sonra kartınız Birbank tətbiqinin əsas səhifəsində əks olunacaq. Bundan sonra rəqəmsal kartınızla ödənişlər edə və ya istədiyiniz zaman onun fiziki formasını sifariş edə bilərsiniz.",
+      "ru": "Когда мы подтвердим ваш заказ, вы увидите карту на главной странице приложения Birbank. После этого вы сможете оплачивать покупки с помощью цифровой карты или заказать ее физическую версию в любое время.",
+      "from": "ds",
+      "var": "Cards order and delivery/body_we_have_received_order",
+      "collection": "Birbank App texts"
+    },
+    {
+      "src": [
+        "Əsas səhifəyə keç",
+        "Go to main",
+        "Go to main page"
+      ],
+      "en": "Go to main",
+      "az": "Əsas səhifəyə keç",
+      "ru": "Перейти на главную",
+      "from": "ds",
+      "var": "Cards order and delivery/button_go_to_main",
+      "collection": "Birbank App texts"
+    },
+    {
+      "src": [
+        "Rəqəmsal kart telefonunuzda olan və plastik kart kimi işləyən, lakin ondan bəzi üstünlüklərə malik bank kartıdır."
+      ],
+      "en": "A digital card is a bank card in your phone that works like a plastic one but has some advantages over it:",
+      "az": "Rəqəmsal kart telefonunuzda olan və plastik kart kimi işləyən, lakin ondan bəzi üstünlüklərə malik bank kartıdır.",
+      "ru": "Цифровая карта — это банковская карта в вашем телефоне, которая работает как пластиковая, но имеет некоторые преимущества перед ней.",
+      "from": "ds",
+      "var": "A digital card is a bank card in your phone that works like a plastic one but has some advantages over it",
+      "collection": "BB Products"
+    },
+    {
+      "src": [
+        "Kartınızı itirməyəcəksiniz"
+      ],
+      "en": "You won't lose your card",
+      "az": "Kartınızı itirməyəcəksiniz",
+      "ru": "Вы не потеряете свою карту",
+      "from": "ds",
+      "var": "You won't lose your card",
+      "collection": "BB Products"
+    },
+    {
+      "src": [
+        "Kartınız hər zaman sizinlədir. Rəqəmsal formatda olduğu üçün itirilməyəcək."
+      ],
+      "en": "Your card is always with you. Thanks to its digital format, it won't get lost.",
+      "az": "Kartınız hər zaman sizinlədir. Rəqəmsal formatda olduğu üçün itirilməyəcək.",
+      "ru": "Ваша карта всегда с вами. Благодаря цифровому формату, она не потеряется.",
+      "from": "ds",
+      "var": "No need to worry — your card is always with you in your phone and will never get lost",
+      "collection": "BB Products"
+    },
+    {
+      "src": [
+        "Kartınız həmişə telefonunuzdadır"
+      ],
+      "en": "Your card is always in your phone",
+      "az": "Kartınız həmişə telefonunuzdadır",
+      "ru": "Карта всегда в вашем телефоне",
+      "from": "ds",
+      "var": "Your card is always in your phone",
+      "collection": "BB Products"
+    },
+    {
+      "src": [
+        "Pul kisəsini unutmusunuzsa, narahat olmayın! Ödənişlərinizi Google Pay və ya Apple Pay ilə həyata keçirin."
+      ],
+      "en": "Don't worry if you forget your wallet – you can make purchases using Google Pay or Apple Pay.",
+      "az": "Pul kisəsini unutmusunuzsa, narahat olmayın! Ödənişlərinizi Google Pay və ya Apple Pay ilə həyata keçirin.",
+      "ru": "Не волнуйтесь, если забыли кошелек – оплатите покупки с помощью Google Pay или Apple Pay.",
+      "from": "ds",
+      "var": "Don't worry if you forget your wallet – you can make purchases using Google Pay or Apple Pay",
+      "collection": "BB Products"
+    },
+    {
+      "src": [
+        "Siz meşələrin qırılmasını azaltmağa kömək edirsiniz"
+      ],
+      "en": "You help reduce deforestation",
+      "az": "Siz meşələrin qırılmasını azaltmağa kömək edirsiniz",
+      "ru": "Вы помогаете сократить вырубку лесов",
+      "from": "ds",
+      "var": " You help reduce deforestation",
+      "collection": "BB Products"
+    },
+    {
+      "src": [
+        "Plastik kart və kağız sənədləri çap etməyə ehtiyac olmadığına görə, rəqəmsal kart seçməklə siz meşələrin qorunmasına kömək edirsiniz."
+      ],
+      "en": "By choosing a digital card, you help preserve forests as there is no need to print plastic cards and paper documents.",
+      "az": "Plastik kart və kağız sənədləri çap etməyə ehtiyac olmadığına görə, rəqəmsal kart seçməklə siz meşələrin qorunmasına kömək edirsiniz.",
+      "ru": "Выбирая цифровую карту, вы помогаете сохранять леса, так как нет необходимости в печати пластиковых карт и бумажных документов.",
+      "from": "ds",
+      "var": "By choosing a digital card, you help preserve forests as there is no need to print plastic cards and paper documents",
+      "collection": "BB Products"
+    },
+    {
+      "src": [
+        "Növbəti",
+        "Next"
+      ],
+      "en": "Next",
+      "az": "Növbəti",
+      "ru": "Далее",
+      "from": "ds",
+      "var": "next_common",
+      "collection": "COMMONS"
+    },
+    {
+      "src": [
+        "Aydındır"
+      ],
+      "en": "Got it",
+      "az": "Aydındır",
+      "ru": "Понятно",
+      "from": "ds",
+      "var": "got_it",
+      "collection": "Birbank App texts"
+    },
+    {
+      "src": [
+        "Search"
+      ],
+      "en": "Search",
+      "az": "Axtar",
+      "ru": "Поиск",
+      "from": "ds",
+      "var": "Search",
+      "collection": "Birbank App texts"
+    },
+    {
+      "src": [
+        "Cancel"
+      ],
+      "en": "Cancel",
+      "az": "Ləğv et",
+      "ru": "Отменить",
+      "from": "ds",
+      "var": "cancel_common",
+      "collection": "COMMONS"
+    },
+    {
+      "src": [
+        "We can deliver today from 14:00"
+      ],
+      "en": "We can deliver today from 14:00",
+      "az": "Bu gün saat 14:00-dan etibarən çatdıra bilərik",
+      "ru": "Можем доставить сегодня с 14:00",
+      "from": "manual"
+    },
+    {
+      "src": [
+        "Caspian centerYour location"
+      ],
+      "en": "Caspian center\nYour current location",
+      "az": "Caspian center\nHazırkı yeriniz",
+      "ru": "Caspian center\nВаше текущее местоположение",
+      "from": "ds",
+      "var": "Cards order and delivery/your_current_location",
+      "collection": "Birbank App texts"
+    },
+    {
+      "src": [
+        "Caspian PlazaYour location"
+      ],
+      "en": "Caspian Plaza\nYour current location",
+      "az": "Caspian Plaza\nHazırkı yeriniz",
+      "ru": "Caspian Plaza\nВаше текущее местоположение",
+      "from": "ds",
+      "var": "Cards order and delivery/your_current_location",
+      "collection": "Birbank App texts"
+    },
+    {
+      "src": [
+        "{address}Your location"
+      ],
+      "en": "{address}\nYour current location",
+      "az": "{address}\nHazırkı yeriniz",
+      "ru": "{address}\nВаше текущее местоположение",
+      "from": "ds",
+      "var": "Cards order and delivery/your_current_location",
+      "collection": "Birbank App texts"
+    },
+    {
+      "src": [
+        "Kartı necə əldə etmək istərdiniz?",
+        "How to deliver the card"
+      ],
+      "en": "How do you want to get the card?",
+      "az": "Kartı necə əldə etmək istərdiniz?",
+      "ru": "Как вы хотите получить карту?",
+      "from": "ds",
+      "var": "Cards order and delivery/how_you_want_get_card",
+      "collection": "Birbank App texts"
+    },
+    {
+      "src": [
+        "Delivery to adress"
+      ],
+      "en": "Deliver to address",
+      "az": "Ünvana çatdırılsın",
+      "ru": "Доставкой на адрес",
+      "from": "ds",
+      "var": "Cards order and delivery/Ddeliver_to_address",
+      "collection": "Birbank App texts"
+    },
+    {
+      "src": [
+        "Pick it up at the branch"
+      ],
+      "en": "Pick up from branch",
+      "az": "Filialdan götürmək",
+      "ru": "Забрать из филиала",
+      "from": "ds",
+      "var": "Cards order and delivery/pick_up_from_branch",
+      "collection": "Birbank App texts"
+    },
+    {
+      "src": [
+        "Birbank geolokasiyanıza daxil olmaq üçün icazə istəyir."
+      ],
+      "en": "Birbank would like to access your location.",
+      "az": "Birbank geolokasiyanıza daxil olmaq üçün icazə istəyir.",
+      "ru": "Birbank хочет получить доступ к вашей геопозиции.",
+      "from": "ds",
+      "var": "Access to location",
+      "collection": "Birbank App texts"
+    },
+    {
+      "src": [
+        "To delivery"
+      ],
+      "en": "For card delivery",
+      "az": "Kartın çatdırılması üçün",
+      "ru": "Для доставки карты",
+      "from": "manual"
+    },
+    {
+      "src": [
+        "Don’t Allow",
+        "İcazə vermə"
+      ],
+      "en": "Don't allow",
+      "az": "İcazə vermə",
+      "ru": "Не разрешать",
+      "from": "ds",
+      "var": "Don't allow",
+      "collection": "Translation"
+    },
+    {
+      "src": [
+        "OK"
+      ],
+      "en": "OK",
+      "az": "OK",
+      "ru": "OK",
+      "from": "ds",
+      "var": "ok_common",
+      "collection": "COMMONS"
+    },
+    {
+      "src": [
+        "Birbankın geolokasiyanıza daxil olmaq üçün icazəsi yoxdur. İcazə vermək üçün tənzimləmələrə keçin."
+      ],
+      "en": "Birbank doesn't have access to your location. Go to settings to allow access.",
+      "az": "Birbankın geolokasiyanıza daxil olmaq üçün icazəsi yoxdur. İcazə vermək üçün tənzimləmələrə keçin.",
+      "ru": "У приложения Birbank нет доступа к вашей геопозиции. Перейдите в настройки, чтобы разрешить доступ.",
+      "from": "ds",
+      "var": "No access to location",
+      "collection": "Translation"
+    },
+    {
+      "src": [
+        "Tənzimləmələrə keç"
+      ],
+      "en": "Go to settings",
+      "az": "Tənzimləmələrə keç",
+      "ru": "Перейти в настройки",
+      "from": "ds",
+      "var": "Go to settings",
+      "collection": "Translation"
+    },
+    {
+      "src": [
+        "Sorğunuz üzrə heç bir nəticə tapılmadı"
+      ],
+      "en": "No results found for your request",
+      "az": "Sorğunuz üzrə heç bir nəticə tapılmadı",
+      "ru": "По вашему запросу ничего не найдено",
+      "from": "ds",
+      "var": "not_found_error",
+      "collection": "COMMONS"
+    },
+    {
+      "src": [
+        "Bu ünvana çatdırılma hələ ki mümkün deyil"
+      ],
+      "en": "We don’t deliver to this address yet",
+      "az": "Bu ünvana çatdırılma hələ ki mümkün deyil",
+      "ru": "Пока не доставляем по этому адресу",
+      "from": "ds",
+      "var": "Cards order and delivery/we_dont_deliver_to_this_address",
+      "collection": "Birbank App texts"
+    },
+    {
+      "src": [
+        "Zəhmət olmasa, başqa ünvan qeyd edin və ya kartı özünüz götürə biləcəyiniz filialı seçin."
+      ],
+      "en": "Please enter a different address or choose a branch where you can pick up your card yourself.",
+      "az": "Zəhmət olmasa, başqa ünvan qeyd edin və ya kartı özünüz götürə biləcəyiniz filialı seçin.",
+      "ru": "Пожалуйста, укажите другой адрес или выберите филиал, где сможете забрать карту самостоятельно.",
+      "from": "ds",
+      "var": "Cards order and delivery/enter_different_address_or_choose_branch",
+      "collection": "Birbank App texts"
+    },
+    {
+      "src": [
+        "Filial seç"
+      ],
+      "en": "Choose a branch",
+      "az": "Filial seç",
+      "ru": "Выбрать филиал",
+      "from": "ds",
+      "var": "Cards order and delivery/button_choose_branch",
+      "collection": "Birbank App texts"
+    },
+    {
+      "src": [
+        "Başqa ünvan qeyd et"
+      ],
+      "en": "Enter a different address",
+      "az": "Başqa ünvan qeyd et",
+      "ru": "Указать другой адрес",
+      "from": "ds",
+      "var": "Cards order and delivery/button_enter_different_address",
+      "collection": "Birbank App texts"
+    },
+    {
+      "src": [
+        "Edit adress"
+      ],
+      "en": "Edit address",
+      "az": "Ünvanı dəyiş",
+      "ru": "Изменить адрес",
+      "from": "ds",
+      "var": "Cards order and delivery/edit_address",
+      "collection": "Birbank App texts"
+    },
+    {
+      "src": [
+        "Çatdırılma tarixi və vaxtını seçin"
+      ],
+      "en": "Choose delivery date and time",
+      "az": "Çatdırılma tarixi və vaxtını seçin",
+      "ru": "Выберите дату и время доставки",
+      "from": "ds",
+      "var": "Cards order and delivery/choose_delivery_date_time",
+      "collection": "Birbank App texts"
+    },
+    {
+      "src": [
+        "13 avqust, Bazar ertəsi"
+      ],
+      "en": "13 August, Monday",
+      "az": "13 avqust, Bazar ertəsi",
+      "ru": "13 августа, понедельник",
+      "from": "manual"
+    },
+    {
+      "src": [
+        "14 avqust, Çərşənbə axşamı"
+      ],
+      "en": "14 August, Tuesday",
+      "az": "14 avqust, Çərşənbə axşamı",
+      "ru": "14 августа, вторник",
+      "from": "manual"
+    },
+    {
+      "src": [
+        "Kuryer üçün məlumat"
+      ],
+      "en": "Information for the courier",
+      "az": "Kuryer üçün məlumat",
+      "ru": "Информация для курьера",
+      "from": "ds",
+      "var": "Cards order and delivery/information_for_courier",
+      "collection": "Birbank App texts"
+    },
+    {
+      "src": [
+        "Kartınızı “Wolt” kuryeri çatdıracaq"
+      ],
+      "en": "A “Wolt” courier will deliver your card",
+      "az": "Kartınızı “Wolt” kuryeri çatdıracaq",
+      "ru": "Вашу карту доставит курьер «Wolt»",
+      "from": "ds",
+      "var": "Cards order and delivery/wolt_courirer_deliver_card",
+      "collection": "Birbank App texts"
+    },
+    {
+      "src": [
+        "Ünvan məlumatları"
+      ],
+      "en": "Address details",
+      "az": "Ünvan məlumatları",
+      "ru": "Детали адреса",
+      "from": "ds",
+      "var": "Cards order and delivery/address_details",
+      "collection": "Birbank App texts"
+    },
+    {
+      "src": [
+        "Kuryer üçün qeyd (mütləq deyil)"
+      ],
+      "en": "Note for courier (optional)",
+      "az": "Kuryer üçün qeyd (mütləq deyil)",
+      "ru": "Примечание для курьера (необязательно)",
+      "from": "ds",
+      "var": "Cards order and delivery/note_for_courier",
+      "collection": "Birbank App texts"
+    },
+    {
+      "src": [
+        "Qapı nömrəsi, mərtəbə və s."
+      ],
+      "en": "Door number, floor, etc.",
+      "az": "Qapı nömrəsi, mərtəbə və s.",
+      "ru": "Номер двери, этаж и т. д.",
+      "from": "ds",
+      "var": "Cards order and delivery/door_number_floor_etc",
+      "collection": "Birbank App texts"
+    },
+    {
+      "src": [
+        "You can get the card within 5-7 working days by approaching the branch."
+      ],
+      "en": "You can get the card within 5-7 working days by approaching the branch.",
+      "az": "Kartı 5-7 iş günü ərzində filiala yaxınlaşaraq götürə bilərsiniz.",
+      "ru": "Вы можете забрать карту в филиале в течение 5–7 рабочих дней.",
+      "from": "manual"
+    },
+    {
+      "src": [
+        "Şəxsi məlumatlarınızı dələduzlardan sığortalayın"
+      ],
+      "en": "Insure your personal data against fraudsters",
+      "az": "Şəxsi məlumatlarınızı dələduzlardan sığortalayın",
+      "ru": "Застрахуйте свои персональные данные от мошенников",
+      "from": "ds",
+      "var": "BB products/Insurances/insure_your_data_against_fraudsters",
+      "collection": "Birbank App texts"
+    },
+    {
+      "src": [
+        "Kredit kartınızın limitinin 0,35%-i məbləğində xidmət haqqı ilə fərdi məlumatlarınızı gözlənilməz dələduzluq hallarından sığortalayın."
+      ],
+      "en": "Insure your personal data against unexpected fraud cases by paying 0,35% of your credit card limit.",
+      "az": "Kredit kartınızın limitinin 0,35%-i məbləğində xidmət haqqı ilə fərdi məlumatlarınızı gözlənilməz dələduzluq hallarından sığortalayın.",
+      "ru": "Застрахуйте свои персональные данные от неожиданных случаев мошенничества, заплатив 0,35% от лимита вашей кредитной карты.",
+      "from": "ds",
+      "var": "BB products/Insurances/desc_insure_your_data_against_fraudsters",
+      "collection": "Birbank App texts"
+    },
+    {
+      "src": [
+        "Sığorta şərtlərini ətraflı göstər",
+        "Show detailed terms of insurance"
+      ],
+      "en": "Show detailed terms of insurance",
+      "az": "Sığorta şərtlərini ətraflı göstər",
+      "ru": "Показать подробнее условия страхования",
+      "from": "ds",
+      "var": "BB products/Insurances/show_detailed_terms_of_insurance",
+      "collection": "Birbank App texts"
+    },
+    {
+      "src": [
+        "Kartımı sığortala"
+      ],
+      "en": "Insure my card",
+      "az": "Kartımı sığortala",
+      "ru": "Застраховать карту",
+      "from": "ds",
+      "var": "BB products/Insurances/insure_my_card",
+      "collection": "Birbank App texts"
+    },
+    {
+      "src": [
+        "Kredit kartların fiziki zədələnmədən sığortası (Card damage)"
+      ],
+      "en": "Credit card physical damage insurance (Card damage)",
+      "az": "Kredit kartların fiziki zədələnmədən sığortası (Card damage)",
+      "ru": "Страхование карт от повреждений (Card damage)",
+      "from": "ds",
+      "var": "BB products/Insurances/credit_card_damage_insurance",
+      "collection": "Birbank App texts"
+    },
+    {
+      "src": [
+        "İllik 1 ₼ xidmət haqqı ödəyərək kredit kartınızı sığortalayın, onu fiziki zədələdikdə və ya itirdikdə əlavə xərclərsiz yenisi ilə əvəz edin."
+      ],
+      "en": "By paying 1 ₼ for annual service, you insure your credit card to replace it without extra costs in case of damage or loss.",
+      "az": "İllik 1 ₼ xidmət haqqı ödəyərək kredit kartınızı sığortalayın, onu fiziki zədələdikdə və ya itirdikdə əlavə xərclərsiz yenisi ilə əvəz edin.",
+      "ru": "Оплачивая 1 ₼ за годовое обслуживание вы страхуете свою кредитную карту, чтобы заменить её без дополнительных затрат в случае повреждения или утери.",
+      "from": "ds",
+      "var": "BB products/Insurances/desc_credit_card_damage_insurance",
+      "collection": "Birbank App texts"
+    },
+    {
+      "src": [
+        "Additional offers"
+      ],
+      "en": "Additional offers",
+      "az": "Əlavə təkliflər",
+      "ru": "Дополнительные предложения",
+      "from": "manual"
+    },
+    {
+      "src": [
+        "Yaşınız 18-dən az olduğu üçün davam etmək mümkün olmadı. Valideynlərinizlə birlikdə istənilən filialımıza yaxınlaşa bilərsiniz."
+      ],
+      "en": "Unable to proceed because you are under 18 years old. You can visit any of our branches together with your parents.",
+      "az": "Yaşınız 18-dən az olduğu üçün davam etmək mümkün olmadı. Valideynlərinizlə birlikdə istənilən filialımıza yaxınlaşa bilərsiniz.",
+      "ru": "Невозможно продолжить, так как вам меньше 18 лет. Вы можете обратиться в любой наш филиал вместе с родителями.",
+      "from": "ds",
+      "var": "Cards order and delivery/Order card ERRORS/under_18_years_visit_branch_with_parent",
+      "collection": "Birbank App texts"
+    },
+    {
+      "src": [
+        "Filiallar siyahısına keç",
+        "Show to the branch list"
+      ],
+      "en": "Go to the branch list",
+      "az": "Filiallar siyahısına keç",
+      "ru": "Перейти к списку филиалов",
+      "from": "ds",
+      "var": "Main/Redesign/go_to_the_branch_list",
+      "collection": "Birbank App texts"
+    },
+    {
+      "src": [
+        "Şəxsiyyət vəsiqənizin müddəti bitdiyi üçün davam etmək mümkün olmadı. Vəsiqənizi yenilədikdən sonra yenidən cəhd edin."
+      ],
+      "en": "Unable to proceed because your ID card has expired. Try again after updating your ID.",
+      "az": "Şəxsiyyət vəsiqənizin müddəti bitdiyi üçün davam etmək mümkün olmadı. Vəsiqənizi yenilədikdən sonra yenidən cəhd edin.",
+      "ru": "Невозможно продолжить, так как срок действия вашего удостоверения личности истек. Повторите попытку еще раз после того, как обновите его.",
+      "from": "ds",
+      "var": "Cards order and delivery/Order card ERRORS/update_your_id_and_try_again",
+      "collection": "Birbank App texts"
+    },
+    {
+      "src": [
+        "Balansı mənfi olan kartınız olduğu üçün yeni debet kartı almağınız mümkün olmadı. Kartınızın balansını artırın və yenidən cəhd edin."
+      ],
+      "en": "You cannot order a new debit card because you have a card with a negative balance. Please top up the card and try ordering a new one again.",
+      "az": "Balansı mənfi olan kartınız olduğu üçün yeni debet kartı almağınız mümkün olmadı. Kartınızın balansını artırın və yenidən cəhd edin.",
+      "ru": "Вы не можете оформить новую дебетовую карту, так как у вас есть карта с отрицательным балансом. Пополните карту и попробуйте оформить новую еще раз.",
+      "from": "ds",
+      "var": "Cards order and delivery/Order card ERRORS/negative_balance_cannot_order_debit_card",
+      "collection": "Birbank App texts"
+    },
+    {
+      "src": [
+        "Qeyri-rezident olduğunuz üçün, təəssüf ki, onlayn davam etməyiniz mümkün deyil. Zəhmət olmasa, istənilən filialımıza yaxınlaşın."
+      ],
+      "en": "Since you are not a resident of the country, unfortunately, you cannot continue online. Please visit any of our branches.",
+      "az": "Qeyri-rezident olduğunuz üçün, təəssüf ki, onlayn davam etməyiniz mümkün deyil. Zəhmət olmasa, istənilən filialımıza yaxınlaşın.",
+      "ru": "Так как вы не являетесь резидентом страны, к сожалению, вы не можете продолжить онлайн. Пожалуйста, обратитесь в любой из наших филиалов.",
+      "from": "ds",
+      "var": "Common wordings/ERROR_Not_a_resident",
+      "collection": "Birbank App texts"
+    },
+    {
+      "src": [
+        "Kart sifarişinizi tamamlamaq üçün əlavə sənədlərin təqdim olunması və ya məlumatlarınızın yoxlanılması tələb olunur. Zəhmət olmasa, istənilən filialımıza yaxınlaşın."
+      ],
+      "en": "To complete your card order, we need to review your information or receive additional documents. Please visit any of our branches.",
+      "az": "Kart sifarişinizi tamamlamaq üçün əlavə sənədlərin təqdim olunması və ya məlumatlarınızın yoxlanılması tələb olunur. Zəhmət olmasa, istənilən filialımıza yaxınlaşın.",
+      "ru": "Для завершения оформления карты необходимо предоставить дополнительные документы или пройти проверку данных. Пожалуйста, обратитесь в любой из наших филиалов.",
+      "from": "ds",
+      "var": "Cards order and delivery/Order card ERRORS/to_complete_card_order_visit_branch",
+      "collection": "Birbank App texts"
+    },
+    {
+      "src": [
+        "Bankımızın daxili şərtlərinə əsasən yalnız 10 ədəd debet kartı əldə etmək olar. Hər növbəti debet kartının sifarişi üçün mövcud kartlarınızdan birini bağlamalı və daha sonra istənilən filialımıza müraciət etməlisiniz."
+      ],
+      "en": "According to our bank’s internal policy, you can have only 10 debit cards. To order another card, you need to close one of your existing cards and then visit any of our branches.",
+      "az": "Bankımızın daxili şərtlərinə əsasən yalnız 10 ədəd debet kartı əldə etmək olar. Hər növbəti debet kartının sifarişi üçün mövcud kartlarınızdan birini bağlamalı və daha sonra istənilən filialımıza müraciət etməlisiniz.",
+      "ru": "Согласно внутренним условиям нашего банка, можно иметь только 10 дебетовых карт. Чтобы заказать следующую карту, вам нужно закрыть одну из уже имеющихся, а затем обратиться в любой из наших филиалов.",
+      "from": "ds",
+      "var": "Cards order and delivery/Order card ERRORS/you_have_active_10_debit_cards",
+      "collection": "Birbank App texts"
+    },
+    {
+      "src": [
+        "Bankımızın daxili şərtlərinə əsasən yalnız 5 ədəd debet kartını onlayn əldə etmək olar. Hər növbəti debet kartının sifarişi üçün mövcud kartlarınızdan birini bağlaya bilər və ya istənilən filialımıza yaxınlaşa bilərsiniz."
+      ],
+      "en": "According to our bank’s internal policy, you can only have up to 5 cards issued online. To order another card, you can close one of your existing cards or visit any of our branches.",
+      "az": "Bankımızın daxili şərtlərinə əsasən yalnız 5 ədəd debet kartını onlayn əldə etmək olar. Hər növbəti debet kartının sifarişi üçün mövcud kartlarınızdan birini bağlaya bilər və ya istənilən filialımıza yaxınlaşa bilərsiniz.",
+      "ru": "Согласно внутренним условиям нашего банка, онлайн можно оформить только 5 дебетовых карт. Чтобы заказать следующую карту, вы можете закрыть одну из уже имеющихся или обратиться в любой из наших филиалов.",
+      "from": "ds",
+      "var": "Cards order and delivery/Order card ERRORS/you_have_active_5_debit_cards",
+      "collection": "Birbank App texts"
+    },
+    {
+      "src": [
+        "Bankımızın daxili şərtlərinə əsasən, debet kartını onlayn əldə etməyiniz mümkün olmadı. Qısa zamanda sizinlə (012)310-xx-xx nömrəsi vasitəsilə əlaqə saxlayacağıq."
+      ],
+      "en": "According to our bank's internal conditions, you cannot obtain a debit card online. We will contact you shortly at (012)310-xx-xx.",
+      "az": "Bankımızın daxili şərtlərinə əsasən, debet kartını onlayn əldə etməyiniz mümkün olmadı. Qısa zamanda sizinlə (012)310-xx-xx nömrəsi vasitəsilə əlaqə saxlayacağıq.",
+      "ru": "Согласно внутренним условиям нашего банка, вы не можете оформить дебетовую карту онлайн. Мы свяжемся с вами в ближайшее время с номера (012)310-xx-xx.",
+      "from": "ds",
+      "var": "Cards order and delivery/Order card ERRORS/we_will_contact_cannot_debit_card_online",
+      "collection": "Birbank App texts"
+    },
+    {
+      "src": [
+        "Kartın qiyməti 15 ₼-dır"
+      ],
+      "en": "Card price is 15 ₼",
+      "az": "Kartın qiyməti 15 ₼-dır",
+      "ru": "Стоимость карты – 15 ₼",
+      "from": "ds",
+      "var": "Cards order and delivery/header_third_card_price",
+      "collection": "Birbank App texts"
+    },
+    {
+      "src": [
+        "Eyni valyutada yalnız ilk iki Birbank Cashback kartını pulsuz əldə etmək olar. Bu valyutada sifariş etdiyiniz hər növbəti Birbank Cashback kartının xidmət haqqı 15 ₼ təşkil edəcək. Məbləğ kartınızın balansından silinəcək."
+      ],
+      "en": "Only the first two Birbank Cashback cards in the same currency can be issued for free. Each additional Birbank Cashback card in the same currency will have a service fee of 15 ₼. The amount will be deducted from your card balance.",
+      "az": "Eyni valyutada yalnız ilk iki Birbank Cashback kartını pulsuz əldə etmək olar. Bu valyutada sifariş etdiyiniz hər növbəti Birbank Cashback kartının xidmət haqqı 15 ₼ təşkil edəcək. Məbləğ kartınızın balansından silinəcək.",
+      "ru": "Бесплатно можно оформить только первые две карты Birbank Cashback в одной валюте. Стоимость обслуживания каждой следующей карты Birbank Cashback в этой же валюте будет составлять 15 ₼. Сумма будет списана с баланса вашей карты.",
+      "from": "ds",
+      "var": "Cards order and delivery/only_first_two_free",
+      "collection": "Birbank App texts"
+    },
+    {
+      "src": [
+        "Sizin artıq bu növ və valyutada kartınız var"
+      ],
+      "en": "You already have a card of this type and in this currency",
+      "az": "Sizin artıq bu növ və valyutada kartınız var",
+      "ru": "У вас уже есть карта этого типа и в этой валюте",
+      "from": "ds",
+      "var": "BB products/Cards/already_have_this_type_card_and_currency",
+      "collection": "Birbank App texts"
+    },
+    {
+      "src": [
+        "Eyni növ və valyutada yalnız 1 ədəd Birbank kartınız ola bilər. Yeni kart sifariş etmək üçün fərqli növ və ya valyuta seçin."
+      ],
+      "en": "You can only have one Birbank card of the same type and currency. To order a new card, select a different type or currency.",
+      "az": "Eyni növ və valyutada yalnız 1 ədəd Birbank kartınız ola bilər. Yeni kart sifariş etmək üçün fərqli növ və ya valyuta seçin.",
+      "ru": "У вас уже есть карта Birbank этого типа и в этой валюте. Чтобы заказать новую, выберите другой тип или валюту.",
+      "from": "ds",
+      "var": "BB products/Cards/can_only_have_one_type_and_currency",
+      "collection": "Birbank App texts"
+    },
+    {
+      "src": [
+        "Digər kartlara bax"
+      ],
+      "en": "View other cards",
+      "az": "Digər kartlara bax",
+      "ru": "Посмотреть другие карты",
+      "from": "ds",
+      "var": "BB products/Cards/view_other_cards",
+      "collection": "Birbank App texts"
+    },
+    {
+      "src": [
+        "Geri qayıtmaq istəyirsiniz?"
+      ],
+      "en": "Do you want to go back?",
+      "az": "Geri qayıtmaq istəyirsiniz?",
+      "ru": "Хотите вернуться назад?",
+      "from": "ds",
+      "var": "Login/header_do_you_want_to_go_back",
+      "collection": "Birbank App texts"
+    },
+    {
+      "src": [
+        "Geri qayıtsanız, daxil etdiyiniz bütün məlumatları itirəcəksiniz"
+      ],
+      "en": "If you go back, all the information you’ve entered will be lost",
+      "az": "Geri qayıtsanız, daxil etdiyiniz bütün məlumatları itirəcəksiniz",
+      "ru": "Если вы вернетесь назад, вы потеряете всю введенную информацию",
+      "from": "ds",
+      "var": "Login/body_do_you_want_to_go_back",
+      "collection": "Birbank App texts"
+    },
+    {
+      "src": [
+        "Xeyr, qal"
+      ],
+      "en": "No, stay",
+      "az": "Xeyr, qal",
+      "ru": "Нет, остаться",
+      "from": "ds",
+      "var": "Login/no_stay",
+      "collection": "Birbank App texts"
+    },
+    {
+      "src": [
+        "Bəli, istəyirəm"
+      ],
+      "en": "Yes, I want",
+      "az": "Bəli, istəyirəm",
+      "ru": "Да, хочу",
+      "from": "ds",
+      "var": "Yes, I want",
+      "collection": "Birbank App texts"
+    },
+    {
+      "src": [
+        "FİN-inizi daxil edin"
+      ],
+      "en": "Enter your ID PIN (FİN)",
+      "az": "FİN-inizi daxil edin",
+      "ru": "Введите ваш ИИН (FİN)",
+      "from": "ds",
+      "var": "enter_your_fin",
+      "collection": "Birbank App texts"
+    },
+    {
+      "src": [
+        "FİN"
+      ],
+      "en": "PIN (FİN)",
+      "az": "FİN",
+      "ru": "ИИН (FİN)",
+      "from": "ds",
+      "var": "pin_common",
+      "collection": "COMMONS"
+    },
+    {
+      "src": [
+        "Code usage limit has been exceeded"
+      ],
+      "en": "Code usage limit has been exceeded",
+      "az": "Koddan istifadə limiti tükənib",
+      "ru": "Лимит использования кода исчерпан",
+      "from": "ds",
+      "var": "Cards order and delivery/code_limit_exceeded",
+      "collection": "Birbank App texts"
+    },
+    {
+      "src": [
+        "What is PIN?"
+      ],
+      "en": "What is PIN (FİN)?",
+      "az": "FİN nədir?",
+      "ru": "Что такое ИИН (FİN)?",
+      "from": "ds",
+      "var": "what_is_pin",
+      "collection": "COMMONS"
+    },
+    {
+      "src": [
+        "FİN şəxsiyyət vəsiqənizdə olan fərdi identifikasiya nömrəsidir."
+      ],
+      "en": "ID PIN (FİN) is a personal identification number located on your ID card.",
+      "az": "FİN şəxsiyyət vəsiqənizdə olan fərdi identifikasiya nömrəsidir.",
+      "ru": "ИИН (FİN) — это номер, который находится на вашем удостоверении личности.",
+      "from": "ds",
+      "var": "PIN is a personal identification number located on your ID card 3",
+      "collection": "Birbank App texts"
+    },
+    {
+      "src": [
+        "Rezidentlər"
+      ],
+      "en": "Residents",
+      "az": "Rezidentlər",
+      "ru": "Резиденты",
+      "from": "ds",
+      "var": "Resident",
+      "collection": "Birbank App texts"
+    },
+    {
+      "src": [
+        "Qeyri-rezidentlər"
+      ],
+      "en": "Non-residents",
+      "az": "Qeyri-rezidentlər",
+      "ru": "Нерезиденты",
+      "from": "ds",
+      "var": "Non-resident",
+      "collection": "Birbank App texts"
+    },
+    {
+      "src": [
+        "Yeni:"
+      ],
+      "en": "New:",
+      "az": "Yeni:",
+      "ru": "Нового образца:",
+      "from": "ds",
+      "var": "ver2_id_new",
+      "collection": "Birbank App texts"
+    },
+    {
+      "src": [
+        "Köhnə:"
+      ],
+      "en": "Old:",
+      "az": "Köhnə:",
+      "ru": "Старого образца:",
+      "from": "ds",
+      "var": "old_id",
+      "collection": "Birbank App texts"
+    },
+    {
+      "src": [
+        "Order for 99 ₼"
+      ],
+      "en": "Order for 99 ₼",
+      "az": "99 ₼-a sifariş et",
+      "ru": "Заказать за 99 ₼",
+      "from": "manual"
+    },
+    {
+      "src": [
+        "Order for 50 ₼"
+      ],
+      "en": "Order for 50 ₼",
+      "az": "50 ₼-a sifariş et",
+      "ru": "Заказать за 50 ₼",
+      "from": "manual"
+    },
+    {
+      "src": [
+        "Order for 80 ₼"
+      ],
+      "en": "Order for 80 ₼",
+      "az": "80 ₼-a sifariş et",
+      "ru": "Заказать за 80 ₼",
+      "from": "manual"
+    },
+    {
+      "src": [
+        " · Rəqəmsal"
+      ],
+      "en": "· Digital",
+      "az": "· Rəqəmsal",
+      "ru": "· Цифровая",
+      "from": "manual"
+    },
+    {
+      "src": [
+        "Çəkiliş gedir…"
+      ],
+      "en": "Video recording...",
+      "az": "Videoçəkiliş gedir...",
+      "ru": "Идет запись видео...",
+      "from": "ds",
+      "var": "DVS WEB/Video recording",
+      "collection": "Birbank App texts"
+    },
+    {
+      "src": [
+        "Your card will be delivered on {date}, {time} to {address}."
+      ],
+      "en": "Your card will be delivered on {date} between {time} to {address}.",
+      "az": "Kartınız {date} {time} aralığında {address} ünvanına çatdırılacaq.",
+      "ru": "Ваша карта будет доставлена {date} в интервале {time} по адресу: {address}.",
+      "from": "ds",
+      "var": "BB products/Cards/Renew card/card_will_be_delivered",
+      "collection": "Birbank App texts"
+    },
+    {
+      "src": [
+        "avqust"
+      ],
+      "en": "August",
+      "az": "avqust",
+      "ru": "августа",
+      "from": "manual"
+    },
+    {
+      "src": [
+        "Bazar ertəsi"
+      ],
+      "en": "Monday",
+      "az": "Bazar ertəsi",
+      "ru": "Понедельник",
+      "from": "ds",
+      "var": "BB products/Savings (deposit included)/Savings (auto&roundup)/monday",
+      "collection": "Birbank App texts"
+    },
+    {
+      "src": [
+        "Çərşənbə axşamı"
+      ],
+      "en": "Tuesday",
+      "az": "Çərşənbə axşamı",
+      "ru": "Вторник",
+      "from": "ds",
+      "var": "BB products/Savings (deposit included)/Savings (auto&roundup)/tuesday",
+      "collection": "Birbank App texts"
+    },
+    {
+      "src": [
+        "сredit for 24 mo."
+      ],
+      "en": "credit for 24 mo.",
+      "az": "24 ay kreditlə",
+      "ru": "в кредит на 24 мес.",
+      "from": "manual",
+      "note": "Figma text has a Cyrillic 'с' in 'сredit'"
+    },
+    {
+      "src": [
+        "Open"
+      ],
+      "en": "Open",
+      "az": "Açıqdır",
+      "ru": "Открыто",
+      "from": "manual"
+    },
+    {
+      "src": [
+        "Closed"
+      ],
+      "en": "Closed",
+      "az": "Bağlıdır",
+      "ru": "Закрыто",
+      "from": "manual"
+    }
+  ]
+}

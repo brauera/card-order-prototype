@@ -1,0 +1,610 @@
+<style>
+/* =====================================================================
+   errors group: error pages, third-card, same-currency, back-alert,
+   fin (+ error state), what-pin sheet
+   ===================================================================== */
+
+/* ---------- shared fragments (prefix .erx-) ---------- */
+.erx-btn{position:relative;display:flex;align-items:center;justify-content:center;width:100%;height:56px;padding:0 24px;border-radius:10px;
+  font:500 16px/24px var(--font);text-align:center;color:#ec3342;background:transparent;cursor:pointer}
+.erx-btn--primary{background:#ec3342;color:#fff}
+/* BirDS press feedback (Button / Button (Icon) "Animation and interaction"): background takes the press token,
+   content scales to .95 in 100 ms; the background layer (::before) counter-scales and keeps the full bounds.
+   Primary → UI_Element_Brand_pressed, Ghost/text and icon buttons → UI_Element_Base_pressed. */
+.erx-btn,.erx-back,.scr--same-currency .sc__back,.sheet--what-pin .wp__close,.sheet--what-pin button.wp__chip{isolation:isolate;transition:transform .1s ease-out}
+.erx-btn::before,.erx-back::before,.scr--same-currency .sc__back::before,.sheet--what-pin .wp__close::before,.sheet--what-pin button.wp__chip::before{
+  content:"";position:absolute;inset:0;z-index:-1;border-radius:inherit;pointer-events:none;transition:transform .1s ease-out,background-color .1s ease-out}
+.erx-btn:active,.erx-back:active,.scr--same-currency .sc__back:active,.sheet--what-pin .wp__close:active,.sheet--what-pin button.wp__chip:active{transform:scale(.95)}
+.erx-btn:active::before,.erx-back:active::before,.scr--same-currency .sc__back:active::before,.sheet--what-pin .wp__close:active::before{
+  background:#e9e7e7;transform:scale(1.0526)}
+.erx-btn--primary:active::before{background:#d12432}
+.erx-back::before{inset:4px 0;border-radius:256px}
+.erx-back{position:absolute;left:8px;top:46px;z-index:2;width:40px;height:48px;display:flex;align-items:center;justify-content:center;cursor:pointer}
+.erx-back img{width:24px;height:24px}
+
+/* static iOS QWERTY keyboard (Figma "iPhone / Alphabet", 375 x 293) */
+.erx-kb{position:relative;width:375px;background:#d4d6db;-webkit-backdrop-filter:blur(35px);backdrop-filter:blur(35px);color:#25282b;user-select:none;-webkit-user-select:none}
+.erx-kb__alpha{position:relative;height:169px}
+.erx-kb__row{position:absolute;height:43px;display:flex;gap:6px}
+.erx-kb__row--1{left:5px;right:6px;top:8px}
+.erx-kb__row--2{left:21.75px;right:17.25px;top:62px}
+.erx-kb__row--3{left:58px;right:57px;top:116px}
+.erx-kb__k{position:relative;flex:1 1 0;min-width:0;height:43px;background:#fff;border-radius:5px;box-shadow:0 1px 0 rgba(0,0,0,.3);
+  font:300 24px/normal "SF Pro Text",var(--font);text-align:center;text-transform:lowercase}
+.erx-kb__k span,.erx-kb__lbl span{position:absolute;left:0;right:0}
+.erx-kb__k span{top:calc(50% - 15.5px)}
+.erx-kb__fn{position:absolute;top:116px;background:#a5a7ad;border-radius:5px;box-shadow:0 1px 0 rgba(0,0,0,.3)}
+.erx-kb__fn img{position:absolute;left:50%;top:50%;width:32px;height:32px;transform:translate(-50%,-50%)}
+.erx-kb__shift{left:3px;width:42px;height:43px}
+.erx-kb__shift img{top:calc(50% + .5px)}
+.erx-kb__del{right:3px;width:42px;height:42px}
+.erx-kb__ctrl{position:relative;height:124px}
+.erx-kb__lbl{position:absolute;top:3px;height:43px;border-radius:5px;box-shadow:0 1px 0 rgba(0,0,0,.3);
+  font:400 16px/normal "SF Pro Text",var(--font);letter-spacing:-.32px;text-align:center}
+.erx-kb__lbl span{top:calc(50% - 9.5px)}
+.erx-kb__123{left:3px;width:87px;background:#a5a7ad}
+.erx-kb__space{left:96px;right:97px;background:#fff}
+.erx-kb__ret{right:3px;width:87px;background:#a5a7ad}
+.erx-kb__emoji,.erx-kb__mic{position:absolute;top:64px;width:42px;height:42px}
+.erx-kb__emoji{left:18px}
+.erx-kb__mic{right:18px}
+
+/* ---------- error pages (8 frames, one layout) ---------- */
+.scr--err{background:#f1f1f4}
+.scr--err .err__main{position:absolute;left:0;right:0;top:120px;display:flex;flex-direction:column;align-items:center;gap:24px}
+/* Figma clips this tile with a squircle mask image; CSS mask images need CORS and vanish
+   when index.html is opened from file://, so the tile uses the HeroImage container radius (24px) instead. */
+.scr--err .err__hero{position:relative;width:80px;height:80px;background:#fff;border-radius:24px;overflow:hidden}
+.scr--err .err__hero img{position:absolute;left:16px;top:16px;width:48px;height:48px}
+.scr--err .err__text{margin:0;width:343px;font:500 20px/24px var(--font);color:rgba(0,0,0,.9);text-align:center}
+.scr--err .err__bottom{position:absolute;left:0;right:0;bottom:0;display:flex;flex-direction:column;gap:16px}
+.scr--err .err__fade{position:absolute;left:0;right:0;top:-40px;bottom:0;pointer-events:none;
+  background:linear-gradient(to top,#fff 65.241%,rgba(255,255,255,.991) 67.587%,rgba(255,255,255,.964) 69.934%,rgba(255,255,255,.918) 72.281%,
+  rgba(255,255,255,.853) 74.627%,rgba(255,255,255,.768) 76.974%,rgba(255,255,255,.668) 79.321%,rgba(255,255,255,.557) 81.668%,
+  rgba(255,255,255,.443) 84.014%,rgba(255,255,255,.332) 86.361%,rgba(255,255,255,.232) 88.708%,rgba(255,255,255,.147) 91.054%,
+  rgba(255,255,255,.082) 93.401%,rgba(255,255,255,.036) 95.748%,rgba(255,255,255,.009) 98.095%,rgba(255,255,255,0) 100.44%)}
+.scr--err .err__btns{position:relative;display:flex;flex-direction:column;gap:8px;padding:0 16px}
+.scr--err .err__bar{position:relative;height:24px}
+
+/* ---------- third-card: "Kartın qiyməti 15 ₼-dır" ---------- */
+.scr--third-card{background:#f1f1f4}
+.scr--third-card .tc__zero{position:absolute;left:0;top:250px;width:375px;padding:0 16px;display:flex;flex-direction:column;align-items:center;gap:16px}
+.scr--third-card .tc__icon{position:relative;width:64px;height:64px;border-radius:16.364px;background:#fff;display:flex;align-items:center;justify-content:center}
+.scr--third-card .tc__icon img{width:32.7273px;height:32.7273px}
+.scr--third-card .tc__texts{width:100%;display:flex;flex-direction:column;gap:8px;text-align:center;color:rgba(0,0,0,.9)}
+.scr--third-card .tc__title{margin:0;font:700 28px/35px var(--font)}
+.scr--third-card .tc__desc{margin:0;font:500 16px/24px var(--font)}
+.scr--third-card .tc__bottom{position:absolute;left:0;top:716px;width:375px;display:flex;flex-direction:column;gap:16px}
+.scr--third-card .tc__btns{padding:0 16px}
+.scr--third-card .tc__bar{height:24px}
+
+/* ---------- same-currency: "Sizin artıq bu növ və valyutada kartınız var" ---------- */
+.scr--same-currency{background:#f7f6f6}
+.scr--same-currency .sc__back{position:absolute;left:16px;top:52px;z-index:2;width:40px;height:40px;border-radius:256px;display:flex;align-items:center;justify-content:center;cursor:pointer}
+.scr--same-currency .sc__back img{width:24px;height:24px}
+.scr--same-currency .sc__zero{position:absolute;left:50%;top:calc(50% - 46px);width:343px;transform:translate(-50%,-50%);
+  display:flex;flex-direction:column;align-items:center;gap:16px}
+.scr--same-currency .sc__icon{width:56px;height:56px;border-radius:16px;background:#fff;display:flex;align-items:center;justify-content:center}
+.scr--same-currency .sc__icon img{width:32px;height:32px}
+.scr--same-currency .sc__info{width:100%;display:flex;flex-direction:column;gap:8px;text-align:center}
+.scr--same-currency .sc__title{margin:0;font:700 24px/28px var(--font);color:rgba(0,0,0,.9)}
+.scr--same-currency .sc__text{margin:0;font:400 16px/20px var(--font);color:rgba(21,20,20,.9)}
+.scr--same-currency .sc__bottom{position:absolute;left:0;bottom:0;width:375px;display:flex;flex-direction:column;gap:12px}
+.scr--same-currency .sc__btns{padding:0 16px;display:flex;flex-direction:column;gap:8px}
+.scr--same-currency .sc__btns .erx-btn{padding:4px 16px;font:500 16px/20px var(--font);letter-spacing:-.1px}
+.scr--same-currency .sc__bar{height:32px}
+
+/* ---------- back-alert sheet ---------- */
+.sheet--back-alert{background:#fff;border-radius:24px 24px 0 0;overflow:hidden;display:flex;flex-direction:column;gap:16px}
+.sheet--back-alert .ba__head{display:flex;flex-direction:column;gap:8px;padding-bottom:8px}
+.sheet--back-alert .ba__grab{height:16px}
+.sheet--back-alert .ba__grab img{width:375px;height:16px}
+.sheet--back-alert .ba__title{margin:0;padding:0 64px 8px 16px;font:700 28px/36px var(--font);letter-spacing:-.1px;color:rgba(0,0,0,.9)}
+.sheet--back-alert .ba__text{margin:0;padding:0 16px;font:400 16px/24px var(--font);color:rgba(0,0,0,.9)}
+.sheet--back-alert .ba__bottom{display:flex;flex-direction:column;gap:16px}
+.sheet--back-alert .ba__btns{padding:0 16px;display:flex;flex-direction:column;gap:8px}
+.sheet--back-alert .ba__bar{height:24px}
+
+/* ---------- fin: "FİN-inizi daxil edin" ---------- */
+.scr--fin{background:#f1f1f4}
+.scr--fin .fin__title{position:absolute;left:16px;top:98px;width:343px;margin:0;font:700 28px/32px var(--font);letter-spacing:-.1px;color:rgba(0,0,0,.9)}
+.scr--fin .fin__fields{position:absolute;left:16px;top:146px;width:343px;display:flex;flex-direction:column;gap:8px}
+.scr--fin .fin__box{display:flex;flex-direction:column;gap:4px}
+.scr--fin .fin__field{display:flex;align-items:center;padding:0 12px;background:#fff;border-radius:10px}
+.scr--fin .fin__field:focus-within{box-shadow:inset 0 0 0 1px rgba(0,0,0,.2)}
+.scr--fin .fin__field--error,.scr--fin .fin__field--error:focus-within{box-shadow:inset 0 0 0 1px #f8c6c3}
+.scr--fin .fin__content{flex:1 1 0;min-width:0;height:64px;padding-right:4px;display:flex;flex-direction:column;justify-content:center;cursor:text}
+.scr--fin .fin__label{font:400 12px/16px var(--font);color:rgba(0,0,0,.5);white-space:nowrap}
+.scr--fin .fin__input{display:block;width:100%;height:20px;margin:4px 0 0;padding:0;border:0;outline:0;background:transparent;border-radius:0;
+  font:400 16px/20px var(--font);color:rgba(0,0,0,.9);caret-color:rgba(0,0,0,.9);-webkit-appearance:none;appearance:none}
+.scr--fin .fin__input::placeholder{color:rgba(0,0,0,.35);opacity:1}
+.scr--fin .fin__info{position:relative;flex:none;width:24px;height:24px;display:block;cursor:pointer}
+.scr--fin .fin__info::after{content:"";position:absolute;inset:-10px -10px -10px -4px}  /* 44 px hit area around the 24 px info icon */
+.scr--fin .fin__info img{width:24px;height:24px}
+.scr--fin .fin__err{display:flex;gap:4px;align-items:flex-start}
+.scr--fin .fin__err img{flex:none;width:16px;height:16px}
+.scr--fin .fin__err span{font:400 12px/16px var(--font);color:#dd3826;white-space:nowrap}
+/* bottom block = button + keyboard; keyboard shows only while an input is focused.
+   Hiding is delayed so a tap on "Continue" (which blurs the input) still lands on the button. */
+.scr--fin .fin__bottom{position:absolute;left:0;bottom:0;width:375px;display:flex;flex-direction:column;gap:12px;
+  transform:translateY(265px);transition:transform .25s ease .2s}
+.scr--fin .fin__btns{padding:0 16px}
+/* Figma (fin, fin__error): Button State=Inactive while the FİN field is empty → Disabled look (50 %), not pressable */
+.scr--fin:has(.fin__input[data-slot="fin"]:placeholder-shown) .fin__btns .erx-btn{opacity:.5;pointer-events:none}
+.scr--fin .fin__bottom .erx-kb{visibility:hidden;transition:visibility 0s .45s}
+.scr--fin:has(.fin__input:focus) .fin__bottom{transform:none;transition:transform .3s cubic-bezier(.2,.8,.2,1)}
+.scr--fin:has(.fin__input:focus) .erx-kb{visibility:visible;transition:none}
+
+/* ---------- what-pin sheet ---------- */
+.sheet--what-pin{background:#fff;border-radius:16px 16px 0 0;overflow:hidden;display:flex;flex-direction:column;gap:11px}
+.sheet--what-pin .wp__head{position:relative;display:flex;flex-direction:column;gap:8px;padding-bottom:16px}
+.sheet--what-pin .wp__grab{height:16px}
+.sheet--what-pin .wp__grab img{width:375px;height:16px}
+.sheet--what-pin .wp__title{margin:0;padding:0 64px 0 16px;font:700 28px/36px var(--font);letter-spacing:-.1px;color:rgba(0,0,0,.9)}
+.sheet--what-pin .wp__close{position:absolute;right:20px;top:28px;padding:4px;border-radius:21.6px;background:#f1f1f4;display:flex;cursor:pointer}
+.sheet--what-pin .wp__close::after{content:"";position:absolute;inset:-8px}  /* 44 px hit area */
+.sheet--what-pin .wp__close img{width:20px;height:20px}
+.sheet--what-pin .wp__content{display:flex;flex-direction:column;align-items:center;gap:12px}
+.sheet--what-pin .wp__text{margin:0;width:343px;font:400 16px/24px var(--font);color:rgba(0,0,0,.9)}
+.sheet--what-pin .wp__chips{width:100%;padding:0 16px;display:flex;gap:8px}
+.sheet--what-pin .wp__chip{min-width:48px;height:32px;padding:4px 16px;border-radius:24px;display:flex;align-items:center;justify-content:center;
+  font:500 14px/20px var(--font);white-space:nowrap;background:#eeeff0;color:#25282b}
+.sheet--what-pin .wp__chip--res,
+.sheet--what-pin.is-nonres .wp__chip--nonres{background:#ec3342;color:#fff}
+.sheet--what-pin.is-nonres .wp__chip--res{background:#eeeff0;color:#25282b}
+/* Chips (radio, "only one element can be selected"): both chips switch the tab, the selected one is not pressable;
+   pressed = Chips State=Hover/Pressed (#e5e6e9), default → pressed 150 ms, pressed → active instant */
+.sheet--what-pin button.wp__chip{position:relative;cursor:pointer}
+.sheet--what-pin button.wp__chip,.sheet--what-pin button.wp__chip::before{transition-duration:.15s}
+.sheet--what-pin:not(.is-nonres) .wp__chip--res,.sheet--what-pin.is-nonres .wp__chip--nonres{pointer-events:none}
+.sheet--what-pin button.wp__chip:active::before{background:#e5e6e9;transform:scale(1.0526)}
+.sheet--what-pin .wp__cards{display:flex;flex-direction:column;gap:12px}
+.sheet--what-pin .wp__card{display:flex;flex-direction:column;gap:4px}
+.sheet--what-pin .wp__lbl{margin:0;width:343px;font:400 14px/20px var(--font);color:rgba(0,0,0,.9)}
+.sheet--what-pin .wp__bar{height:32px}
+
+/* ID card illustrations (343 x 232), built from the Figma "ID" component */
+.sheet--what-pin .idc{position:relative;flex:none;width:343px;height:232px;border-radius:10px;overflow:hidden;color:#25282b}
+.sheet--what-pin .idc::after{content:"";position:absolute;inset:0;border:1px solid #d4d6db;border-radius:10px;pointer-events:none}
+.sheet--what-pin .idc--new{background:#f7f5ed}
+.sheet--what-pin .idc--old{background:linear-gradient(120.57deg,#d2e9ef 4.1662%,#f5fafb 50.79%,#d2e9ef 101.91%),#fff}
+.sheet--what-pin .idc p{margin:0}
+.sheet--what-pin .idc__p{position:absolute;display:block}
+.sheet--what-pin .idc__p > img,.sheet--what-pin .idc__rot img{position:absolute;inset:0;width:100%;height:100%;max-width:none}
+.sheet--what-pin .idc__rot{position:absolute;display:flex;align-items:center;justify-content:center;container-type:size}
+.sheet--what-pin .idc__rot > i{position:relative;display:block;flex:none}
+.sheet--what-pin .idc__topline{left:-1px;top:-2px;width:327px;height:1px}
+.sheet--what-pin .idc__wave{position:absolute;left:-22.45px;top:76.92px;width:381.909px;height:163.656px;display:flex;align-items:center;justify-content:center}
+.sheet--what-pin .idc__wave > i{position:relative;display:block;flex:none;width:381px;height:161.5px;transform:rotate(-.32deg)}
+.sheet--what-pin .idc__wave img{position:absolute;left:0;top:0;width:381px;height:166.5px;max-width:none}
+.sheet--what-pin .idc__nhead{position:absolute;left:59px;top:18px;width:224px;display:flex;flex-direction:column;align-items:center;gap:4px;
+  text-align:center;font-size:8px;line-height:normal;letter-spacing:.15px}
+.sheet--what-pin .idc__nhead p{width:100%}
+.sheet--what-pin .idc__nhead .b{font-weight:700}
+.sheet--what-pin .idc__nhead .m{font-weight:500;height:8px}
+.sheet--what-pin .idc__finlbl{position:absolute;inset:71.55% 13.12% 25.43% 59.77%;font:500 6px/normal var(--font);letter-spacing:.15px;white-space:nowrap}
+.sheet--what-pin .idc__finbox{position:absolute;left:205px;top:175px;width:55px;height:13px;border-radius:2px;background:#ec3342}
+.sheet--what-pin .idc__finbox span{position:absolute;left:2px;top:6px;transform:translateY(-50%);font:700 10px/normal var(--font);letter-spacing:1.2px;color:#fff;white-space:nowrap}
+.sheet--what-pin .idc__body{position:absolute;left:17px;display:flex;gap:14px}
+.sheet--what-pin .idc__body--new{top:53px;align-items:flex-start}
+.sheet--what-pin .idc__body--old{top:85px;align-items:center}
+.sheet--what-pin .idc__photo{position:relative;flex:none;width:67px;height:78px;border-radius:2px;background:#d4d6db;overflow:hidden}
+.sheet--what-pin .idc__user{position:absolute;left:calc(50% - .5px);top:50%;width:44px;height:44px;transform:translate(-50%,-50%);overflow:hidden}
+.sheet--what-pin .idc__cols{display:flex;flex-direction:column}
+.sheet--what-pin .idc__body--new .idc__cols{gap:10px}
+.sheet--what-pin .idc__body--old .idc__cols{gap:12px}
+.sheet--what-pin .idc__row{display:flex;gap:20px;align-items:flex-start}
+.sheet--what-pin .idc__f{display:flex;flex-direction:column;gap:6px}
+.sheet--what-pin .idc__f i{display:block;height:6px;border-radius:1px;background:#d4d6db}
+.sheet--what-pin .idc__f i + i{background:#bfc1c7}
+.sheet--what-pin .idc__ohead{position:absolute;left:156px;top:17px;display:flex;flex-direction:column;align-items:flex-end;gap:6px}
+.sheet--what-pin .idc__oht{display:flex;flex-direction:column;align-items:flex-end;gap:4px;text-align:right;letter-spacing:.15px}
+.sheet--what-pin .idc__oht .b{font:700 12px/12px var(--font);white-space:nowrap}
+.sheet--what-pin .idc__oht .m{font:500 8px/8px var(--font);min-width:100%;width:min-content}
+.sheet--what-pin .idc__obars{position:relative;width:76px;height:6px}
+.sheet--what-pin .idc__obars i{position:absolute;top:0;width:35px;height:6px;border-radius:1px;background:#d4d6db}
+.sheet--what-pin .idc__obars i + i{left:41px;background:#bfc1c7}
+.sheet--what-pin .idc__oline{left:calc(50% + 41px);top:68px;width:225px;height:1px;transform:translateX(-50%)}
+.sheet--what-pin .idc__mrz{position:absolute;left:17px;top:191px;width:307px;height:22px}
+.sheet--what-pin .idc__mrzbox{position:absolute;inset:40.91% 4.23% 0 77.85%;border-radius:2px;background:#ec3342}
+.sheet--what-pin .idc__mrzt{position:absolute;left:0;top:0;width:307px;display:flex;flex-direction:column;gap:3px;
+  font:400 10px/normal var(--font);letter-spacing:1.2px;white-space:nowrap}
+.sheet--what-pin .idc__mrzt div{display:flex;flex-direction:column;justify-content:center}
+.sheet--what-pin .idc__mrzt b{font-weight:700;color:#fff;letter-spacing:1.92px}
+</style>
+
+<!-- =================== Error pages (section "Error texts") =================== -->
+
+<template data-screen="err__under18" data-kind="page" data-title="Ошибка: младше 18">
+  <div class="scr scr--err err--under18">
+    <div class="err__main">
+      <div class="err__hero"><img src="assets/errors/info-48.svg" width="48" height="48" alt=""></div>
+      <p class="err__text">Yaşınız 18-dən az olduğu üçün davam etmək mümkün olmadı. Valideynlərinizlə birlikdə istənilən filialımıza yaxınlaşa bilərsiniz.</p>
+    </div>
+    <div class="err__bottom">
+      <div class="err__fade"></div>
+      <div class="err__btns">
+        <button type="button" class="erx-btn erx-btn--primary" data-action="branches">Filiallar siyahısına keç</button>
+        <button type="button" class="erx-btn erx-btn--text" data-action="finish">Go to main</button>
+      </div>
+      <div class="err__bar"></div>
+    </div>
+  </div>
+</template>
+
+<template data-screen="err__id-expired" data-kind="page" data-title="Ошибка: удостоверение просрочено">
+  <div class="scr scr--err err--id-expired">
+    <div class="err__main">
+      <div class="err__hero"><img src="assets/errors/info-48.svg" width="48" height="48" alt=""></div>
+      <p class="err__text">Şəxsiyyət vəsiqənizin müddəti bitdiyi üçün davam etmək mümkün olmadı. Vəsiqənizi yenilədikdən sonra yenidən cəhd edin.</p>
+    </div>
+    <div class="err__bottom">
+      <div class="err__fade"></div>
+      <div class="err__btns">
+        <button type="button" class="erx-btn erx-btn--primary" data-action="finish">Go to main</button>
+      </div>
+      <div class="err__bar"></div>
+    </div>
+  </div>
+</template>
+
+<template data-screen="err__negative" data-kind="page" data-title="Ошибка: отрицательный баланс">
+  <div class="scr scr--err err--negative">
+    <div class="err__main">
+      <div class="err__hero"><img src="assets/errors/info-48.svg" width="48" height="48" alt=""></div>
+      <p class="err__text">Balansı mənfi olan kartınız olduğu üçün yeni debet kartı almağınız mümkün olmadı. Kartınızın balansını artırın və yenidən cəhd edin.</p>
+    </div>
+    <div class="err__bottom">
+      <div class="err__fade"></div>
+      <div class="err__btns">
+        <button type="button" class="erx-btn erx-btn--primary" data-action="finish">Əsas səhifəyə keç</button>
+      </div>
+      <div class="err__bar"></div>
+    </div>
+  </div>
+</template>
+
+<template data-screen="err__non-resident" data-kind="page" data-title="Ошибка: нерезидент">
+  <div class="scr scr--err err--non-resident">
+    <div class="err__main">
+      <div class="err__hero"><img src="assets/errors/info-48.svg" width="48" height="48" alt=""></div>
+      <p class="err__text">Qeyri-rezident olduğunuz üçün, təəssüf ki, onlayn davam etməyiniz mümkün deyil. Zəhmət olmasa, istənilən filialımıza yaxınlaşın.</p>
+    </div>
+    <div class="err__bottom">
+      <div class="err__fade"></div>
+      <div class="err__btns">
+        <button type="button" class="erx-btn erx-btn--primary" data-action="branches">Show to the branch list</button>
+        <button type="button" class="erx-btn erx-btn--text" data-action="finish">Go to main page</button>
+      </div>
+      <div class="err__bar"></div>
+    </div>
+  </div>
+</template>
+
+<template data-screen="err__aml" data-kind="page" data-title="Ошибка: AML">
+  <div class="scr scr--err err--aml">
+    <div class="err__main">
+      <div class="err__hero"><img src="assets/errors/info-48.svg" width="48" height="48" alt=""></div>
+      <p class="err__text">Kart sifarişinizi tamamlamaq üçün əlavə sənədlərin təqdim olunması və ya məlumatlarınızın yoxlanılması tələb olunur. Zəhmət olmasa, istənilən filialımıza yaxınlaşın.</p>
+    </div>
+    <div class="err__bottom">
+      <div class="err__fade"></div>
+      <div class="err__btns">
+        <button type="button" class="erx-btn erx-btn--primary" data-action="branches">Show to the branch list</button>
+        <button type="button" class="erx-btn erx-btn--text" data-action="finish">Go to main page</button>
+      </div>
+      <div class="err__bar"></div>
+    </div>
+  </div>
+</template>
+
+<template data-screen="err__10-cards" data-kind="page" data-title="Ошибка: 10+ карт">
+  <div class="scr scr--err err--10-cards">
+    <div class="err__main">
+      <div class="err__hero"><img src="assets/errors/info-48.svg" width="48" height="48" alt=""></div>
+      <p class="err__text">Bankımızın daxili şərtlərinə əsasən yalnız 10 ədəd debet kartı əldə etmək olar. Hər növbəti debet kartının sifarişi üçün mövcud kartlarınızdan birini bağlamalı və daha sonra istənilən filialımıza müraciət etməlisiniz.</p>
+    </div>
+    <div class="err__bottom">
+      <div class="err__fade"></div>
+      <div class="err__btns">
+        <button type="button" class="erx-btn erx-btn--primary" data-action="finish">Go to main</button>
+      </div>
+      <div class="err__bar"></div>
+    </div>
+  </div>
+</template>
+
+<template data-screen="err__5-cards" data-kind="page" data-title="Ошибка: 5+ карт">
+  <div class="scr scr--err err--5-cards">
+    <div class="err__main">
+      <div class="err__hero"><img src="assets/errors/info-48.svg" width="48" height="48" alt=""></div>
+      <p class="err__text">Bankımızın daxili şərtlərinə əsasən yalnız 5 ədəd debet kartını onlayn əldə etmək olar. Hər növbəti debet kartının sifarişi üçün mövcud kartlarınızdan birini bağlaya bilər və ya istənilən filialımıza yaxınlaşa bilərsiniz.</p>
+    </div>
+    <div class="err__bottom">
+      <div class="err__fade"></div>
+      <div class="err__btns">
+        <button type="button" class="erx-btn erx-btn--primary" data-action="branches">Show to the branch list</button>
+        <button type="button" class="erx-btn erx-btn--text" data-action="finish">Go to main</button>
+      </div>
+      <div class="err__bar"></div>
+    </div>
+  </div>
+</template>
+
+<template data-screen="err__incident" data-kind="page" data-title="Ошибка: инцидент">
+  <div class="scr scr--err err--incident">
+    <div class="err__main">
+      <div class="err__hero"><img src="assets/errors/info-48.svg" width="48" height="48" alt=""></div>
+      <p class="err__text">Bankımızın daxili şərtlərinə əsasən, debet kartını onlayn əldə etməyiniz mümkün olmadı. Qısa zamanda sizinlə (012)310-xx-xx nömrəsi vasitəsilə əlaqə saxlayacağıq.</p>
+    </div>
+    <div class="err__bottom">
+      <div class="err__fade"></div>
+      <div class="err__btns">
+        <button type="button" class="erx-btn erx-btn--primary" data-action="branches">Show to the branch list</button>
+      </div>
+      <div class="err__bar"></div>
+    </div>
+  </div>
+</template>
+
+<!-- =================== third-card =================== -->
+
+<template data-screen="third-card" data-kind="page" data-title="Предупреждение: карта стоит 15 ₼">
+  <div class="scr scr--third-card">
+    <button type="button" class="erx-back" data-action="back" aria-label="Back"><img src="assets/errors/chevron-left.svg" width="24" height="24" alt=""></button>
+    <div class="tc__zero">
+      <div class="tc__icon"><img src="assets/errors/finances.svg" width="32.7273" height="32.7273" alt=""></div>
+      <div class="tc__texts">
+        <p class="tc__title">Kartın qiyməti 15 ₼-dır</p>
+        <p class="tc__desc">Eyni valyutada yalnız ilk iki Birbank Cashback kartını pulsuz əldə etmək olar. Bu valyutada sifariş etdiyiniz hər növbəti Birbank Cashback kartının xidmət haqqı 15 ₼ təşkil edəcək. Məbləğ kartınızın balansından silinəcək.</p>
+      </div>
+    </div>
+    <div class="tc__bottom">
+      <div class="tc__btns">
+        <button type="button" class="erx-btn erx-btn--primary" data-action="warning-continue">Davam et</button>
+      </div>
+      <div class="tc__bar"></div>
+    </div>
+  </div>
+</template>
+
+<!-- =================== same-currency =================== -->
+
+<template data-screen="same-currency" data-kind="page" data-title="Ошибка: карта в этой валюте уже есть">
+  <div class="scr scr--same-currency">
+    <button type="button" class="sc__back" data-action="back" aria-label="Back"><img src="assets/errors/chevron-left-ds.svg" width="24" height="24" alt=""></button>
+    <div class="sc__zero">
+      <div class="sc__icon"><img src="assets/errors/info-red-32.svg" width="32" height="32" alt=""></div>
+      <div class="sc__info">
+        <p class="sc__title">Sizin artıq bu növ<br>və valyutada kartınız var</p>
+        <p class="sc__text">Eyni növ və valyutada yalnız 1 ədəd Birbank kartınız ola bilər. Yeni kart sifariş etmək üçün fərqli növ<br>və ya valyuta seçin.</p>
+      </div>
+    </div>
+    <div class="sc__bottom">
+      <div class="sc__btns">
+        <button type="button" class="erx-btn erx-btn--primary" data-action="other-cards">Digər kartlara bax</button>
+        <button type="button" class="erx-btn erx-btn--text" data-action="finish">Go to main</button>
+      </div>
+      <div class="sc__bar"></div>
+    </div>
+  </div>
+</template>
+
+<!-- =================== back-alert (sheet) =================== -->
+
+<template data-screen="back-alert" data-kind="sheet" data-title="Выйти из заказа? (back alert)">
+  <div class="sheet sheet--back-alert">
+    <div class="ba__content">
+      <div class="ba__head">
+        <div class="ba__grab"><img src="assets/errors/sheet-grabber.svg" width="375" height="16" alt=""></div>
+        <p class="ba__title">Geri qayıtmaq istəyirsiniz?</p>
+      </div>
+      <p class="ba__text">Geri qayıtsanız, daxil etdiyiniz bütün<br>məlumatları itirəcəksiniz</p>
+    </div>
+    <div class="ba__bottom">
+      <div class="ba__btns">
+        <button type="button" class="erx-btn erx-btn--primary" data-action="close">Xeyr, qal</button>
+        <button type="button" class="erx-btn erx-btn--text" data-action="finish">Bəli, istəyirəm</button>
+      </div>
+      <div class="ba__bar"></div>
+    </div>
+  </div>
+</template>
+
+<!-- =================== fin (+ error) =================== -->
+
+<template data-screen="fin" data-kind="page" data-title="Ввод FIN">
+  <div class="scr scr--fin">
+    <button type="button" class="erx-back" data-action="back" aria-label="Back"><img src="assets/errors/chevron-left.svg" width="24" height="24" alt=""></button>
+    <p class="fin__title">FİN-inizi daxil edin</p>
+    <div class="fin__fields">
+      <div class="fin__box">
+        <div class="fin__field">
+          <label class="fin__content">
+            <span class="fin__label">FİN</span>
+            <input class="fin__input" type="text" data-slot="fin" placeholder="6WAY300" maxlength="7" autocomplete="off" autocapitalize="characters" spellcheck="false">
+          </label>
+          <span class="fin__info" data-go="what-pin" role="button" aria-label="What is FIN?"><img src="assets/errors/info-24.svg" width="24" height="24" alt=""></span>
+        </div>
+      </div>
+      <div class="fin__box">
+        <div class="fin__field">
+          <label class="fin__content">
+            <span class="fin__label">Referral code</span>
+            <input class="fin__input" type="text" data-slot="referral" autocomplete="off" autocapitalize="characters" spellcheck="false">
+          </label>
+        </div>
+      </div>
+    </div>
+    <div class="fin__bottom">
+      <div class="fin__btns">
+        <button type="button" class="erx-btn erx-btn--primary" data-action="fin-continue">Continue</button>
+      </div>
+      <div class="erx-kb" lang="en" aria-hidden="true">
+        <div class="erx-kb__alpha">
+          <div class="erx-kb__row erx-kb__row--1"><span class="erx-kb__k"><span>Q</span></span><span class="erx-kb__k"><span>W</span></span><span class="erx-kb__k"><span>E</span></span><span class="erx-kb__k"><span>R</span></span><span class="erx-kb__k"><span>T</span></span><span class="erx-kb__k"><span>Y</span></span><span class="erx-kb__k"><span>U</span></span><span class="erx-kb__k"><span>I</span></span><span class="erx-kb__k"><span>O</span></span><span class="erx-kb__k"><span>P</span></span></div>
+          <div class="erx-kb__row erx-kb__row--2"><span class="erx-kb__k"><span>A</span></span><span class="erx-kb__k"><span>S</span></span><span class="erx-kb__k"><span>D</span></span><span class="erx-kb__k"><span>F</span></span><span class="erx-kb__k"><span>G</span></span><span class="erx-kb__k"><span>H</span></span><span class="erx-kb__k"><span>J</span></span><span class="erx-kb__k"><span>K</span></span><span class="erx-kb__k"><span>L</span></span></div>
+          <div class="erx-kb__row erx-kb__row--3"><span class="erx-kb__k"><span>Z</span></span><span class="erx-kb__k"><span>X</span></span><span class="erx-kb__k"><span>C</span></span><span class="erx-kb__k"><span>V</span></span><span class="erx-kb__k"><span>B</span></span><span class="erx-kb__k"><span>N</span></span><span class="erx-kb__k"><span>M</span></span></div>
+          <span class="erx-kb__fn erx-kb__shift"><img src="assets/errors/kb-shift.svg" width="32" height="32" alt=""></span>
+          <span class="erx-kb__fn erx-kb__del"><img src="assets/errors/kb-delete.svg" width="32" height="32" alt=""></span>
+        </div>
+        <div class="erx-kb__ctrl">
+          <span class="erx-kb__lbl erx-kb__123"><span>123</span></span>
+          <span class="erx-kb__lbl erx-kb__space"><span>space</span></span>
+          <span class="erx-kb__lbl erx-kb__ret"><span>return</span></span>
+          <img class="erx-kb__emoji" src="assets/errors/kb-emoji.svg" width="42" height="42" alt="">
+          <img class="erx-kb__mic" src="assets/errors/kb-mic.svg" width="42" height="42" alt="">
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<template data-screen="fin__error" data-kind="page" data-title="Ошибка: лимит реферального кода">
+  <div class="scr scr--fin fin--error">
+    <button type="button" class="erx-back" data-action="back" aria-label="Back"><img src="assets/errors/chevron-left.svg" width="24" height="24" alt=""></button>
+    <p class="fin__title">FİN-inizi daxil edin</p>
+    <div class="fin__fields">
+      <div class="fin__box">
+        <div class="fin__field">
+          <label class="fin__content">
+            <span class="fin__label">FİN</span>
+            <input class="fin__input" type="text" data-slot="fin" placeholder="6WAY300" maxlength="7" autocomplete="off" autocapitalize="characters" spellcheck="false">
+          </label>
+          <span class="fin__info" data-go="what-pin" role="button" aria-label="What is FIN?"><img src="assets/errors/info-24.svg" width="24" height="24" alt=""></span>
+        </div>
+      </div>
+      <div class="fin__box">
+        <div class="fin__field fin__field--error">
+          <label class="fin__content">
+            <span class="fin__label">Referral code</span>
+            <input class="fin__input" type="text" data-slot="referral" value="77RT9" autocomplete="off" autocapitalize="characters" spellcheck="false">
+          </label>
+        </div>
+        <div class="fin__err"><img src="assets/errors/exclamation-16.svg" width="16" height="16" alt=""><span>Code usage limit has been exceeded</span></div>
+      </div>
+    </div>
+    <div class="fin__bottom">
+      <div class="fin__btns">
+        <button type="button" class="erx-btn erx-btn--primary" data-action="fin-continue">Continue</button>
+      </div>
+      <div class="erx-kb" lang="en" aria-hidden="true">
+        <div class="erx-kb__alpha">
+          <div class="erx-kb__row erx-kb__row--1"><span class="erx-kb__k"><span>Q</span></span><span class="erx-kb__k"><span>W</span></span><span class="erx-kb__k"><span>E</span></span><span class="erx-kb__k"><span>R</span></span><span class="erx-kb__k"><span>T</span></span><span class="erx-kb__k"><span>Y</span></span><span class="erx-kb__k"><span>U</span></span><span class="erx-kb__k"><span>I</span></span><span class="erx-kb__k"><span>O</span></span><span class="erx-kb__k"><span>P</span></span></div>
+          <div class="erx-kb__row erx-kb__row--2"><span class="erx-kb__k"><span>A</span></span><span class="erx-kb__k"><span>S</span></span><span class="erx-kb__k"><span>D</span></span><span class="erx-kb__k"><span>F</span></span><span class="erx-kb__k"><span>G</span></span><span class="erx-kb__k"><span>H</span></span><span class="erx-kb__k"><span>J</span></span><span class="erx-kb__k"><span>K</span></span><span class="erx-kb__k"><span>L</span></span></div>
+          <div class="erx-kb__row erx-kb__row--3"><span class="erx-kb__k"><span>Z</span></span><span class="erx-kb__k"><span>X</span></span><span class="erx-kb__k"><span>C</span></span><span class="erx-kb__k"><span>V</span></span><span class="erx-kb__k"><span>B</span></span><span class="erx-kb__k"><span>N</span></span><span class="erx-kb__k"><span>M</span></span></div>
+          <span class="erx-kb__fn erx-kb__shift"><img src="assets/errors/kb-shift.svg" width="32" height="32" alt=""></span>
+          <span class="erx-kb__fn erx-kb__del"><img src="assets/errors/kb-delete.svg" width="32" height="32" alt=""></span>
+        </div>
+        <div class="erx-kb__ctrl">
+          <span class="erx-kb__lbl erx-kb__123"><span>123</span></span>
+          <span class="erx-kb__lbl erx-kb__space"><span>space</span></span>
+          <span class="erx-kb__lbl erx-kb__ret"><span>return</span></span>
+          <img class="erx-kb__emoji" src="assets/errors/kb-emoji.svg" width="42" height="42" alt="">
+          <img class="erx-kb__mic" src="assets/errors/kb-mic.svg" width="42" height="42" alt="">
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<!-- =================== what-pin (sheet) =================== -->
+
+<template data-screen="what-pin" data-kind="sheet" data-title="Что такое FIN (PIN)?">
+  <div class="sheet sheet--what-pin">
+    <div class="wp__main">
+      <div class="wp__head">
+        <div class="wp__grab"><img src="assets/errors/sheet-grabber.svg" width="375" height="16" alt=""></div>
+        <p class="wp__title">What is PIN?</p>
+        <button type="button" class="wp__close" data-action="close" aria-label="Close"><img src="assets/errors/xmark-20.svg" width="20" height="20" alt=""></button>
+      </div>
+      <div class="wp__content">
+        <p class="wp__text">FİN şəxsiyyət vəsiqənizdə olan fərdi<br>identifikasiya nömrəsidir.</p>
+        <div class="wp__chips">
+          <button type="button" class="wp__chip wp__chip--res" data-toggle="is-nonres">Rezidentlər</button>
+          <button type="button" class="wp__chip wp__chip--nonres" data-toggle="is-nonres">Qeyri-rezidentlər</button>
+        </div>
+        <div class="wp__cards">
+          <div class="wp__card">
+            <p class="wp__lbl">Yeni:</p>
+            <!-- ID / Resident (New) -->
+            <div class="idc idc--new">
+              <div class="idc__wave"><i><img src="assets/errors/id/new-wave.svg" width="381" height="166.5" alt=""></i></div>
+              <div class="idc__nhead">
+                <p class="b">AZƏRBAYCAN RESPUBLİKASI - REPUBLIC OF AZERBAIJAN</p>
+                <p class="m">ŞƏXSİYYƏT VƏSİQƏSİ - IDENTITY CARD</p>
+              </div>
+              <i class="idc__p idc__topline"><img src="assets/errors/id/line-top.svg" width="327" height="1" alt=""></i>
+              <i class="idc__p" style="inset:calc(7.76% - .84px) calc(86.01% + .72px) calc(85.78% + .72px) calc(5.25% - .9px)"><img src="assets/errors/id/new-flag.svg" width="30" height="15" alt=""></i>
+              <p class="idc__finlbl">FƏRDİ İDENTİFİKASİYA NÖMRƏSİ</p>
+              <div class="idc__finbox"><span>1234567</span></div>
+              <div class="idc__body idc__body--new">
+                <div class="idc__photo"><div class="idc__user"><i class="idc__p" style="inset:5.21% 9.38% 5.21% 9.37%"><img src="assets/errors/id/user.svg" width="35.7507" height="39.4167" alt=""></i></div></div>
+                <div class="idc__cols">
+                  <div class="idc__f"><i style="width:55px"></i><i style="width:70px"></i></div>
+                  <div class="idc__f"><i style="width:34px"></i><i style="width:47px"></i></div>
+                  <div class="idc__row">
+                    <div class="idc__f"><i style="width:28px"></i><i style="width:35px"></i></div>
+                    <div class="idc__f"><i style="width:31px"></i><i style="width:22px"></i></div>
+                    <div class="idc__f"><i style="width:31px"></i><i style="width:44px"></i></div>
+                  </div>
+                  <div class="idc__f"><i style="width:42px"></i><i style="width:60px"></i></div>
+                  <div class="idc__f"><i style="width:28px"></i><i style="width:74px"></i></div>
+                  <div class="idc__f" style="width:55px"><i style="width:38px"></i><i style="width:100%"></i></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="wp__card">
+            <p class="wp__lbl">Köhnə:</p>
+            <!-- ID / Resident (Old) -->
+            <div class="idc idc--old">
+              <i class="idc__p" style="inset:17.29% 83.38% 73.71% 5.25%"><img src="assets/errors/id/path4.svg" width="39" height="20.8939" alt=""></i>
+              <i class="idc__p" style="inset:17.49% 87.7% 73.77% 5.51%"><img src="assets/errors/id/g36.svg" width="23.2839" height="20.2782" alt=""></i>
+              <i class="idc__p" style="inset:7.76% 83.73% 76.65% 5.73%"><img src="assets/errors/id/path38.svg" width="36.1525" height="36.1622" alt=""></i>
+              <div class="idc__rot" style="inset:8.3% 84.09% 77.2% 6.11%"><i style="width:99.7745cqh;height:99.7743cqw;transform:rotate(-89.87deg)"><img src="assets/errors/id/ellipse40.svg" width="33.5701" height="33.5507" alt=""></i></div>
+              <i class="idc__p" style="inset:9.43% 84.85% 78.32% 6.87%"><img src="assets/errors/id/ellipse42.svg" width="28.4219" height="28.4219" alt=""></i>
+              <div class="idc__rot" style="inset:10.5% 85.58% 79.4% 7.6%"><i style="width:99.3605cqh;height:99.3605cqw;transform:rotate(-89.63deg)"><img src="assets/errors/id/ellipse44.svg" width="23.2737" height="23.2737" alt=""></i></div>
+              <i class="idc__p" style="inset:23.39% 88.76% 76.12% 10.73%"><img src="assets/errors/id/g60.svg" width="1.74133" height="1.1459" alt=""></i>
+              <i class="idc__p" style="inset:25.16% 90.03% 74.31% 9.64%"><img src="assets/errors/id/g72.svg" width="1.13155" height="1.22155" alt=""></i>
+              <i class="idc__p" style="inset:24.65% 91.93% 74.45% 7.61%"><img src="assets/errors/id/g90.svg" width="1.57755" height="2.09617" alt=""></i>
+              <i class="idc__p" style="inset:22.83% 92.77% 76.67% 6.58%"><img src="assets/errors/id/g108.svg" width="2.2156" height="1.16473" alt=""></i>
+              <i class="idc__p" style="inset:19.02% 94.21% 80.41% 5.3%"><img src="assets/errors/id/g124.svg" width="1.67954" height="1.31981" alt=""></i>
+              <i class="idc__p" style="inset:9.11% 84.63% 78% 6.65%"><img src="assets/errors/id/g144.svg" width="29.9088" height="29.9254" alt=""></i>
+              <i class="idc__p" style="inset:8.32% 84.1% 77.21% 6.11%"><img src="assets/errors/id/polygon146.svg" width="33.5604" height="33.5604" alt=""></i>
+              <i class="idc__p" style="inset:9.01% 84.57% 77.91% 6.58%"><img src="assets/errors/id/polygon148.svg" width="30.3355" height="30.3549" alt=""></i>
+              <i class="idc__p" style="inset:12.39% 88.23% 81.85% 9.87%"><img src="assets/errors/id/path150.svg" width="6.51825" height="13.3659" alt=""></i>
+              <i class="idc__p" style="inset:13.13% 87.71% 82.15% 11.4%"><img src="assets/errors/id/path152.svg" width="3.04035" height="10.9472" alt=""></i>
+              <i class="idc__p" style="inset:18.41% 83.66% 73.76% 9.65%"><img src="assets/errors/id/g248.svg" width="22.9599" height="18.182" alt=""></i>
+              <div class="idc__ohead">
+                <div class="idc__oht">
+                  <p class="b">AZƏRBAYCAN RESPUBLİKASI</p>
+                  <p class="m">VƏTƏNDAŞININ ŞƏXSİYYƏT VƏSİQƏSİ</p>
+                </div>
+                <div class="idc__obars"><i></i><i></i></div>
+              </div>
+              <div class="idc__mrz">
+                <div class="idc__mrzbox"></div>
+                <div class="idc__mrzt">
+                  <div style="height:6.194px">I&lt;XXXXXXXXXXXXXX&lt;&lt;&lt;&lt;&lt;&lt;&lt;XXXX&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;</div>
+                  <div style="height:12.387px"><span>0000000000&lt;XXXXXXXXXXXXXXXXXXXXX <b>1234567 </b>X</span></div>
+                </div>
+              </div>
+              <div class="idc__body idc__body--old">
+                <div class="idc__photo"><div class="idc__user"><i class="idc__p" style="inset:5.21% 9.38% 5.21% 9.37%"><img src="assets/errors/id/user.svg" width="35.7507" height="39.4167" alt=""></i></div></div>
+                <div class="idc__cols">
+                  <div class="idc__f"><i style="width:55px"></i><i style="width:78px"></i></div>
+                  <div class="idc__f"><i style="width:34px"></i><i style="width:31px"></i></div>
+                  <div class="idc__f"><i style="width:47px"></i><i style="width:95px"></i></div>
+                </div>
+              </div>
+              <i class="idc__p idc__oline"><img src="assets/errors/id/old-line.svg" width="225" height="1" alt=""></i>
+              <i class="idc__p idc__topline"><img src="assets/errors/id/line-top.svg" width="327" height="1" alt=""></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="wp__bar"></div>
+  </div>
+</template>

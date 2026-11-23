@@ -1,0 +1,777 @@
+<style>
+/* ================= order1: shared sheet title (add-card / product / currency) ================= */
+:is(.sheet--add-card,.sheet--product,.sheet--currency){background:#f1f1f4;border-radius:16px 16px 0 0;overflow:hidden}
+:is(.sheet--add-card,.sheet--product,.sheet--currency) .o1-st{position:relative;flex:none;padding-bottom:16px;background:#f1f1f4;border-radius:16px 16px 0 0}
+:is(.sheet--add-card,.sheet--product,.sheet--currency) .o1-st__grab{display:block;width:375px;height:16px}
+:is(.sheet--add-card,.sheet--product,.sheet--currency) .o1-st__title{margin:8px 0 0;padding:0 64px 0 16px;font:700 28px/32px var(--font);letter-spacing:-.1px;color:rgba(0,0,0,.9)}
+:is(.sheet--add-card,.sheet--product,.sheet--currency) .o1-st--nox .o1-st__title{padding-right:16px}
+:is(.sheet--add-card,.sheet--product,.sheet--currency) .o1-st__x{position:absolute;right:20px;top:28px;display:flex;padding:4px;border-radius:21.6px;background:#fff;cursor:pointer}
+:is(.sheet--add-card,.sheet--product,.sheet--currency) .o1-st__x img{width:20px;height:20px}
+
+/* ================= add-card ================= */
+.sheet--add-card{padding-bottom:34px}
+.sheet--add-card .ac-main{display:flex;flex-direction:column;align-items:center;padding:0 16px 16px}
+.sheet--add-card .ac-hero{display:flex;flex-direction:column;align-items:center;gap:12px;width:293px;cursor:pointer}
+.sheet--add-card .ac-hero__img{position:relative;display:block;width:293px;height:120px}
+.sheet--add-card .ac-hero__card{position:absolute;left:calc(50% - .5px);top:17px;transform:translateX(-50%);display:grid;width:146px;height:91.86px;border-radius:12.167px;overflow:hidden}
+.sheet--add-card .ac-hero__card img,.sheet--add-card .ac-hero__card::after{grid-area:1/1}
+.sheet--add-card .ac-hero__card img{width:146px;height:91.86px;object-fit:cover}
+.sheet--add-card .ac-hero__card::after{content:"";border:.608px solid rgba(255,255,255,.15);border-radius:12.167px}
+.sheet--add-card .ac-hero__title{display:block;width:293px;padding-top:3px;font:700 28px/32px var(--font);letter-spacing:-.1px;text-align:center;color:rgba(0,0,0,.9)}
+.sheet--add-card .ac-main__sub{width:293px;margin:4px 0 0;font:400 14px/20px var(--font);letter-spacing:-.1px;text-align:center;color:rgba(0,0,0,.9)}
+.sheet--add-card .ac-main__btn{display:flex;align-items:center;justify-content:center;height:40px;margin-top:16px;padding:4px 16px;border-radius:10px;background:#ec3342;font:500 16px/20px var(--font);letter-spacing:-.1px;color:#fff;cursor:pointer}
+
+.sheet--add-card .ac-tabs{display:flex;gap:16px;margin-top:8px;padding:0 16px}
+.sheet--add-card .ac-tab{height:32px;padding:6px 14px;border-radius:24px;font:500 14px/20px var(--font);letter-spacing:-.1px;color:rgba(0,0,0,.5);white-space:nowrap;cursor:pointer}
+.sheet--add-card.tab-daily .ac-tab[data-tab="daily"],
+.sheet--add-card.tab-travel .ac-tab[data-tab="travel"],
+.sheet--add-card.tab-premium .ac-tab[data-tab="premium"]{background:#fff;color:rgba(0,0,0,.9)}
+
+.sheet--add-card .ac-chips{display:flex;gap:8px;margin-top:8px;padding:0 16px;overflow-x:auto;scrollbar-width:none}
+.sheet--add-card .ac-chips::-webkit-scrollbar{display:none}
+.sheet--add-card .ac-chip{display:none;flex:none;align-items:flex-start;width:280px;padding:6px 16px 10px;border-radius:10px;background:#fff;text-align:left;cursor:pointer}
+.sheet--add-card.tab-daily .ac-chip[data-in~="daily"],
+.sheet--add-card.tab-travel .ac-chip[data-in~="travel"],
+.sheet--add-card.tab-premium .ac-chip[data-in~="premium"]{display:flex}
+.sheet--add-card .ac-chip__left{display:flex;flex:none;min-height:60px;padding:12px 12px 12px 0}
+.sheet--add-card .ac-chip__card{position:relative;width:58px;height:40px;border-radius:7px;overflow:hidden}
+.sheet--add-card .ac-chip__shadow{position:absolute;left:-17.9px;top:9.06px;width:93.89px;height:56.89px;max-width:none}
+.sheet--add-card .ac-chip__skin{position:absolute;inset:0;width:100%;height:100%}
+.sheet--add-card .ac-chip__pay{position:absolute;left:5px;top:2px;width:16px;height:16px}
+.sheet--add-card .ac-chip__dot{position:absolute;right:2px;top:2px;width:16px;height:16px}
+.sheet--add-card .ac-chip__body{display:flex;flex:1;flex-direction:column;justify-content:center;gap:1px;min-width:0;min-height:64px;padding-bottom:1px}
+.sheet--add-card .ac-chip__name{display:flex;align-items:center;gap:4px;min-height:24px;font:600 16px/20px var(--font);letter-spacing:-.1px;color:rgba(0,0,0,.9);white-space:nowrap}
+.sheet--add-card .ac-chip--sm .ac-chip__name{font-size:14px;color:#25282b}
+.sheet--add-card .ac-badge{display:inline-flex;align-items:center;justify-content:center;min-width:16px;min-height:16px;padding:0 4px .5px;border-radius:24px;background:#f1f1f4;font:500 10px/12px var(--font);color:#20b649}
+.sheet--add-card .ac-badge--price{color:#25282b}
+.sheet--add-card .ac-chip__desc{min-height:18px;font:400 14px/20px var(--font);letter-spacing:-.1px;color:rgba(0,0,0,.5)}
+
+.sheet--add-card .ac-div{display:flex;flex-direction:column;gap:4px;margin-top:8px;background:rgba(0,0,0,.05)}
+.sheet--add-card .ac-div::before,.sheet--add-card .ac-div::after{content:"";height:10px;background:#f1f1f4}
+.sheet--add-card .ac-div::before{border-radius:0 0 10px 10px}
+.sheet--add-card .ac-div::after{border-radius:10px 10px 0 0}
+
+.sheet--add-card .ac-cells{margin-top:8px}
+.sheet--add-card .ac-cell{display:flex;align-items:flex-start;gap:12px;width:375px;padding:0 16px;text-align:left;cursor:pointer}
+.sheet--add-card .ac-cell__ico{display:flex;align-items:center;flex:none;height:64px}
+.sheet--add-card .ac-cell__box{position:relative;width:44px;height:44px;border-radius:12px;overflow:hidden}
+.sheet--add-card .ac-cell__box img{position:absolute;max-width:none}
+.sheet--add-card .ac-cell__box--activate img{left:-18.18%;top:11.36%;width:131.82%;height:90.91%}
+.sheet--add-card .ac-cell__box--attach img{left:-6.02%;top:18.18%;width:118.64%;height:81.82%}
+.sheet--add-card .ac-cell__body{display:flex;flex:1;align-items:center;gap:12px;min-width:0}
+.sheet--add-card .ac-cell__txt{display:flex;flex:1;flex-direction:column;justify-content:center;min-width:0;min-height:64px;padding:8px 0}
+.sheet--add-card .ac-cell__t{padding:2px 0;font:400 16px/20px var(--font);letter-spacing:-.1px;color:rgba(0,0,0,.9)}
+.sheet--add-card .ac-cell__d{padding-bottom:2px;font:400 12px/16px var(--font);letter-spacing:-.1px;color:rgba(0,0,0,.5)}
+.sheet--add-card .ac-cell__chev{display:flex;align-items:center;flex:none;min-height:64px;padding:8px 0}
+.sheet--add-card .ac-cell__chev img{width:24px;height:24px}
+
+/* ================= product ================= */
+.sheet--product{display:flex;flex-direction:column;max-height:770px}
+.sheet--product .sheet__scroll{flex:1 1 auto;min-height:0;overflow-y:auto;overflow-x:hidden;overscroll-behavior:contain;padding:8px 0 16px}
+.sheet--product .pi-car{position:relative;display:flex;gap:24px;height:172px;padding:1px 67.5px 0;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;scrollbar-width:none;overscroll-behavior-x:contain}
+.sheet--product .pi-car::-webkit-scrollbar{display:none}
+.sheet--product .pi-card{display:grid;flex:none;width:240px;height:151px;border-radius:20px;overflow:hidden;scroll-snap-align:center}
+.sheet--product .pi-card>img,.sheet--product .pi-card::after{grid-area:1/1}
+.sheet--product .pi-card img[data-skin]{width:240px;height:151px;object-fit:cover}
+.sheet--product .pi-card__pay{align-self:start;justify-self:start;width:216px;height:17.585px;margin:12px}
+.sheet--product .pi-card::after{content:"";border:1px solid rgba(255,255,255,.15);border-radius:20px}
+
+.sheet--product .pi-tabs{display:flex;justify-content:center;gap:8px;margin-top:16px}
+.sheet--product .pi-chip{display:flex;align-items:center;height:32px;padding:4px 16px;border-radius:24px;background:#fff;font:500 14px/20px var(--font);color:rgba(0,0,0,.9);white-space:nowrap}
+.sheet--product .pi-chip.is-active{background:#ec3342;color:#fff}
+.sheet--product .pi-desc{margin:12px 0 0;padding:0 16px;font:400 16px/20px var(--font);letter-spacing:-.1px;text-align:center;color:rgba(0,0,0,.9)}
+.sheet--product .pi-ben-slot{margin-top:8px}
+
+.sheet--product .pi-benefits{display:flex;flex-direction:column;gap:4px}
+.sheet--product .pi-ben{display:flex;align-items:flex-start;padding:0 16px}
+.sheet--product .pi-ben__ico{flex:none;padding:20px 12px 20px 0}
+.sheet--product .pi-ben__ico img{width:24px;height:24px}
+.sheet--product .pi-ben__txt{display:flex;flex:1;flex-direction:column;justify-content:center;gap:1px;min-width:0;min-height:64px;padding:9px 0 10px}
+.sheet--product .pi-ben__t{display:flex;align-items:center;min-height:24px;font:400 16px/20px var(--font);color:rgba(0,0,0,.9)}
+.sheet--product .pi-ben__d{min-height:18px;font:400 12px/16px var(--font);color:rgba(0,0,0,.5)}
+.sheet--product .pi-ben--single .pi-ben__txt{gap:0;padding:8px 0}
+.sheet--product .pi-ben--single .pi-ben__t{padding:2px 0}
+.sheet--product .pi-ben__link{display:block;padding:0 52px;font:500 14px/20px var(--font);color:#269add;white-space:nowrap;cursor:pointer}
+
+.sheet--product .pi-ref{margin-top:9px;padding:0 16px}
+.sheet--product .pi-ref__row{display:flex;align-items:center;gap:12px;width:100%;min-height:48px;padding:0 16px;border-radius:10px;background:rgba(0,0,0,.05);text-align:left;cursor:pointer}
+.sheet--product .pi-ref__lbl{flex:1;padding:12px 0;font:400 16px/20px var(--font);letter-spacing:-.1px;color:rgba(0,0,0,.9)}
+/* Switch (BirDS): default<->pressed 150 ms, pressed->selected 150 ms; while pressed the thumb
+   stretches by 4px towards the centre and a selected track takes the brand-pressed token */
+.sheet--product .pi-sw{position:relative;flex:none;width:38px;height:24px;margin-left:12px;border-radius:12px;background:#cacacf;transition:background-color .15s ease-out}
+.sheet--product .pi-sw::after{content:"";position:absolute;left:2px;top:2px;width:20px;height:20px;border-radius:10px;background:#fff;box-shadow:0 3px 8px rgba(0,0,0,.15);transition:transform .15s ease-out,width .15s ease-out}
+.sheet--product.is-referral .pi-sw{background:#ec3342}
+.sheet--product.is-referral .pi-sw::after{transform:translateX(14px)}
+.sheet--product .pi-ref__row:active .pi-sw::after{width:24px}
+.sheet--product.is-referral .pi-ref__row:active .pi-sw{background:#a81d29}
+.sheet--product.is-referral .pi-ref__row:active .pi-sw::after{transform:translateX(10px)}
+.sheet--product .pi-ref__more{display:none}
+.sheet--product.is-referral .pi-ref__more{display:block}
+.sheet--product .pi-ref__note{margin:12px 0 0;font:400 14px/20px var(--font);letter-spacing:-.1px;color:rgba(0,0,0,.9)}
+/* Box Input (iOS, Text): Normal = no stroke, Active (focused) = 1px rgba(0,0,0,.2), Active Error = 1px #f8c6c3;
+   field 343x64, inside stroke, content inset 12px */
+.sheet--product .pi-field{display:flex;flex-direction:column;justify-content:center;height:64px;margin-top:16px;padding:0 11px;border:1px solid transparent;border-radius:10px;background:#f1f1f4;cursor:text;transition:border-color .15s}
+.sheet--product .pi-field:focus-within{border-color:rgba(0,0,0,.2)}
+.sheet--product .pi-field__lbl{font:400 12px/16px var(--font);color:rgba(0,0,0,.5)}
+.sheet--product .pi-field input{display:block;width:100%;height:20px;margin-top:4px;padding:0;border:0;outline:0;background:transparent;font:400 16px/20px var(--font);color:rgba(0,0,0,.9);caret-color:rgba(0,0,0,.9)}
+.sheet--product .pi-ref__err{display:none;align-items:flex-start;gap:4px;margin-top:4px;font:400 12px/16px var(--font);color:#dd3826}
+.sheet--product .pi-ref__err::before{content:"";flex:none;width:16px;height:16px;background:url(assets/order1/ic-error-16.svg) center/16px 16px no-repeat}
+.sheet--product.is-ref-error .pi-ref__err{display:flex}
+.sheet--product.is-ref-error .pi-field{border-color:#f8c6c3}
+
+.sheet--product .pi-foot{flex:none;padding:16px 16px 40px;background:#f1f1f4}
+.sheet--product .pi-cta{display:flex;align-items:center;justify-content:center;width:100%;height:56px;padding:0 24px;border-radius:10px;background:#ec3342;font:600 16px/20px var(--font);color:#fff;text-align:center;cursor:pointer}
+
+/* ================= currency ================= */
+.sheet--currency .cu-row{display:flex;align-items:flex-start;width:375px;padding:0 16px;text-align:left;cursor:pointer}
+.sheet--currency .cu-ico{display:flex;align-items:center;justify-content:center;flex:none;width:44px;height:44px;margin:10px 12px 10px 0;border-radius:12px;background:#fff}
+.sheet--currency .cu-ico img{width:24px;height:24px}
+.sheet--currency .cu-lbl{display:flex;flex:1;align-items:center;min-height:64px;padding:8px 0;font:400 16px/20px var(--font);color:rgba(0,0,0,.9)}
+.sheet--currency .cu-radio{flex:none;align-self:center;width:24px;height:24px;margin-left:12px;background:url(assets/order1/radio-off.svg) center/24px 24px no-repeat}
+.sheet--currency .cu-row.is-selected .cu-radio{background-image:url(assets/order1/radio-on.svg)}
+.sheet--currency .cu-foot{padding:16px 16px 40.7px}
+.sheet--currency .cu-btn{display:flex;align-items:center;justify-content:center;width:343px;height:56px;padding:0 24px;border-radius:10px;background:#ec3342;font:500 16px/24px var(--font);color:#fff;cursor:pointer}
+
+/* ================= pages: shared nav ================= */
+:is(.scr--loading,.scr--phone,.scr--pin){background:#f1f1f4}
+:is(.scr--loading,.scr--phone,.scr--pin) .o1-back{position:absolute;left:8px;top:46px;display:flex;align-items:center;justify-content:center;width:40px;height:48px;cursor:pointer}
+:is(.scr--loading,.scr--phone,.scr--pin) .o1-back img{width:24px;height:24px}
+:is(.scr--loading,.scr--pin) .o1-h1{position:absolute;left:16px;top:98px;max-width:343px;margin:0;font:700 28px/35px var(--font);color:rgba(0,0,0,.9);white-space:nowrap}
+
+/* ================= loading ================= */
+.scr--loading .ld-spin{position:absolute;left:120px;top:217px;width:134px;height:134px}
+.scr--loading .ld-ring{width:134px;height:134px;animation:o1-ld-spin 1.1s linear infinite}
+@keyframes o1-ld-spin{to{transform:rotate(360deg)}}
+.scr--loading .ld-time{position:absolute;left:169px;top:272px;font:400 14px/20px var(--font);color:rgba(21,20,20,.9);white-space:nowrap}
+.scr--loading .ld-mark{position:absolute;left:184.25px;top:289.1px;width:5.5px;height:1.5px}
+.scr--loading .ld-txt{position:absolute;left:calc(50% - .5px);top:375px;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:7px;white-space:nowrap}
+.scr--loading .ld-txt p{margin:0}
+.scr--loading .ld-txt__h{font:500 20px/24px var(--font);color:rgba(0,0,0,.9)}
+.scr--loading .ld-txt__s{font:400 14px/20px var(--font);color:rgba(0,0,0,.5)}
+
+/* ================= phone (+ edit / error) ================= */
+.scr--phone .ph-body{position:absolute;left:0;top:209px;display:flex;flex-direction:column;align-items:center;gap:4px;width:375px}
+.scr--phone.ph--edit .ph-body{top:158px}
+.scr--phone.ph--error .ph-body{top:126px}
+.scr--phone .ph-zero{display:flex;flex-direction:column;align-items:center;gap:16px;width:375px;padding:12px 16px}
+.scr--phone .ph-ico{display:flex;align-items:center;justify-content:center;width:64px;height:64px;border-radius:16.364px;background:#fff}
+.scr--phone .ph-ico img{width:32.727px;height:32.727px}
+.scr--phone .ph-text{display:flex;flex-direction:column;gap:8px;width:343px;text-align:center}
+.scr--phone .ph-title{margin:0;font:700 28px/32px var(--font);letter-spacing:-.1px;color:rgba(0,0,0,.9)}
+.scr--phone.ph--edit .ph-title{line-height:36px}
+.scr--phone.ph--error .ph-title{line-height:35px;letter-spacing:0}
+.scr--phone .ph-sub{margin:0;font:400 16px/20px var(--font);letter-spacing:-.1px;color:rgba(0,0,0,.5)}
+.scr--phone:is(.ph--edit,.ph--error) .ph-sub{color:rgba(0,0,0,.9)}
+.scr--phone .ph-row{position:relative;display:flex;align-items:center;justify-content:center;gap:2px;width:335px;height:48px}
+.scr--phone .ph-num{font:500 20px/24px var(--font);color:rgba(0,0,0,.5);white-space:nowrap}
+.scr--phone .ph-edit{position:absolute;right:0;top:12px;width:24px;height:24px;cursor:pointer}
+.scr--phone .ph-edit img,.scr--phone .ph-clear img{width:24px;height:24px}
+.scr--phone.ph--edit .ph-row{justify-content:flex-start;gap:0;padding:0 20px 0 72px}
+.scr--phone.ph--edit .ph-num{position:relative;z-index:1;background:#f1f1f4;color:rgba(0,0,0,.9)}
+.scr--phone .ph-caret{position:relative;z-index:1;flex:none;width:2px;height:28px;margin-left:.5px;background:rgba(0,0,0,.9);animation:o1-ph-blink 1s steps(1) infinite}
+@keyframes o1-ph-blink{50%{opacity:0}}
+.scr--phone .ph-mask{position:absolute;left:130px;top:30px;transform:translateY(-50%);font:400 16px/20px var(--font);color:rgba(0,0,0,.35);white-space:pre}
+.scr--phone .ph-clear{position:absolute;right:0;top:12px;width:24px;height:24px;cursor:pointer}
+.scr--phone.ph--error .ph-num{font-weight:700;letter-spacing:-.1px;color:#dd3826}
+.scr--phone.ph--error .ph-caret{background:#dd3826}
+.scr--phone .ph-err{width:375px;margin:0;font:500 14px/20px var(--font);letter-spacing:-.1px;text-align:center;color:#dd3826}
+.scr--phone .ph-foot{position:absolute;left:0;top:716px;width:375px;padding:0 16px}
+.scr--phone .o1-btn{display:flex;align-items:center;justify-content:center;width:343px;height:56px;padding:0 24px;border-radius:10px;background:#ec3342;font:500 16px/24px var(--font);color:#fff;text-align:center;cursor:pointer}
+
+/* ================= numeric keyboard (phone / pin) ================= */
+:is(.scr--phone,.scr--pin) .o1-kbwrap{position:absolute;left:0;bottom:0;display:flex;flex-direction:column;align-items:center;gap:12px;width:375px}
+:is(.scr--phone,.scr--pin) .o1-kbwrap--16{gap:16px}
+:is(.scr--phone,.scr--pin) .o1-kbwrap .o1-btn{display:flex;align-items:center;justify-content:center;width:343px;height:56px;padding:0 24px;border-radius:10px;background:#ec3342;font:500 16px/24px var(--font);color:#fff;text-align:center;cursor:pointer}
+:is(.scr--phone,.scr--pin) .o1-kb{width:375px;padding:6px 6px 77px;background:#d4d6db}
+:is(.scr--phone,.scr--pin) .o1-kb__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:7px 6px}
+:is(.scr--phone,.scr--pin) .o1-key{display:flex;flex-direction:column;align-items:center;height:46px;border-radius:5px;background:#fff;box-shadow:0 1px 0 #898a8d;color:#25282b;text-align:center;cursor:pointer;user-select:none;-webkit-user-select:none}
+:is(.scr--phone,.scr--pin) .o1-key:active{background:#b8bac0}
+:is(.scr--phone,.scr--pin) .o1-key b{font:400 25px/30px var(--font)}
+:is(.scr--phone,.scr--pin) .o1-key small{min-height:12px;margin-right:-2px;font:700 10px/12px var(--font);letter-spacing:2px}
+:is(.scr--phone,.scr--pin) .o1-key--blank{background:none;box-shadow:none;cursor:default}
+:is(.scr--phone,.scr--pin) .o1-key--del{justify-content:center;background:none;box-shadow:none}
+:is(.scr--phone,.scr--pin) .o1-key--del:active{background:#b8bac0}
+
+/* ================= pin ================= */
+.scr--pin .pin-desc{position:absolute;left:16px;top:145px;width:343px;margin:0;font:400 14px/20px var(--font);color:rgba(0,0,0,.9)}
+.scr--pin .pin-block{position:absolute;left:8px;top:257px;display:flex;flex-direction:column;gap:24px;width:360px}
+.scr--pin .pin-row{display:flex;flex-direction:column;align-items:center;gap:12px}
+.scr--pin .pin-row--2{display:none}
+.scr--pin.is-repeat .pin-row--2{display:flex}
+.scr--pin .pin-lbl{font:400 12px/16px var(--font);color:rgba(0,0,0,.5);white-space:nowrap}
+.scr--pin .pin-dots{display:flex;justify-content:center;gap:20px;width:360px}
+.scr--pin .pin-dots .dot{display:block;width:24px;height:24px;background:url(assets/order1/pin-dot-empty.svg) center/20px 20px no-repeat}
+.scr--pin .pin-dots .dot.is-filled{background-image:url(assets/order1/pin-dot-filled.svg);background-size:12px 12px}
+.scr--pin .pin-err{display:none;margin:0;font:500 14px/20px var(--font);letter-spacing:-.1px;text-align:center;color:#dd3826}
+.scr--pin.pin--mismatch .pin-err{display:block}
+
+/* ================= info (Məlumatlar toplusu) ================= */
+.scr--info{background:#f5f5f7}
+.scr--info .in-back{position:absolute;left:16px;top:52px;display:flex;align-items:center;justify-content:center;width:40px;height:40px;border:1px solid rgba(0,0,0,.1);border-radius:50%;background:#fff;cursor:pointer}
+.scr--info .in-back img{width:24px;height:24px}
+.scr--info .in-title{position:absolute;left:16px;top:104px;width:343px;margin:0;font:700 28px/32px var(--font);letter-spacing:-.1px;color:rgba(0,0,0,.9)}
+.scr--info .in-list{position:absolute;left:0;top:148px;width:375px}
+.scr--info .in-cell{display:flex;align-items:flex-start;gap:12px;width:375px;padding:0 16px;text-align:left;cursor:pointer}
+.scr--info .in-cell__ico{display:flex;align-items:center;flex:none;height:64px}
+.scr--info .in-cell__box{display:flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:12px;background:#fff}
+.scr--info .in-cell__box img{width:26px;height:26px}
+.scr--info .in-cell__t{display:flex;flex:1;align-items:center;min-height:64px;padding:8px 0;font:400 16px/20px var(--font);letter-spacing:-.1px;color:rgba(0,0,0,.9)}
+.scr--info .in-cell__chev{display:flex;align-items:center;flex:none;min-height:64px;padding:8px 0}
+.scr--info .in-cell__chev img{width:24px;height:24px}
+.scr--info .in-foot{position:absolute;left:0;bottom:0;width:375px;padding:12px 16px 48px}
+.scr--info .in-foot::before{content:"";position:absolute;inset:-28px 0 -4px 0;background:linear-gradient(0deg,#f5f5f7 50%,rgba(245,245,247,.77) 66%,rgba(245,245,247,.33) 80%,rgba(245,245,247,0) 100%);pointer-events:none}
+.scr--info .in-btn{position:relative;display:flex;align-items:center;justify-content:center;width:343px;min-height:56px;padding:4px 16px;border-radius:10px;background:#ec3342;font:500 16px/20px var(--font);letter-spacing:-.1px;color:#fff;cursor:pointer}
+
+/* ================= BirDS interaction states =================
+   Press feedback (BirDS "Animation and interaction"): press-token fill, content 0.95, 100 ms,
+   outer size / touch area unchanged. These screens use the legacy library (Button
+   cd13c477…/d7d8ac0f…, Box Input, Passcode input), so its tokens are kept: brand #ec3342,
+   brand-pressed #a81d29, disabled = 50 % opacity. */
+/* Button Primary (40 / L-56): Pressed + Disabled */
+:is(.sheet--add-card .ac-main__btn,.sheet--product .pi-cta,.sheet--currency .cu-btn,:is(.scr--phone,.scr--pin) .o1-btn,.scr--info .in-btn):active{background:#a81d29;transition:background-color .1s ease-out}
+:is(.sheet--add-card .ac-main__btn,.sheet--product .pi-cta,.sheet--currency .cu-btn,:is(.scr--phone,.scr--pin) .o1-btn,.scr--info .in-btn):disabled{opacity:.5;pointer-events:none;cursor:default}
+.sheet--product .pi-cta>span{display:inline-block;transition:transform .1s ease-out}
+.sheet--product .pi-cta:active>span{transform:scale(.95)}
+/* Sheet Title close (Button Icon / Circular, Secondary on surface): pressed fill + icon 0.95 */
+:is(.sheet--add-card,.sheet--product,.sheet--currency) .o1-st__x img,.scr--info .in-back img{transition:transform .1s ease-out}
+:is(.sheet--add-card,.sheet--product,.sheet--currency) .o1-st__x:active,.scr--info .in-back:active{background:#e9e7e7;transition:background-color .1s ease-out}
+:is(.sheet--add-card,.sheet--product,.sheet--currency) .o1-st__x:active img,.scr--info .in-back:active img{transform:scale(.95)}
+/* Chips (tabs "For daily / travel / Premium"): pressed fill 150 ms in, selection instant */
+.sheet--add-card .ac-tab:active{background:#e9e7e7;transition:background-color .15s ease-out}
+/* Chips (Card) — product chips: pressed fill + content 0.95 */
+.sheet--add-card .ac-chip>span{transition:transform .1s ease-out}
+.sheet--add-card .ac-chip:active{background:#e9e7e7;transition:background-color .1s ease-out}
+.sheet--add-card .ac-chip:active>span{transform:scale(.95)}
+/* Main product (hero card) */
+.sheet--add-card .ac-hero__img{transition:transform .1s ease-out}
+.sheet--add-card .ac-hero:active .ac-hero__img{transform:scale(.95)}
+/* Cell (Info / Info Cell / Document list cell), Container=False: rounded press layer extended
+   8px past the content, content 0.95 */
+:is(.sheet--add-card .ac-cell,.sheet--currency .cu-row,.scr--info .in-cell){position:relative}
+:is(.sheet--add-card .ac-cell,.sheet--currency .cu-row,.scr--info .in-cell)::before{content:"";position:absolute;top:0;bottom:0;left:8px;right:8px;border-radius:12px;background:#e9e7e7;opacity:0;transition:opacity .1s ease-out;pointer-events:none}
+:is(.sheet--add-card .ac-cell,.sheet--currency .cu-row,.scr--info .in-cell)>*{position:relative;transition:transform .1s ease-out}
+:is(.sheet--add-card .ac-cell,.sheet--currency .cu-row,.scr--info .in-cell):active::before{opacity:1}
+:is(.sheet--add-card .ac-cell,.sheet--currency .cu-row,.scr--info .in-cell):active>*{transform:scale(.95)}
+/* Basic cell with Switcher (referral row, Container=True): content 0.95 while pressed */
+.sheet--product .pi-ref__row>*{transition:transform .1s ease-out}
+.sheet--product .pi-ref__row:active>*{transform:scale(.95)}
+</style>
+
+<!-- ======================= add-card (sheet) ======================= -->
+<template data-screen="add-card" data-kind="sheet" data-title="Add new card">
+  <div class="sheet sheet--add-card tab-daily">
+    <div class="o1-st">
+      <img class="o1-st__grab" src="assets/order1/grabber.svg" alt="">
+      <h2 class="o1-st__title">Add new card</h2>
+      <button type="button" class="o1-st__x" data-action="close" aria-label="Bağla"><img src="assets/order1/xmark.svg" alt=""></button>
+    </div>
+
+    <div class="ac-main">
+      <button type="button" class="ac-hero" data-action="open-product" data-product="cashback">
+        <span class="ac-hero__img"><span class="ac-hero__card"><img src="assets/skins/cashback.svg" alt=""></span></span>
+        <span class="ac-hero__title">Birbank Cashback</span>
+      </button>
+      <p class="ac-main__sub">Partnyorlardan bonuslar və 2 qat ƏDV</p>
+      <button type="button" class="ac-main__btn" data-action="order-product" data-product="cashback">Order for free</button>
+    </div>
+
+    <div class="ac-tabs">
+      <button type="button" class="ac-tab" data-action="tab" data-tab="daily">For daily</button>
+      <button type="button" class="ac-tab" data-action="tab" data-tab="travel">For travel</button>
+      <button type="button" class="ac-tab" data-action="tab" data-tab="premium">For Premium</button>
+    </div>
+
+    <div class="ac-chips">
+      <button type="button" class="ac-chip" data-in="daily" data-action="open-product" data-product="star">
+        <span class="ac-chip__left"><span class="ac-chip__card">
+          <img class="ac-chip__shadow" src="assets/order1/card-shadow-sm.svg" alt="">
+          <img class="ac-chip__skin" src="assets/skins/star.svg" alt="">
+          <img class="ac-chip__pay" src="assets/order1/payment-service.svg" alt="">
+          <img class="ac-chip__dot" src="assets/order1/card-dot.svg" alt="">
+        </span></span>
+        <span class="ac-chip__body">
+          <span class="ac-chip__name">Birbank Star <span class="ac-badge">Free</span></span>
+          <span class="ac-chip__desc">Up to 30 000 ₼, no interest</span>
+        </span>
+      </button>
+      <button type="button" class="ac-chip" data-in="travel" data-action="open-product" data-product="miles">
+        <span class="ac-chip__left"><span class="ac-chip__card">
+          <img class="ac-chip__shadow" src="assets/order1/card-shadow-sm.svg" alt="">
+          <img class="ac-chip__skin" src="assets/skins/miles.svg" alt="">
+          <img class="ac-chip__pay" src="assets/order1/payment-service.svg" alt="">
+          <img class="ac-chip__dot" src="assets/order1/card-dot.svg" alt="">
+        </span></span>
+        <span class="ac-chip__body">
+          <span class="ac-chip__name">Birbank Miles <span class="ac-badge">Free</span></span>
+          <span class="ac-chip__desc">1.3%-dək başlayan Umico bonuslar</span>
+        </span>
+      </button>
+      <button type="button" class="ac-chip ac-chip--sm" data-in="premium" data-action="open-product" data-product="platinum">
+        <span class="ac-chip__left"><span class="ac-chip__card">
+          <img class="ac-chip__shadow" src="assets/order1/card-shadow-sm.svg" alt="">
+          <img class="ac-chip__skin" src="assets/skins/platinum.svg" alt="">
+          <img class="ac-chip__pay" src="assets/order1/payment-service.svg" alt="">
+          <img class="ac-chip__dot" src="assets/order1/card-dot.svg" alt="">
+        </span></span>
+        <span class="ac-chip__body">
+          <span class="ac-chip__name">Birbank Platinum <span class="ac-badge ac-badge--price">50 ₼</span></span>
+          <span class="ac-chip__desc">1.9%-dək başlayan əlavə Umico bonuslar</span>
+        </span>
+      </button>
+      <button type="button" class="ac-chip ac-chip--sm" data-in="premium" data-action="open-product" data-product="platinum-miles">
+        <span class="ac-chip__left"><span class="ac-chip__card">
+          <img class="ac-chip__shadow" src="assets/order1/card-shadow-sm.svg" alt="">
+          <img class="ac-chip__skin" src="assets/skins/miles.svg" alt="">
+          <img class="ac-chip__pay" src="assets/order1/payment-service.svg" alt="">
+          <img class="ac-chip__dot" src="assets/order1/card-dot.svg" alt="">
+        </span></span>
+        <span class="ac-chip__body">
+          <span class="ac-chip__name">Birbank Platinum Miles <span class="ac-badge ac-badge--price">80 ₼</span></span>
+          <span class="ac-chip__desc">1.9%-dək başlayan əlavə Umico bonuslar</span>
+        </span>
+      </button>
+    </div>
+
+    <div class="ac-div"></div>
+
+    <div class="ac-cells">
+      <button type="button" class="ac-cell" data-action="noop">
+        <span class="ac-cell__ico"><span class="ac-cell__box ac-cell__box--activate"><img src="assets/order1/activate-card.png" alt=""></span></span>
+        <span class="ac-cell__body">
+          <span class="ac-cell__txt">
+            <span class="ac-cell__t">Activate Birbank Card</span>
+            <span class="ac-cell__d">For cards you purchased in the market</span>
+          </span>
+          <span class="ac-cell__chev"><img src="assets/order1/angle-right.svg" alt=""></span>
+        </span>
+      </button>
+      <button type="button" class="ac-cell" data-action="noop">
+        <span class="ac-cell__ico"><span class="ac-cell__box ac-cell__box--attach"><img src="assets/order1/attach-card.png" alt=""></span></span>
+        <span class="ac-cell__body">
+          <span class="ac-cell__txt">
+            <span class="ac-cell__t">Attach card</span>
+            <span class="ac-cell__d">Add cards from any local banks, top up their balance more conveniently, and make payments and transfers.</span>
+          </span>
+          <span class="ac-cell__chev"><img src="assets/order1/angle-right.svg" alt=""></span>
+        </span>
+      </button>
+    </div>
+  </div>
+</template>
+
+<!-- ======================= product (sheet) ======================= -->
+<template data-screen="product" data-kind="sheet" data-title="Product info">
+  <div class="sheet sheet--product">
+    <div class="o1-st">
+      <img class="o1-st__grab" src="assets/order1/grabber.svg" alt="">
+      <h2 class="o1-st__title" data-slot="title">Birbank Cashback</h2>
+      <button type="button" class="o1-st__x" data-action="close" aria-label="Bağla"><img src="assets/order1/xmark.svg" alt=""></button>
+    </div>
+
+    <div class="sheet__scroll">
+      <div class="pi-car" data-slot="carousel">
+        <div class="pi-card"><img data-skin="cashback" src="assets/skins/cashback.svg" alt="Birbank Cashback"><img class="pi-card__pay" src="assets/order1/payment-provider-visa.svg" alt=""></div>
+        <div class="pi-card"><img data-skin="star" src="assets/skins/star.svg" alt="Birbank Star"><img class="pi-card__pay" src="assets/order1/payment-provider-visa.svg" alt=""></div>
+        <div class="pi-card"><img data-skin="miles" src="assets/skins/miles.svg" alt="Birbank Miles"><img class="pi-card__pay" src="assets/order1/payment-provider-visa.svg" alt=""></div>
+        <div class="pi-card"><img data-skin="platinum" src="assets/skins/platinum.svg" alt="Birbank Platinum"><img class="pi-card__pay" src="assets/order1/payment-provider-visa.svg" alt=""></div>
+        <div class="pi-card"><img data-skin="platinum-miles" src="assets/skins/miles.svg" alt="Birbank Platinum Miles"><img class="pi-card__pay" src="assets/order1/payment-provider-visa.svg" alt=""></div>
+      </div>
+
+      <div class="pi-tabs">
+        <span class="pi-chip is-active">Debet kartı</span>
+        <span class="pi-chip">Taksit kartı</span>
+      </div>
+
+      <p class="pi-desc" data-slot="desc">Birbank Cashback kartı sizə partnyorlardan bonus, pulsuz köçürmə və nağdlaşdırma qazandıracaq</p>
+
+      <div class="pi-ben-slot" data-slot="benefits">
+        <div class="pi-benefits">
+          <div>
+            <div class="pi-ben">
+              <span class="pi-ben__ico"><img src="assets/order1/ic-eco-power.svg" alt=""></span>
+              <span class="pi-ben__txt"><span class="pi-ben__t">Dərhal açılan rəqəmsal kart</span><span class="pi-ben__d">Sifarişdən dərhal sonra siz kartın rəqəmsal versiyasını əldə edirisiniz. İstədiyiniz vaxt Bakı, Abşeron və ya Sumqayıtdakı ünvanınıza bu kartın plastik versiyasını pulsuz çatdıra bilərik.</span></span>
+            </div>
+            <button type="button" class="pi-ben__link" data-go="digital-info">Rəqəmsal kart nədir?</button>
+          </div>
+          <div class="pi-ben">
+            <span class="pi-ben__ico"><img src="assets/order1/ic-arrows-repeat.svg" alt=""></span>
+            <span class="pi-ben__txt"><span class="pi-ben__t">Birbank kartlarına 0% komissiya ilə köçürmə</span><span class="pi-ben__d">Digər bank kartlarına fərdi limit daxilində komissiyasız köçürmə edə bilərsiniz. Limiti keçdikdə isə komissiya 0,5% təşkil edəcək (minimum 1 AZN/USD/EUR).</span></span>
+          </div>
+          <div class="pi-ben">
+            <span class="pi-ben__ico"><img src="assets/order1/ic-atm.svg" alt=""></span>
+            <span class="pi-ben__txt"><span class="pi-ben__t">Limit daxilində komissiyasız nağdlaşdırma</span><span class="pi-ben__d">Fərdi limiti keçdikdə komissiya 1% təşkil edəcək (minimum 1 AZN/USD/EUR). Daha ətraflı saytımızın “Tariflər” bölməsində.</span></span>
+          </div>
+          <div class="pi-ben">
+            <span class="pi-ben__ico"><img src="assets/order1/ic-deposit.svg" alt=""></span>
+            <span class="pi-ben__txt"><span class="pi-ben__t">Partnyorlardan bonuslar</span><span class="pi-ben__d">Partnyorlarımızın mağazalarında alış-veriş edin və bonuslar qazanın.</span></span>
+          </div>
+          <div class="pi-ben">
+            <span class="pi-ben__ico"><img src="assets/order1/ic-cash-by-code.svg" alt=""></span>
+            <span class="pi-ben__txt"><span class="pi-ben__t">Balansın 3 000 ₼-dək komissiyasız artırılması</span><span class="pi-ben__d">Filiallar, şöbələr və ya terminallar vasitəsilə ay ərzində kartınızın balansını 3 000 ₼-dan çox artırdıqda məbləğin limiti keçən hissəsinə 0,5% komissiya tətbiq olunur</span></span>
+          </div>
+          <div class="pi-ben pi-ben--single">
+            <span class="pi-ben__ico"><img src="assets/order1/ic-money.svg" alt=""></span>
+            <span class="pi-ben__txt"><span class="pi-ben__t">AZN, USD, EUR valyutasında</span></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="pi-ref">
+        <button type="button" class="pi-ref__row" data-toggle="is-referral">
+          <span class="pi-ref__lbl">Referal kodum var</span>
+          <span class="pi-sw" aria-hidden="true"></span>
+        </button>
+        <div class="pi-ref__more">
+          <p class="pi-ref__note">Referal kodu sizinlə yalnız Birbank Cashback kartı sahibi paylaşa bilər. Əgər bu sizin ilk Birbank Cashback debet kartınızdırsa, onunla etdiyiniz ilk ödənişdən 3 ₼ qazanacaqsınız.</p>
+          <label class="pi-field">
+            <span class="pi-field__lbl">Referal kodu</span>
+            <input type="text" data-slot="ref-input" autocomplete="off" autocapitalize="characters" spellcheck="false">
+          </label>
+          <div class="pi-ref__err" data-slot="ref-error">Siz bu koddan artıq istifadə etmisiniz</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="pi-foot">
+      <button type="button" class="pi-cta" data-action="order"><span data-slot="cta">Order for free</span></button>
+    </div>
+  </div>
+</template>
+
+<!-- benefits fragments (inserted by the shell into [data-slot="benefits"] of .sheet--product) -->
+<template data-screen="_benefits-cashback" data-kind="fragment" data-title="Benefits: Cashback">
+  <div class="pi-benefits">
+    <div>
+      <div class="pi-ben">
+        <span class="pi-ben__ico"><img src="assets/order1/ic-eco-power.svg" alt=""></span>
+        <span class="pi-ben__txt"><span class="pi-ben__t">Dərhal açılan rəqəmsal kart</span><span class="pi-ben__d">Sifarişdən dərhal sonra siz kartın rəqəmsal versiyasını əldə edirisiniz. İstədiyiniz vaxt Bakı, Abşeron və ya Sumqayıtdakı ünvanınıza bu kartın plastik versiyasını pulsuz çatdıra bilərik.</span></span>
+      </div>
+      <button type="button" class="pi-ben__link" data-go="digital-info">Rəqəmsal kart nədir?</button>
+    </div>
+    <div class="pi-ben">
+      <span class="pi-ben__ico"><img src="assets/order1/ic-arrows-repeat.svg" alt=""></span>
+      <span class="pi-ben__txt"><span class="pi-ben__t">Birbank kartlarına 0% komissiya ilə köçürmə</span><span class="pi-ben__d">Digər bank kartlarına fərdi limit daxilində komissiyasız köçürmə edə bilərsiniz. Limiti keçdikdə isə komissiya 0,5% təşkil edəcək (minimum 1 AZN/USD/EUR).</span></span>
+    </div>
+    <div class="pi-ben">
+      <span class="pi-ben__ico"><img src="assets/order1/ic-atm.svg" alt=""></span>
+      <span class="pi-ben__txt"><span class="pi-ben__t">Limit daxilində komissiyasız nağdlaşdırma</span><span class="pi-ben__d">Fərdi limiti keçdikdə komissiya 1% təşkil edəcək (minimum 1 AZN/USD/EUR). Daha ətraflı saytımızın “Tariflər” bölməsində.</span></span>
+    </div>
+    <div class="pi-ben">
+      <span class="pi-ben__ico"><img src="assets/order1/ic-deposit.svg" alt=""></span>
+      <span class="pi-ben__txt"><span class="pi-ben__t">Partnyorlardan bonuslar</span><span class="pi-ben__d">Partnyorlarımızın mağazalarında alış-veriş edin və bonuslar qazanın.</span></span>
+    </div>
+    <div class="pi-ben">
+      <span class="pi-ben__ico"><img src="assets/order1/ic-cash-by-code.svg" alt=""></span>
+      <span class="pi-ben__txt"><span class="pi-ben__t">Balansın 3 000 ₼-dək komissiyasız artırılması</span><span class="pi-ben__d">Filiallar, şöbələr və ya terminallar vasitəsilə ay ərzində kartınızın balansını 3 000 ₼-dan çox artırdıqda məbləğin limiti keçən hissəsinə 0,5% komissiya tətbiq olunur</span></span>
+    </div>
+    <div class="pi-ben pi-ben--single">
+      <span class="pi-ben__ico"><img src="assets/order1/ic-money.svg" alt=""></span>
+      <span class="pi-ben__txt"><span class="pi-ben__t">AZN, USD, EUR valyutasında</span></span>
+    </div>
+  </div>
+</template>
+
+<template data-screen="_benefits-miles" data-kind="fragment" data-title="Benefits: Miles">
+  <div class="pi-benefits">
+    <div class="pi-ben">
+      <span class="pi-ben__ico"><img src="assets/order1/ic-calendar.svg" alt=""></span>
+      <span class="pi-ben__txt"><span class="pi-ben__t">18 ayadək taksit</span><span class="pi-ben__d">Partnyorlarımızın mağazalarında etdiyiniz alış-verişlərinizi faizsiz hissə-hissə ödəyin.</span></span>
+    </div>
+    <div class="pi-ben">
+      <span class="pi-ben__ico"><img src="assets/order1/ic-hourglass.svg" alt=""></span>
+      <span class="pi-ben__txt"><span class="pi-ben__t">Grace period up to 63 days</span><span class="pi-ben__d">The maximum grace period for repayment of the amount spent without interest is 63 days. After this period, interest on the remaining debt will be charged at a rate of 1.84% to 2.92% per month.</span></span>
+    </div>
+    <div class="pi-ben">
+      <span class="pi-ben__ico"><img src="assets/order1/ic-deposite-miles.svg" alt=""></span>
+      <span class="pi-ben__txt"><span class="pi-ben__t">Ayda 30 000-dək səyahət mili</span><span class="pi-ben__d">Ölkədaxili ödənişlər üçün hər 2 ₼ minimum 1 mil, ölkəxarici ödənişlər üçün isə 1 ₼ 1 mil olaraq hesablanacaq. Partnyorlarımızda alış-veriş edərək daha çox mil əldə edə biləcəksiniz.</span></span>
+    </div>
+    <div>
+      <div class="pi-ben">
+        <span class="pi-ben__ico"><img src="assets/order1/ic-eco-power.svg" alt=""></span>
+        <span class="pi-ben__txt"><span class="pi-ben__t">Dərhal açılan rəqəmsal kart</span><span class="pi-ben__d">Sifarişdən dərhal sonra siz kartın rəqəmsal versiyasını əldə edirsiniz. İstədiyiniz vaxt Bakı, Abşeron və ya Sumqayıtdakı ünvanınıza bu kartın plastik versiyasını pulsuz çatdıra bilərik.</span></span>
+      </div>
+      <button type="button" class="pi-ben__link" data-go="digital-info">Rəqəmsal kart nədir?</button>
+    </div>
+  </div>
+</template>
+
+<template data-screen="_benefits-star" data-kind="fragment" data-title="Benefits: Star">
+  <div class="pi-benefits">
+    <div class="pi-ben">
+      <span class="pi-ben__ico"><img src="assets/order1/ic-money.svg" alt=""></span>
+      <span class="pi-ben__txt"><span class="pi-ben__t">30 000 ₼-dək kredit limiti</span><span class="pi-ben__d">Limit fərdi olaraq müəyyən edilir və kart sifarişindən dərhal sonra istifadəyə hazırdır.</span></span>
+    </div>
+    <div class="pi-ben">
+      <span class="pi-ben__ico"><img src="assets/order1/ic-calendar.svg" alt=""></span>
+      <span class="pi-ben__txt"><span class="pi-ben__t">Faizsiz taksitlə alış-veriş</span><span class="pi-ben__d">Partnyorlarımızın mağazalarında etdiyiniz alış-verişləri faizsiz hissə-hissə ödəyin.</span></span>
+    </div>
+    <div class="pi-ben">
+      <span class="pi-ben__ico"><img src="assets/order1/ic-hourglass.svg" alt=""></span>
+      <span class="pi-ben__txt"><span class="pi-ben__t">63 günədək güzəşt müddəti</span><span class="pi-ben__d">Xərclənmiş məbləği 63 gün ərzində faizsiz qaytara bilərsiniz.</span></span>
+    </div>
+    <div>
+      <div class="pi-ben">
+        <span class="pi-ben__ico"><img src="assets/order1/ic-eco-power.svg" alt=""></span>
+        <span class="pi-ben__txt"><span class="pi-ben__t">Dərhal açılan rəqəmsal kart</span><span class="pi-ben__d">Sifarişdən dərhal sonra siz kartın rəqəmsal versiyasını əldə edirsiniz. İstədiyiniz vaxt Bakı, Abşeron və ya Sumqayıtdakı ünvanınıza bu kartın plastik versiyasını pulsuz çatdıra bilərik.</span></span>
+      </div>
+      <button type="button" class="pi-ben__link" data-go="digital-info">Rəqəmsal kart nədir?</button>
+    </div>
+  </div>
+</template>
+
+<template data-screen="_benefits-platinum" data-kind="fragment" data-title="Benefits: Platinum">
+  <div class="pi-benefits">
+    <div class="pi-ben">
+      <span class="pi-ben__ico"><img src="assets/order1/ic-deposit.svg" alt=""></span>
+      <span class="pi-ben__txt"><span class="pi-ben__t">“Visa Concierge” xidmətləri</span><span class="pi-ben__d">Birbank Platinum kartı ilə ödənişlər edin və “Visa Concierge” xidmətlərindən 24/7 yararlanın.</span></span>
+    </div>
+    <div class="pi-ben">
+      <span class="pi-ben__ico"><img src="assets/order1/ic-deposite-miles.svg" alt=""></span>
+      <span class="pi-ben__txt"><span class="pi-ben__t">Əlavə Umico bonusları</span><span class="pi-ben__d">Hər ödənişdən 1.9%-dək əlavə Umico bonusları qazanın.</span></span>
+    </div>
+    <div class="pi-ben">
+      <span class="pi-ben__ico"><img src="assets/order1/ic-arrows-repeat.svg" alt=""></span>
+      <span class="pi-ben__txt"><span class="pi-ben__t">Birbank kartlarına 0% komissiya ilə köçürmə</span><span class="pi-ben__d">Digər bank kartlarına fərdi limit daxilində komissiyasız köçürmə edə bilərsiniz.</span></span>
+    </div>
+    <div>
+      <div class="pi-ben">
+        <span class="pi-ben__ico"><img src="assets/order1/ic-eco-power.svg" alt=""></span>
+        <span class="pi-ben__txt"><span class="pi-ben__t">Dərhal açılan rəqəmsal kart</span><span class="pi-ben__d">Sifarişdən dərhal sonra siz kartın rəqəmsal versiyasını əldə edirsiniz. İstədiyiniz vaxt Bakı, Abşeron və ya Sumqayıtdakı ünvanınıza bu kartın plastik versiyasını pulsuz çatdıra bilərik.</span></span>
+      </div>
+      <button type="button" class="pi-ben__link" data-go="digital-info">Rəqəmsal kart nədir?</button>
+    </div>
+  </div>
+</template>
+
+<!-- ======================= currency (sheet) ======================= -->
+<template data-screen="currency" data-kind="sheet" data-title="Валюта">
+  <div class="sheet sheet--currency">
+    <div class="o1-st o1-st--nox">
+      <img class="o1-st__grab" src="assets/order1/grabber.svg" alt="">
+      <h2 class="o1-st__title">Valyuta seçimi edin</h2>
+    </div>
+    <div class="cu-list">
+      <button type="button" class="cu-row is-selected" data-action="currency" data-currency="AZN">
+        <span class="cu-ico"><img src="assets/order1/ic-manat.svg" alt=""></span>
+        <span class="cu-lbl">AZN</span>
+        <span class="cu-radio"></span>
+      </button>
+      <button type="button" class="cu-row" data-action="currency" data-currency="USD">
+        <span class="cu-ico"><img src="assets/order1/ic-dollar.svg" alt=""></span>
+        <span class="cu-lbl">USD</span>
+        <span class="cu-radio"></span>
+      </button>
+      <button type="button" class="cu-row" data-action="currency" data-currency="EUR">
+        <span class="cu-ico"><img src="assets/order1/ic-euro.svg" alt=""></span>
+        <span class="cu-lbl">EUR</span>
+        <span class="cu-radio"></span>
+      </button>
+    </div>
+    <div class="cu-foot">
+      <button type="button" class="cu-btn" data-action="currency-continue">Continue</button>
+    </div>
+  </div>
+</template>
+
+<!-- ======================= loading (page) ======================= -->
+<template data-screen="loading" data-kind="page" data-title="Загрузка">
+  <div class="scr scr--loading">
+    <button type="button" class="o1-back" data-action="back" aria-label="Geri"><img src="assets/order1/angle-left.svg" alt=""></button>
+    <h1 class="o1-h1" data-slot="title">Birbank Cashback</h1>
+    <div class="ld-spin"><img class="ld-ring" src="assets/order1/loader-ring.svg" alt=""></div>
+    <span class="ld-time">02:59</span>
+    <img class="ld-mark" src="assets/order1/loader-mark.svg" alt="">
+    <div class="ld-txt">
+      <p class="ld-txt__h">Zəhmət olmasa, gözləyin</p>
+      <p class="ld-txt__s">Məlumatlarınızı yoxlayırıq</p>
+    </div>
+  </div>
+</template>
+
+<!-- ======================= phone (page) ======================= -->
+<template data-screen="phone" data-kind="page" data-title="Mobile number">
+  <div class="scr scr--phone">
+    <button type="button" class="o1-back" data-action="back" aria-label="Geri"><img src="assets/order1/angle-left.svg" alt=""></button>
+    <div class="ph-body">
+      <div class="ph-zero">
+        <span class="ph-ico"><img src="assets/order1/ic-phone.svg" alt=""></span>
+        <div class="ph-text">
+          <h1 class="ph-title">Mobil nömrənizin aktiv olduğuna əmin olun</h1>
+          <p class="ph-sub">Onlayn ödənişlər zamanı 3D Secure kodu bu nömrəyə göndəriləcək</p>
+        </div>
+      </div>
+      <div class="ph-row">
+        <span class="ph-num" data-slot="phone">+994 50 567 88 98</span>
+        <button type="button" class="ph-edit" data-go="phone__edit" aria-label="Redaktə et"><img src="assets/order1/ic-edit.svg" alt=""></button>
+      </div>
+    </div>
+    <div class="ph-foot">
+      <button type="button" class="o1-btn" data-action="phone-continue">Continue</button>
+    </div>
+  </div>
+</template>
+
+<template data-screen="phone__edit" data-kind="page" data-title="Номер: ввод">
+  <div class="scr scr--phone ph--edit">
+    <button type="button" class="o1-back" data-action="back" aria-label="Geri"><img src="assets/order1/angle-left.svg" alt=""></button>
+    <div class="ph-body">
+      <div class="ph-zero">
+        <span class="ph-ico"><img src="assets/order1/ic-phone.svg" alt=""></span>
+        <div class="ph-text">
+          <h1 class="ph-title">Mobil nömrənizin aktiv olduğuna əmin olun</h1>
+          <p class="ph-sub">Onlayn ödənişlər zamanı 3D Secure kodu bu nömrəyə göndəriləcək</p>
+        </div>
+      </div>
+      <div class="ph-row">
+        <span class="ph-mask">_ _  _ _ _  _ _  _ _</span>
+        <span class="ph-num" data-slot="phone-input">+994</span><span class="ph-caret"></span>
+        <button type="button" class="ph-clear" data-action="phone-clear" aria-label="Təmizlə"><img src="assets/order1/ic-xmark-24.svg" alt=""></button>
+      </div>
+    </div>
+    <div class="o1-kbwrap">
+      <button type="button" class="o1-btn" data-action="phone-confirm">Confirm</button>
+      <div class="o1-kb"><div class="o1-kb__grid">
+        <button type="button" class="o1-key" data-key="1"><b>1</b><small></small></button>
+        <button type="button" class="o1-key" data-key="2"><b>2</b><small>ABC</small></button>
+        <button type="button" class="o1-key" data-key="3"><b>3</b><small>DEF</small></button>
+        <button type="button" class="o1-key" data-key="4"><b>4</b><small>GHI</small></button>
+        <button type="button" class="o1-key" data-key="5"><b>5</b><small>JKL</small></button>
+        <button type="button" class="o1-key" data-key="6"><b>6</b><small>MNO</small></button>
+        <button type="button" class="o1-key" data-key="7"><b>7</b><small>PQRS</small></button>
+        <button type="button" class="o1-key" data-key="8"><b>8</b><small>TUV</small></button>
+        <button type="button" class="o1-key" data-key="9"><b>9</b><small>WXYZ</small></button>
+        <span class="o1-key o1-key--blank"></span>
+        <button type="button" class="o1-key" data-key="0"><b>0</b><small></small></button>
+        <button type="button" class="o1-key o1-key--del" data-key="del" aria-label="Sil"><svg width="24" height="18" viewBox="0 0 24 18" fill="none" aria-hidden="true"><path d="M8.3 1.2h12.2a2.3 2.3 0 0 1 2.3 2.3v11a2.3 2.3 0 0 1-2.3 2.3H8.3a1.9 1.9 0 0 1-1.5-.7L1.5 9.6a1 1 0 0 1 0-1.2l5.3-6.5a1.9 1.9 0 0 1 1.5-.7Z" stroke="#25282B" stroke-width="1.5" stroke-linejoin="round"/><path d="m11.6 5.6 6.8 6.8m0-6.8-6.8 6.8" stroke="#25282B" stroke-width="1.5" stroke-linecap="round"/></svg></button>
+      </div></div>
+    </div>
+  </div>
+</template>
+
+<template data-screen="phone__error" data-kind="page" data-title="Ошибка: неверный номер">
+  <div class="scr scr--phone ph--error">
+    <button type="button" class="o1-back" data-action="back" aria-label="Geri"><img src="assets/order1/angle-left.svg" alt=""></button>
+    <div class="ph-body">
+      <div class="ph-zero">
+        <span class="ph-ico"><img src="assets/order1/ic-phone.svg" alt=""></span>
+        <div class="ph-text">
+          <h1 class="ph-title">Mobil nömrənizin aktiv olduğuna əmin olun</h1>
+          <p class="ph-sub">Onlayn ödənişlər zamanı 3D Secure kodu bu nömrəyə göndəriləcək</p>
+        </div>
+      </div>
+      <div class="ph-row">
+        <span class="ph-num" data-slot="phone-input">+994 50 567 88 98</span><span class="ph-caret"></span>
+        <button type="button" class="ph-clear" data-action="phone-clear" aria-label="Təmizlə"><img src="assets/order1/ic-xmark-24.svg" alt=""></button>
+      </div>
+      <p class="ph-err">Telefon nömrəsi yanlışdır</p>
+    </div>
+    <div class="o1-kbwrap o1-kbwrap--16">
+      <button type="button" class="o1-btn" data-action="phone-confirm">Confirm</button>
+      <div class="o1-kb"><div class="o1-kb__grid">
+        <button type="button" class="o1-key" data-key="1"><b>1</b><small></small></button>
+        <button type="button" class="o1-key" data-key="2"><b>2</b><small>ABC</small></button>
+        <button type="button" class="o1-key" data-key="3"><b>3</b><small>DEF</small></button>
+        <button type="button" class="o1-key" data-key="4"><b>4</b><small>GHI</small></button>
+        <button type="button" class="o1-key" data-key="5"><b>5</b><small>JKL</small></button>
+        <button type="button" class="o1-key" data-key="6"><b>6</b><small>MNO</small></button>
+        <button type="button" class="o1-key" data-key="7"><b>7</b><small>PQRS</small></button>
+        <button type="button" class="o1-key" data-key="8"><b>8</b><small>TUV</small></button>
+        <button type="button" class="o1-key" data-key="9"><b>9</b><small>WXYZ</small></button>
+        <span class="o1-key o1-key--blank"></span>
+        <button type="button" class="o1-key" data-key="0"><b>0</b><small></small></button>
+        <button type="button" class="o1-key o1-key--del" data-key="del" aria-label="Sil"><svg width="24" height="18" viewBox="0 0 24 18" fill="none" aria-hidden="true"><path d="M8.3 1.2h12.2a2.3 2.3 0 0 1 2.3 2.3v11a2.3 2.3 0 0 1-2.3 2.3H8.3a1.9 1.9 0 0 1-1.5-.7L1.5 9.6a1 1 0 0 1 0-1.2l5.3-6.5a1.9 1.9 0 0 1 1.5-.7Z" stroke="#25282B" stroke-width="1.5" stroke-linejoin="round"/><path d="m11.6 5.6 6.8 6.8m0-6.8-6.8 6.8" stroke="#25282B" stroke-width="1.5" stroke-linecap="round"/></svg></button>
+      </div></div>
+    </div>
+  </div>
+</template>
+
+<!-- ======================= pin (page) ======================= -->
+<template data-screen="pin" data-kind="page" data-title="PIN kod">
+  <div class="scr scr--pin">
+    <button type="button" class="o1-back" data-action="back" aria-label="Geri"><img src="assets/order1/angle-left.svg" alt=""></button>
+    <h1 class="o1-h1">Karta PIN kod təyin edin</h1>
+    <p class="pin-desc">Bu kodla siz ATM-dən vəsaitin nağdlaşdırılması,<br>pos-terminal ödənişləri və digər kart əməliyyatlarını apara biləcəksiniz. Kodun mürəkkəb olmasından əmin olun.</p>
+    <div class="pin-block">
+      <div class="pin-row pin-row--1">
+        <span class="pin-lbl">Enter once</span>
+        <div class="pin-dots" data-slot="pin1"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+      </div>
+      <div class="pin-row pin-row--2">
+        <span class="pin-lbl">PIN again</span>
+        <div class="pin-dots" data-slot="pin2"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+        <p class="pin-err">PIN kodlar üst-üstə düşmür</p>
+      </div>
+    </div>
+    <div class="o1-kbwrap o1-kbwrap--16">
+      <button type="button" class="o1-btn" data-action="pin-confirm">Confirm</button>
+      <div class="o1-kb"><div class="o1-kb__grid">
+        <button type="button" class="o1-key" data-key="1"><b>1</b><small></small></button>
+        <button type="button" class="o1-key" data-key="2"><b>2</b><small>ABC</small></button>
+        <button type="button" class="o1-key" data-key="3"><b>3</b><small>DEF</small></button>
+        <button type="button" class="o1-key" data-key="4"><b>4</b><small>GHI</small></button>
+        <button type="button" class="o1-key" data-key="5"><b>5</b><small>JKL</small></button>
+        <button type="button" class="o1-key" data-key="6"><b>6</b><small>MNO</small></button>
+        <button type="button" class="o1-key" data-key="7"><b>7</b><small>PQRS</small></button>
+        <button type="button" class="o1-key" data-key="8"><b>8</b><small>TUV</small></button>
+        <button type="button" class="o1-key" data-key="9"><b>9</b><small>WXYZ</small></button>
+        <span class="o1-key o1-key--blank"></span>
+        <button type="button" class="o1-key" data-key="0"><b>0</b><small></small></button>
+        <button type="button" class="o1-key o1-key--del" data-key="del" aria-label="Sil"><svg width="24" height="18" viewBox="0 0 24 18" fill="none" aria-hidden="true"><path d="M8.3 1.2h12.2a2.3 2.3 0 0 1 2.3 2.3v11a2.3 2.3 0 0 1-2.3 2.3H8.3a1.9 1.9 0 0 1-1.5-.7L1.5 9.6a1 1 0 0 1 0-1.2l5.3-6.5a1.9 1.9 0 0 1 1.5-.7Z" stroke="#25282B" stroke-width="1.5" stroke-linejoin="round"/><path d="m11.6 5.6 6.8 6.8m0-6.8-6.8 6.8" stroke="#25282B" stroke-width="1.5" stroke-linecap="round"/></svg></button>
+      </div></div>
+    </div>
+  </div>
+</template>
+
+<template data-screen="pin__mismatch" data-kind="page" data-title="Ошибка: PIN не совпадает">
+  <div class="scr scr--pin is-repeat pin--mismatch">
+    <button type="button" class="o1-back" data-action="back" aria-label="Geri"><img src="assets/order1/angle-left.svg" alt=""></button>
+    <h1 class="o1-h1">Karta PIN kod təyin edin</h1>
+    <p class="pin-desc">Bu kodla siz ATM-dən vəsaitin nağdlaşdırılması,<br>pos-terminal ödənişləri və digər kart əməliyyatlarını apara biləcəksiniz. Kodun mürəkkəb olmasından əmin olun.</p>
+    <div class="pin-block">
+      <div class="pin-row pin-row--1">
+        <span class="pin-lbl">Enter once</span>
+        <div class="pin-dots" data-slot="pin1"><span class="dot is-filled"></span><span class="dot is-filled"></span><span class="dot is-filled"></span><span class="dot is-filled"></span></div>
+      </div>
+      <div class="pin-row pin-row--2">
+        <span class="pin-lbl">PIN again</span>
+        <div class="pin-dots" data-slot="pin2"><span class="dot is-filled"></span><span class="dot is-filled"></span><span class="dot is-filled"></span><span class="dot is-filled"></span></div>
+        <p class="pin-err">PIN kodlar üst-üstə düşmür</p>
+      </div>
+    </div>
+    <div class="o1-kbwrap o1-kbwrap--16">
+      <button type="button" class="o1-btn" data-action="pin-confirm">Confirm</button>
+      <div class="o1-kb"><div class="o1-kb__grid">
+        <button type="button" class="o1-key" data-key="1"><b>1</b><small></small></button>
+        <button type="button" class="o1-key" data-key="2"><b>2</b><small>ABC</small></button>
+        <button type="button" class="o1-key" data-key="3"><b>3</b><small>DEF</small></button>
+        <button type="button" class="o1-key" data-key="4"><b>4</b><small>GHI</small></button>
+        <button type="button" class="o1-key" data-key="5"><b>5</b><small>JKL</small></button>
+        <button type="button" class="o1-key" data-key="6"><b>6</b><small>MNO</small></button>
+        <button type="button" class="o1-key" data-key="7"><b>7</b><small>PQRS</small></button>
+        <button type="button" class="o1-key" data-key="8"><b>8</b><small>TUV</small></button>
+        <button type="button" class="o1-key" data-key="9"><b>9</b><small>WXYZ</small></button>
+        <span class="o1-key o1-key--blank"></span>
+        <button type="button" class="o1-key" data-key="0"><b>0</b><small></small></button>
+        <button type="button" class="o1-key o1-key--del" data-key="del" aria-label="Sil"><svg width="24" height="18" viewBox="0 0 24 18" fill="none" aria-hidden="true"><path d="M8.3 1.2h12.2a2.3 2.3 0 0 1 2.3 2.3v11a2.3 2.3 0 0 1-2.3 2.3H8.3a1.9 1.9 0 0 1-1.5-.7L1.5 9.6a1 1 0 0 1 0-1.2l5.3-6.5a1.9 1.9 0 0 1 1.5-.7Z" stroke="#25282B" stroke-width="1.5" stroke-linejoin="round"/><path d="m11.6 5.6 6.8 6.8m0-6.8-6.8 6.8" stroke="#25282B" stroke-width="1.5" stroke-linecap="round"/></svg></button>
+      </div></div>
+    </div>
+  </div>
+</template>
+
+<!-- ======================= info (page) ======================= -->
+<template data-screen="info" data-kind="page" data-title="Məlumatlar toplusu">
+  <div class="scr scr--info">
+    <button type="button" class="in-back" data-action="back" aria-label="Geri"><img src="assets/order1/ic-chevron-left-bold.svg" alt=""></button>
+    <h1 class="in-title">Məlumatlar toplusu</h1>
+    <div class="in-list">
+      <button type="button" class="in-cell" data-action="noop">
+        <span class="in-cell__ico"><span class="in-cell__box"><img src="assets/order1/ic-file-lines.svg" alt=""></span></span>
+        <span class="in-cell__t">Özünüqiymətləndirmə anketi</span>
+        <span class="in-cell__chev"><img src="assets/order1/angle-right-info.svg" alt=""></span>
+      </button>
+    </div>
+    <div class="in-foot">
+      <button type="button" class="in-btn" data-go="kyc-intro">Continue</button>
+    </div>
+  </div>
+</template>

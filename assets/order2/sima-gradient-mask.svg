@@ -1,0 +1,26 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="375" height="140" viewBox="0 0 375 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Mask layer">
+<rect id="Gradient layer" y="70" width="375" height="70" fill="url(#paint0_linear_0_4246)"/>
+<rect id="Non-gradien layer" width="375" height="70" fill="white"/>
+</g>
+<defs>
+<linearGradient id="paint0_linear_0_4246" x1="187.5" y1="70" x2="187.5" y2="140" gradientUnits="userSpaceOnUse">
+<stop stop-color="white"/>
+<stop offset="0.117896" stop-color="#FDFDFD" stop-opacity="0.991615"/>
+<stop offset="0.213837" stop-color="#F7F7F7" stop-opacity="0.967585"/>
+<stop offset="0.2912" stop-color="#EDEDED" stop-opacity="0.9296"/>
+<stop offset="0.353363" stop-color="#E0E0E0" stop-opacity="0.879348"/>
+<stop offset="0.403704" stop-color="#D1D1D1" stop-opacity="0.818519"/>
+<stop offset="0.4456" stop-color="#BFBFBF" stop-opacity="0.7488"/>
+<stop offset="0.48243" stop-color="#ABABAB" stop-opacity="0.671881"/>
+<stop offset="0.51757" stop-color="#969696" stop-opacity="0.589452"/>
+<stop offset="0.5544" stop-color="#808080" stop-opacity="0.5032"/>
+<stop offset="0.596296" stop-color="#6A6A6A" stop-opacity="0.414815"/>
+<stop offset="0.646637" stop-color="#535353" stop-opacity="0.325985"/>
+<stop offset="0.7088" stop-color="#3D3D3D" stop-opacity="0.2384"/>
+<stop offset="0.786163" stop-color="#272727" stop-opacity="0.153748"/>
+<stop offset="0.882104" stop-color="#131313" stop-opacity="0.0737185"/>
+<stop offset="1" stop-opacity="0"/>
+</linearGradient>
+</defs>
+</svg>

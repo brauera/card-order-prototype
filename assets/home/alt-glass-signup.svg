@@ -1,0 +1,30 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="182" height="120" viewBox="0 0 182 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="glass-effect" filter="url(#filter0_d_0_359)">
+<g clip-path="url(#clip0_0_359)">
+<mask id="mask0_0_359" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="40" y="32" width="102" height="40">
+<g id="Mask layer">
+<rect id="Non-gradien layer" x="40" y="32" width="102" height="40" fill="white"/>
+</g>
+</mask>
+<g mask="url(#mask0_0_359)">
+<path id="Main color surface" opacity="0.4" d="M40 32H142V72H40V32Z" fill="white"/>
+</g>
+</g>
+</g>
+<defs>
+<filter id="filter0_d_0_359" x="0" y="0" width="182" height="120" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset dy="8"/>
+<feGaussianBlur stdDeviation="20"/>
+<feComposite in2="hardAlpha" operator="out"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.08 0"/>
+<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_0_359"/>
+<feBlend mode="normal" in="BackgroundImageFix" in2="effect1_dropShadow_0_359" result="BackgroundImageFix"/>
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+</filter>
+<clipPath id="clip0_0_359">
+<rect x="40" y="32" width="102" height="40" rx="20" fill="white"/>
+</clipPath>
+</defs>
+</svg>
